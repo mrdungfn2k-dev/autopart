@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
 import { validateField } from "@/lib/validators";
 import Pagination from "@/components/Pagination";
+import { useLang } from "@/lib/i18n";
 
 interface Supplier {
   id: string;
@@ -28,6 +29,7 @@ const BLANK: Partial<Supplier> = {
 function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | null; onClose: () => void; onSaved: () => void; }) {
   const [form, setForm] = useState<Partial<Supplier>>({ ...BLANK, ...sup });
   const [busy, setBusy] = useState(false);
+  const { t } = useLang();
   const isEdit = !!sup?.id;
   const set = (k: keyof Supplier, v: unknown) => setForm(f => ({ ...f, [k]: v }));
 
@@ -46,9 +48,9 @@ function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | nul
       };
       if (isEdit) await fetch(`/api/suppliers/${sup!.id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       else await fetch(`/api/suppliers`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-      window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: isEdit ? "Đã cập nhật nhà cung cấp" : "Đã thêm nhà cung cấp", type: "success" } }));
+      window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: isEdit ? t("savedSuccess") : t("success"), type: "success" } }));
       onSaved(); onClose();
-    } catch { window.alert("Lỗi khi lưu, thử lại"); }
+    } catch { window.alert(t("error")); }
     finally { setBusy(false); }
   };
 
@@ -60,35 +62,35 @@ function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | nul
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(15,23,42,0.55)" }}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 relative max-h-[92vh] overflow-auto">
         <button onClick={onClose} className="absolute top-4 right-4 text-[#8f9294] hover:text-slate-600 text-xl font-bold">✕</button>
-        <h2 className="text-lg font-bold text-[#44494d] mb-5">{isEdit ? "Sửa nhà cung cấp" : "Thêm nhà cung cấp mới"}</h2>
+        <h2 className="text-lg font-bold text-[#44494d] mb-5">{isEdit ? t("edit") : t("add")} {t("adminSuppliers")}</h2>
         <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-2"><label className={lab}>Tên nhà cung cấp <span className="text-red-500">*</span></label>
+          <div className="col-span-2"><label className={lab}>{t("userName")} <span className="text-red-500">*</span></label>
             <input value={form.name || ""} onChange={e => set("name", e.target.value)} maxLength={80} className={inp} placeholder="Phụ Tùng An Thái" /></div>
-          <div className="col-span-2"><label className={lab}>Logo (URL ảnh)</label>
+          <div className="col-span-2"><label className={lab}>Logo (URL)</label>
             <input value={form.logo || ""} onChange={e => set("logo", e.target.value)} className={inp} placeholder="https://... hoặc /ap-assets/..." /></div>
-          <div className="col-span-2"><label className={lab}>Mô tả</label>
+          <div className="col-span-2"><label className={lab}>{t("description")}</label>
             <input value={form.description || ""} onChange={e => set("description", e.target.value)} className={inp} placeholder="Chuyên phụ tùng chính hãng..." /></div>
           <div className="col-span-2 text-[11px] text-[#8f9294] bg-[#f8f8fa] rounded-lg px-3 py-2 -mb-1">
-            🔒 <b>Đánh giá / Số lượt / SP / Đơn / Phản hồi</b> là số liệu <b>tự động tính từ sản phẩm &amp; đơn hàng thật</b> — không sửa tay (chỉ hiển thị).
+            🔒 <b>{t("rating")} / {t("review")} / {t("product")} / {t("order")}</b>: {t("notUpdated")}
           </div>
-          <div><label className={lab}>Đánh giá (0-5)</label>
+          <div><label className={lab}>{t("rating")} (0-5)</label>
             <input type="number" value={form.rating ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>Số lượt đánh giá</label>
+          <div><label className={lab}>{t("reviewCount" as any) || t("review")}</label>
             <input type="number" value={form.reviewCount ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>Số sản phẩm</label>
+          <div><label className={lab}>{t("totalProducts")}</label>
             <input type="number" value={form.totalProducts ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>Số đơn hàng</label>
+          <div><label className={lab}>{t("totalOrders")}</label>
             <input type="number" value={form.totalOrders ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>Tỉ lệ phản hồi (%)</label>
+          <div><label className={lab}>{t("responseRate" as any) || "Tỉ lệ phản hồi (%)"}}</label>
             <input type="number" value={form.responseRate ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>Email (tuỳ chọn)</label>
+          <div><label className={lab}>{t("email")}</label>
             <input type="email" value={form.email || ""} onChange={e => set("email", e.target.value)} className={inp} placeholder="ncc@email.com" /></div>
-          <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={!!form.verified} onChange={e => set("verified", e.target.checked)} className="accent-[#1a4b97]" /> Đã xác minh</label>
-          <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={form.active !== false} onChange={e => set("active", e.target.checked)} className="accent-[#1a4b97]" /> Hiển thị (active)</label>
+          <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={!!form.verified} onChange={e => set("verified", e.target.checked)} className="accent-[#1a4b97]" /> {t("verified")}</label>
+          <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={form.active !== false} onChange={e => set("active", e.target.checked)} className="accent-[#1a4b97]" /> {t("active")}</label>
         </div>
         <div className="flex gap-3 mt-6">
-          <button onClick={onClose} className="flex-1 py-2.5 border border-[#e5e5e5] rounded-xl text-sm font-semibold text-slate-600 hover:bg-[#f8f8fa]">Huỷ</button>
-          <button onClick={save} disabled={busy} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white disabled:opacity-60" style={{ background: "var(--ap-primary)" }}>{busy ? "Đang lưu..." : (isEdit ? "Lưu thay đổi" : "Thêm")}</button>
+          <button onClick={onClose} className="flex-1 py-2.5 border border-[#e5e5e5] rounded-xl text-sm font-semibold text-slate-600 hover:bg-[#f8f8fa]">{t("cancel")}</button>
+          <button onClick={save} disabled={busy} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white disabled:opacity-60" style={{ background: "var(--ap-primary)" }}>{busy ? t("loading") : (isEdit ? t("saveChanges") : t("add"))}</button>
         </div>
       </div>
     </div>
@@ -101,6 +103,7 @@ export default function AdminSuppliersPage() {
   const [editing, setEditing] = useState<Partial<Supplier> | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [q, setQ] = useState("");
+  const { t } = useLang();
 
   const load = useCallback(() => {
     setLoading(true);
@@ -128,41 +131,41 @@ export default function AdminSuppliersPage() {
         <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
           <div className="flex items-center justify-between px-6 h-16">
             <div>
-              <h1 className="text-xl font-bold text-[#44494d]">Nhà cung cấp ({list.length})</h1>
-              <p className="text-xs text-[#8f9294]">Dữ liệu này hiển thị trực tiếp ở "Nhà bán nổi bật" trang chủ và trang /suppliers.</p>
+              <h1 className="text-xl font-bold text-[#44494d]">{t("adminSuppliers")} ({list.length})</h1>
+              <p className="text-xs text-[#8f9294]">{t("notUpdated" as any) ? t("adminSuppliers") : "Dữ liệu hiển thị trực tiếp ở trang /suppliers"}</p>
             </div>
             <div className="flex items-center gap-2">
-              <input value={q} onChange={e => setQ(e.target.value)} placeholder="Tìm nhà cung cấp..." className="w-52 px-3 py-2 rounded-lg text-sm border border-[#e5e5e5] focus:outline-none focus:border-[#1a4b97]" />
-              <button onClick={() => { setEditing(null); setShowModal(true); }} className="px-4 py-2 rounded-lg text-white text-sm font-semibold whitespace-nowrap" style={{ background: "var(--ap-primary)" }}>+ Thêm NCC</button>
+              <input value={q} onChange={e => setQ(e.target.value)} placeholder={t("searchGeneric")} className="w-52 px-3 py-2 rounded-lg text-sm border border-[#e5e5e5] focus:outline-none focus:border-[#1a4b97]" />
+              <button onClick={() => { setEditing(null); setShowModal(true); }} className="px-4 py-2 rounded-lg text-white text-sm font-semibold whitespace-nowrap" style={{ background: "var(--ap-primary)" }}>+ {t("adminSuppliers")}</button>
             </div>
           </div>
         </div>
 
         <div className="p-6">
           <div className="ap-card bg-white rounded-2xl border border-[#f0f0f0] overflow-hidden">
-            {loading ? <div className="text-center py-16 text-[#8f9294]">Đang tải...</div> : filtered.length === 0 ? (
-              <div className="text-center py-16 text-[#8f9294]"><p className="font-semibold">Chưa có nhà cung cấp</p><p className="text-sm">Nhấn "+ Thêm NCC" để tạo.</p></div>
+            {loading ? <div className="text-center py-16 text-[#8f9294]">{t("loading")}</div> : filtered.length === 0 ? (
+              <div className="text-center py-16 text-[#8f9294]"><p className="font-semibold">{t("noData")}</p><p className="text-sm">{t("add")} {t("adminSuppliers")}</p></div>
             ) : (
               <table className="w-full text-sm">
                 <thead><tr className="text-left text-[#8f9294] border-b border-[#f0f0f0] text-xs uppercase">
-                  <th className="px-4 py-3">Nhà cung cấp</th><th className="px-4 py-3">Đánh giá</th><th className="px-4 py-3">SP</th><th className="px-4 py-3">Đơn</th><th className="px-4 py-3">Phản hồi</th><th className="px-4 py-3">Trạng thái</th><th className="px-4 py-3 text-right">Hành động</th>
+                  <th className="px-4 py-3">{t("adminSuppliers")}</th><th className="px-4 py-3">{t("rating")}</th><th className="px-4 py-3">{t("product")}</th><th className="px-4 py-3">{t("order")}</th><th className="px-4 py-3">{t("status")}</th><th className="px-4 py-3">{t("status")}</th><th className="px-4 py-3 text-right">{t("action")}</th>
                 </tr></thead>
                 <tbody>{paged.map(s => (
                   <tr key={s.id} className="border-b border-[#f7f7f7] hover:bg-[#fafbfc]">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-full overflow-hidden bg-[#f0f4ff] border border-gray-100 shrink-0 flex items-center justify-center text-[#1a4b97] font-bold text-xs">{s.logo ? <img src={s.logo} className="w-full h-full object-cover" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} /> : s.name.charAt(0)}</div>
-                        <div><p className="font-semibold text-[#44494d]">{s.name}</p>{s.verified && <span className="text-[10px] text-green-600 font-semibold">✓ Đã xác minh</span>}</div>
+                        <div><p className="font-semibold text-[#44494d]">{s.name}</p>{s.verified && <span className="text-[10px] text-green-600 font-semibold">✓ {t("verified")}</span>}</div>
                       </div>
                     </td>
                     <td className="px-4 py-3 text-[#44494d]">★ {s.rating ?? 0} <span className="text-[#8f9294] text-xs">({s.reviewCount ?? 0})</span></td>
                     <td className="px-4 py-3 text-[#44494d]">{s.totalProducts ?? 0}</td>
                     <td className="px-4 py-3 text-[#44494d]">{s.totalOrders ?? 0}</td>
                     <td className="px-4 py-3 text-[#44494d]">{s.responseRate ?? 0}%</td>
-                    <td className="px-4 py-3">{s.active === false ? <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-[#f4f4f4] text-[#8f9294]">Đã ẩn</span> : <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">Hiển thị</span>}</td>
+                    <td className="px-4 py-3">{s.active === false ? <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-[#f4f4f4] text-[#8f9294]">{t("inactive")}</span> : <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">{t("active")}</span>}</td>
                     <td className="px-4 py-3 text-right whitespace-nowrap">
-                      <button onClick={() => { setEditing(s); setShowModal(true); }} className="text-[#1a4b97] font-semibold hover:underline mr-3">Sửa</button>
-                      <button onClick={() => toggleActive(s)} className="text-[#8f9294] font-semibold hover:underline">{s.active === false ? "Hiện" : "Ẩn"}</button>
+                      <button onClick={() => { setEditing(s); setShowModal(true); }} className="text-[#1a4b97] font-semibold hover:underline mr-3">{t("edit")}</button>
+                      <button onClick={() => toggleActive(s)} className="text-[#8f9294] font-semibold hover:underline">{s.active === false ? t("enable") : t("disable")}</button>
                     </td>
                   </tr>
                 ))}</tbody>

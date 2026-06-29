@@ -683,20 +683,21 @@ export default function AdminCatalogPage() {
                 <span className="ml-auto text-sm text-[#8f9294]">{filtered.length} kết quả</span>
               </div>{/* Table */}
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] overflow-hidden">
-                <table className="w-full">
+                <div className="overflow-x-auto">
+                <table className="w-full" style={{ minWidth: "700px" }}>
                   <thead style={{ background: "#f8f8fa" }}>
                     <tr className="text-xs text-[#8f9294] font-semibold">
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "产品" : "SẢN PHẨM"}</th>
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "分类" : "DANH MỤC"}</th>
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "类型" : "LOẠI"}</th>
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "价格" : "GIÁ"}</th>
-                      <th className="text-left px-4 py-3">ĐÁNH GIÁ</th>
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "供应商" : "NHÀ CUNG CẤP"}</th>
-                      <th className="text-left px-4 py-3">{lang === "zh" ? "操作" : "HÀNH ĐỘNG"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "产品" : lang === "en" ? "PRODUCT" : "SẢN PHẨM"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "分类" : lang === "en" ? "CATEGORY" : "DANH MỤC"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "类型" : lang === "en" ? "TYPE" : "LOẠI"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "价格" : lang === "en" ? "PRICE" : "GIÁ"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "评分" : lang === "en" ? "RATING" : "ĐÁNH GIÁ"}</th>
+                      <th className="text-left px-4 py-3">{lang === "zh" ? "供应商" : lang === "en" ? "SUPPLIER" : "NHÀ CUNG CẤP"}</th>
+                      <th className="text-left px-4 py-3 sticky right-0 bg-[#f8f8fa]">{lang === "zh" ? "操作" : lang === "en" ? "ACTIONS" : "HÀNH ĐỘNG"}</th>
                     </tr>
                   </thead>
                   <tbody>{filtered.length === 0 && (
-                      <tr><td colSpan={7} className="text-center py-12 text-[#8f9294] text-sm">Không tìm thấy phụ tùng</td></tr>)}
+                      <tr><td colSpan={7} className="text-center py-12 text-[#8f9294] text-sm">{lang === "zh" ? "未找到配件" : lang === "en" ? "No parts found" : "Không tìm thấy phụ tùng"}</td></tr>)}
                     {pgCat.paged.map(prod => (
                       <tr key={prod.id} className="border-t border-slate-50 hover:bg-[#f8f8fa] transition-colors">
                         <td className="px-4 py-3">
@@ -704,9 +705,9 @@ export default function AdminCatalogPage() {
                             <div className="w-10 h-10 rounded-lg bg-[#f4f4f4] flex items-center justify-center shrink-0 overflow-hidden">{prod.image && prod.image.startsWith("data:")
                                 ? <img src={prod.image} alt={prod.name} className="w-full h-full object-cover" />: <span className="text-xs font-bold text-[#8f9294]">{prod.categoryName?.slice(0, 3) || "PT"}</span>}
                             </div>
-                            <div>
-                              <p className="font-semibold text-[#44494d] text-sm line-clamp-1 max-w-[200px]">{lang === "zh" ? ((prod as any).nameZh || prod.name) : prod.name}</p>
-                              <p className="text-xs font-mono text-[#8f9294]">{prod.oemCode}</p>
+                            <div style={{ maxWidth: "220px" }}>
+                              <p className="font-semibold text-[#44494d] text-sm line-clamp-1" title={lang === "zh" ? ((prod as any).nameZh || prod.name) : prod.name}>{lang === "zh" ? ((prod as any).nameZh || prod.name) : prod.name}</p>
+                              <p className="text-xs font-mono text-[#8f9294] truncate" title={prod.oemCode}>{prod.oemCode ? (prod.oemCode.length > 24 ? prod.oemCode.slice(0, 24) + "…" : prod.oemCode) : "—"}</p>
                             </div>
                           </div>
                         </td>
@@ -714,25 +715,26 @@ export default function AdminCatalogPage() {
                         <td className="px-4 py-3">
                           <span className={`px-2 py-0.5 rounded text-xs font-bold ${typeColors[prod.type] || "bg-[#f4f4f4] text-slate-600"}`}>{prod.type}</span>
                         </td>
-                        <td className="px-4 py-3 font-bold text-[#44494d] text-sm">{fp(prod.price)}</td>
+                        <td className="px-4 py-3 font-bold text-[#44494d] text-sm whitespace-nowrap">{fp(prod.price)}</td>
                         <td className="px-4 py-3">
-                          <span className="flex items-center gap-1 text-sm font-medium text-yellow-600">* {prod.rating} <span className="text-[#8f9294] text-xs">({prod.reviewCount})</span>
+                          <span className="flex items-center gap-1 text-sm font-medium text-yellow-600">★ {prod.rating} <span className="text-[#8f9294] text-xs">({prod.reviewCount})</span>
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-[#8f9294] text-sm">{prod.supplier}</td>
-                        <td className="px-4 py-3">
+                        <td className="px-4 py-3 text-[#8f9294] text-sm max-w-[120px] truncate">{prod.supplier || "—"}</td>
+                        <td className="px-4 py-3 sticky right-0 bg-white" style={{ boxShadow: "-2px 0 6px rgba(0,0,0,0.04)" }}>
                           <div className="flex gap-1">
                             <button onClick={() => { setEditingProd(prod); setShowProdModal(true); }}
-                              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600 hover:bg-orange-50 hover:border-orange-300 hover:text-[#1a4b97]">Sửa
+                              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600 hover:bg-orange-50 hover:border-orange-300 hover:text-[#1a4b97] whitespace-nowrap">{lang === "zh" ? "编辑" : lang === "en" ? "Edit" : "Sửa"}
                             </button>
                             <button onClick={() => setDeletingProd(prod)}
-                              className="px-2 py-1 rounded-lg text-xs font-semibold border border-red-100 text-red-400 hover:bg-red-50">Xóa
+                              className="px-2 py-1 rounded-lg text-xs font-semibold border border-red-100 text-red-400 hover:bg-red-50 whitespace-nowrap">{lang === "zh" ? "删除" : lang === "en" ? "Delete" : "Xóa"}
                             </button>
                           </div>
                         </td>
                       </tr>))}
                   </tbody>
                 </table>
+                </div>
                 {filtered.length > 0 && <Pagination {...pgCat.bind} />}
               </div>
             </div>)}

@@ -75,6 +75,7 @@ export default function AdminImportExportPage() {
   const [importing, setImporting] = useState(false);
   const [importDone, setImportDone] = useState(0);
   const [importErrors, setImportErrors] = useState<string[]>([]);
+  const [duplicateAlert, setDuplicateAlert] = useState<string | null>(null);
   const [products, setProducts] = useState<any[]>([]);
   const [loadingExport, setLoadingExport] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -118,12 +119,16 @@ export default function AdminImportExportPage() {
   };
 
   const handleImport = async () => {
-    if (!parsed || !parsed.rows.length) return;
+    if (!parsed || !parsed.rows.length || importing) return;
     setImporting(true);
+    setImportDone(0);
+    setImportErrors([]);
+    setDuplicateAlert(null);
     const hm = buildHeaderMap(parsed.headers);
     const get = (row: Record<string, string>, c: string) => (hm[c] ? String(row[hm[c]] ?? "").trim() : "");
     let done = 0, skipped = 0;
     const errors: string[] = [];
+    const skippedNames: string[] = [];
     // Lấy SP hiện có để CHẶN nhập trùng (theo mã OEM / SKU / tên sản phẩm)
     const existingOem = new Set<string>(), existingName = new Set<string>(), existingSku = new Set<string>();
     try {
@@ -140,7 +145,11 @@ export default function AdminImportExportPage() {
       const oem = get(row, "oemCode").toLowerCase();
       const sku = get(row, "sku").toLowerCase();
       const nm = name.toLowerCase();
-      if ((oem && existingOem.has(oem)) || (sku && existingSku.has(sku)) || existingName.has(nm)) { skipped++; continue; }
+      if ((oem && existingOem.has(oem)) || (sku && existingSku.has(sku)) || existingName.has(nm)) {
+        skipped++;
+        skippedNames.push(name);
+        continue;
+      }
       try {
         const cat = get(row, "category") || "general";
         const op = get(row, "originalPrice");
@@ -175,11 +184,22 @@ export default function AdminImportExportPage() {
     setImportDone(done);
     setImportErrors(errors);
     setImporting(false);
-    // Thông báo kết quả rõ ràng (trước đây nhập xong im lặng); trùng -> popup "đã có rồi"
-    const parts = [`✓ Đã nhập ${done} sản phẩm mới`];
-    if (skipped) parts.push(`bỏ qua ${skipped} sản phẩm ĐÃ CÓ (trùng mã OEM/SKU/tên)`);
-    if (errors.length) parts.push(`${errors.length} lỗi`);
-    window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: parts.join(" · "), type: done > 0 ? (errors.length ? "warning" : "success") : "warning" } }));
+
+    // Nếu có sản phẩm mới được nhập -> toast thành công
+    if (done > 0) {
+      const msg = errors.length
+        ? `✓ Đã nhập ${done} sản phẩm · ${errors.length} lỗi${skipped ? ` · bỏ qua ${skipped} trùng` : ""}`
+        : `✓ Nhập thành công ${done} sản phẩm mới!${skipped ? ` (Bỏ qua ${skipped} sản phẩm đã tồn tại)` : ""}`;
+      window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: msg, type: errors.length ? "warning" : "success" } }));
+    }
+
+    // Nếu TẤT CẢ đều bị trùng -> hiển thị popup riêng
+    if (skipped > 0 && done === 0 && errors.length === 0) {
+      const preview = skippedNames.slice(0, 5).join(", ");
+      setDuplicateAlert(`${skipped} sản phẩm trong file ĐÃ TỒN TẠI trong hệ thống (trùng tên/OEM/SKU):\n${preview}${skippedNames.length > 5 ? ` ... và ${skippedNames.length - 5} sản phẩm khác` : ""}`);
+    } else if (skipped > 0 && done === 0) {
+      window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: `⚠ Không nhập được sản phẩm nào. ${skipped} trùng, ${errors.length} lỗi.`, type: "warning" } }));
+    }
   };
 
   const handleLoadExport = async () => {
@@ -397,6 +417,18 @@ export default function AdminImportExportPage() {
             <p className="text-xs text-[#8f9294] mt-3">Backup tự động lưu ở <code>/data-backups/</code> trên server. Mặc định không bao gồm users.json để tránh ghi đè credentials.</p>
           </div>
         </div>
-</main>
+      </main>
+      {/* ── Popup: Sản phẩm đã tồn tại ── */}
+      {duplicateAlert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(15,23,42,0.6)" }}>
+          <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full mx-4">
+            <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-3 text-2xl">⚠️</div>
+            <h3 className="font-bold text-[#44494d] text-center mb-2">Sản phẩm đã tồn tại</h3>
+            <p className="text-sm text-[#8f9294] text-center mb-4 whitespace-pre-line">{duplicateAlert}</p>
+            <p className="text-xs text-blue-600 bg-blue-50 rounded-lg px-3 py-2 mb-4 text-center">Hệ thống đã tự động bỏ qua các sản phẩm trùng lặp để tránh nhập hai lần.</p>
+            <button onClick={() => setDuplicateAlert(null)} className="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>Đã hiểu</button>
+          </div>
+        </div>
+      )}
     </>);
 }
