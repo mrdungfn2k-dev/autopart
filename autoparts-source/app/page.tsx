@@ -996,7 +996,7 @@ function SlidingCategoryNav({ items, colorHex, gradientFrom }: { items: {name: s
 }
 
 function APHotDeals() {
-  const { fp } = useLang();
+  const { fp, lang } = useLang();
   const [prods, setProds] = useState<any[]>([]);
   useEffect(() => {
     fetch("/api/products").then(r=>r.json()).then(d=> setProds(Array.isArray(d)?d.slice(0,5):[])).catch(()=>{});
@@ -1148,6 +1148,7 @@ function APFlashSaleCompact() {
 }
 
 function APTaobaoDeals() {
+  const { lang, fp } = useLang();
   const [prods, setProds] = useState<any[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   useEffect(() => {
