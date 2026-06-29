@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
@@ -56,7 +56,7 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <main className="flex-1 overflow-auto">
  <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
  <div className="flex items-center justify-between px-6 h-16">
- <h1 className="text-xl font-bold text-[#44494d]">Báo cáo & Phân tích</h1>
+ <h1 className="text-xl font-bold text-[#44494d]">{lang === "en" ? "Reports & Analytics" : lang === "zh" ? "报告与分析" : "Báo cáo & Phân tích"}</h1>
  <div className="flex items-center gap-3">
  <div className="flex rounded-lg border border-[#e5e5e5] overflow-hidden text-sm">{[["week", (lang === "zh" ? "周" : "Tuần")], ["month", "Tháng"], ["quarter", "Quý"], ["year", "Năm"]].map(([k, l]) => (
  <button key={k} onClick={() => setPeriod(k)}
@@ -78,9 +78,9 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <div className="p-6">{/* KPI summary */}
  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">{[
  { label: "GMV tháng 10", value: "2.85 Tỷ", prev: "2.28 Tỷ", change: "+25.0%", up: true, color: "var(--ap-primary)" },
- { label: "Số đơn hàng", value: "1,540", prev: "1,190", change: "+29.4%", up: true, color: "#22C55E" },
+ { label: "{lang === "en" ? "Number of Orders" : lang === "zh" ? "订单数" : "Số {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"} hàng"}", value: "1,540", prev: "1,190", change: "+29.4%", up: true, color: "#22C55E" },
  { label: "Người dùng mới", value: "221", prev: "172", change: "+28.5%", up: true, color: "var(--ap-primary)" },
- { label: "Tỷ lệ hoàn đơn", value: "2.1%", prev: "2.8%", change: "-0.7%", up: true, color: "#8B5CF6" },
+ { label: "Tỷ lệ hoàn {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"}", value: "2.1%", prev: "2.8%", change: "-0.7%", up: true, color: "#8B5CF6" },
  ].map(s => (
  <div key={s.label} className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-4">
  <p className="text-xs text-[#8f9294] mb-2">{s.label}</p>
@@ -101,12 +101,12 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <YAxis hide />
  <Tooltip contentStyle={{ borderRadius: "8px", border: "1px solid #E2E8F0" }} formatter={(v) => [`${Number(v).toLocaleString("vi-VN")} Triệu`, ""]} />
  <Line type="monotone" dataKey="gmv" stroke="var(--ap-primary)" strokeWidth={3} dot={{ fill: "var(--ap-primary)", r: 5 }} connectNulls name="GMV" />
- <Line type="monotone" dataKey="orders" stroke="#22C55E" strokeWidth={2} dot={{ fill: "#22C55E", r: 4 }} connectNulls name="Số đơn" />
+ <Line type="monotone" dataKey="orders" stroke="#22C55E" strokeWidth={2} dot={{ fill: "#22C55E", r: 4 }} connectNulls name="Số {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"}" />
  </LineChart>
  </ResponsiveContainer>
  <div className="flex gap-6 mt-2 justify-center">
  <span className="flex items-center gap-1.5 text-xs text-[#8f9294]"><span className="w-3 h-1 rounded inline-block" style={{ background: "var(--ap-primary)" }}></span>GMV (triệu đ)</span>
- <span className="flex items-center gap-1.5 text-xs text-[#8f9294]"><span className="w-3 h-1 rounded inline-block" style={{ background: "#22C55E" }}></span>Số đơn hàng</span>
+ <span className="flex items-center gap-1.5 text-xs text-[#8f9294]"><span className="w-3 h-1 rounded inline-block" style={{ background: "#22C55E" }}></span>{lang === "en" ? "Number of Orders" : lang === "zh" ? "订单数" : "Số {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"} hàng"}</span>
  </div>
  </div>
 
@@ -156,7 +156,7 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <tr className="text-xs text-[#8f9294] font-semibold">
  <th className="text-left px-4 py-3">#</th>
  <th className="text-left px-4 py-3">{lang === "zh" ? "产品" : "SẢN PHẨM"}</th>
- <th className="text-left px-4 py-3">SỐ ĐƠN</th>
+ <th className="text-left px-4 py-3">SỐ {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"}</th>
  <th className="text-left px-4 py-3">DOANH THU</th>
  <th className="text-left px-4 py-3">XU HƯỚNG</th>
  </tr>
@@ -172,7 +172,7 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <td className="px-4 py-3 font-bold text-green-600">{fp(p.revenue)}</td>
  <td className="px-4 py-3">
  <span className={`flex items-center gap-1 text-xs font-bold ${p.trend === "up" ? "text-green-600" : "text-red-500"}`}>{""}
- {p.trend === "up" ? "Tăng" : (lang === "zh" ? "减震" : "Giảm")}
+ {p.trend === "up" ? "{lang === "en" ? "Up" : lang === "zh" ? "上升" : "Tăng"}" : (lang === "zh" ? "减震" : "Giảm")}
  </span>
  </td>
  </tr>))}
@@ -184,14 +184,14 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <div>
  <div className="grid lg:grid-cols-2 gap-6">
  <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
- <h2 className="font-bold text-[#44494d] mb-4">Đơn hàng theo tỉnh/thành</h2>
+ <h2 className="font-bold text-[#44494d] mb-4">{lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"} hàng theo tỉnh/thành</h2>
  <ResponsiveContainer width="100%" height={220}>
  <BarChart data={provinceData} layout="vertical" barSize={18}>
  <CartesianGrid strokeDasharray="3 3" stroke="var(--ap-page-bg)" />
  <XAxis type="number" hide />
  <YAxis type="category" dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: "#8f9294" }} width={70} />
  <Tooltip contentStyle={{ borderRadius: "8px" }} />
- <Bar dataKey="orders" fill="var(--ap-primary)" radius={[0,6,6,0]} name="Số đơn" />
+ <Bar dataKey="orders" fill="var(--ap-primary)" radius={[0,6,6,0]} name="Số {lang === "en" ? "orders" : lang === "zh" ? "订单" : "đơn"}" />
  </BarChart>
  </ResponsiveContainer>
  </div>
@@ -216,3 +216,4 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  </main>
  </>);
 }
+

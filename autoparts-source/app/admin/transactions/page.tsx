@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
 import { useLang } from "@/lib/i18n";
@@ -79,3 +79,4 @@ export default function AdminTransactionsPage() {
       </main>
     </>);
 }
+

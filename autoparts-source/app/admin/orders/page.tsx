@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { getAuth } from "@/lib/auth";
 import { useLang } from "@/lib/i18n";
 import { useState, useEffect } from "react";
@@ -431,3 +431,4 @@ export default function AdminOrdersPage() {
  </main>
  </>);
 }
+
