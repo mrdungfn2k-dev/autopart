@@ -41,6 +41,35 @@ export default function ProductDetailPage() {
  const [qty, setQty] = useState(1);
  const [activeTab, setActiveTab] = useState<"specs" | "compatible" | "reviews">("specs");
  const [wishlisted, setWishlisted] = useState(false);
+ const [selectedImage, setSelectedImage] = useState(product?.image || "/ap-assets/img-product-clone.png");
+ const [zoomStyle, setZoomStyle] = useState({ display: 'none', backgroundPosition: '0% 0%', backgroundImage: '' });
+
+ useEffect(() => {
+   setSelectedImage(product?.image || "/ap-assets/img-product-clone.png");
+ }, [product?.id, product?.image]);
+
+ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+   const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+   const x = ((e.clientX - left) / width) * 100;
+   const y = ((e.clientY - top) / height) * 100;
+   setZoomStyle({
+     display: 'block',
+     backgroundImage: `url(${selectedImage})`,
+     backgroundPosition: `${x}% ${y}%`,
+     backgroundSize: '250%',
+   });
+ };
+
+ const handleMouseLeave = () => {
+   setZoomStyle({ display: 'none', backgroundPosition: '0% 0%', backgroundImage: '' });
+ };
+
+ const galleryImages = [
+   product?.image || "/ap-assets/img-product-clone.png",
+   "/ap-assets/img-product-clone.png",
+   "/ap-assets/img-product-clone.png",
+   "/ap-assets/img-product-clone.png"
+ ];
 
  // Sync wishlist state from localStorage
  useEffect(() => {
@@ -143,18 +172,23 @@ export default function ProductDetailPage() {
  <div className="grid lg:grid-cols-5 gap-8 mb-10">
  {/* Image */}
  <div className="lg:col-span-2">
- <div className="bg-white rounded-2xl border border-[#f0f0f0] aspect-[4/3] flex items-center justify-center mb-3 relative overflow-hidden">
- <img src={product.image || "/ap-assets/img-product-clone.png"} alt={product.name} className="w-full h-full object-contain p-6" onError={e => { (e.target as HTMLImageElement).src = "/ap-assets/img-product-clone.png"; }} />
+ <div 
+   className="bg-white rounded-2xl border border-[#f0f0f0] aspect-[4/3] flex items-center justify-center mb-3 relative overflow-hidden cursor-crosshair"
+   onMouseMove={handleMouseMove}
+   onMouseLeave={handleMouseLeave}
+ >
+ <img src={selectedImage} alt={product.name} className="w-full h-full object-contain p-6" onError={e => { (e.target as HTMLImageElement).src = "/ap-assets/img-product-clone.png"; }} />
+ <div className="absolute inset-0 pointer-events-none" style={{ ...zoomStyle, backgroundColor: 'white', backgroundRepeat: 'no-repeat' }} />
  {product.discountPct && (
- <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-sm font-bold" style={{ background: "#EF4444" }}>
+ <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-sm font-bold z-10" style={{ background: "#EF4444" }}>
  -{product.discountPct}%
  </span>
  )}
  </div>
  <div className="flex gap-2">
- {[1, 2, 3, 4].map(i => (
- <div key={i} className={`flex-1 aspect-square rounded-xl flex items-center justify-center border-2 cursor-pointer transition-colors overflow-hidden ${i === 1 ? "border-[#1a4b97]" : "border-[#e5e5e5] hover:border-orange-300"}`} style={{ background: "#f8f8fa" }}>
- <img src={product.image || "/ap-assets/img-product-clone.png"} alt={product.name} className="w-full h-full object-contain p-2" onError={e => { (e.target as HTMLImageElement).src = "/ap-assets/img-product-clone.png"; }} />
+ {galleryImages.map((img, i) => (
+ <div key={i} onClick={() => setSelectedImage(img)} className={`flex-1 aspect-square rounded-xl flex items-center justify-center border-2 cursor-pointer transition-colors overflow-hidden ${selectedImage === img && i === 0 ? "border-[#1a4b97]" : "border-[#e5e5e5] hover:border-orange-300"}`} style={{ background: "#f8f8fa" }}>
+ <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-contain p-2" onError={e => { (e.target as HTMLImageElement).src = "/ap-assets/img-product-clone.png"; }} />
  </div>
  ))}
  </div>
