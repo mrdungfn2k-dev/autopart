@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import AdminSidebar from "@/components/AdminSidebar";
 import SidebarControls from "@/components/SidebarControls";
+import { useLang } from "@/lib/i18n";
 
 // ─── Types ────────────────────────────────────────────────────
 interface Brand {
@@ -282,6 +283,7 @@ function DeleteConfirm({ label, onConfirm, onClose }: { label: string; onConfirm
 
 // ─── MAIN PAGE ────────────────────────────────────────────────
 export default function AdminVehiclesPage() {
+  const { t, lang } = useLang();
   const [activeTab, setActiveTab] = useState<"brands" | "wmi" | "vin">("brands");
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -329,7 +331,7 @@ export default function AdminVehiclesPage() {
       body: JSON.stringify({ brands: newBrands, regions }),
     });
     setBrands(newBrands); setSaving(false);
-    showToast("Đã lưu danh sách hãng xe thành công!");
+    showToast(lang === "en" ? "Brand list saved!" : lang === "zh" ? "品牌列表已保存！" : "Đã lưu danh sách hãng xe thành công!");
   };
 
   // Save VIN data
@@ -341,7 +343,7 @@ export default function AdminVehiclesPage() {
       body: JSON.stringify({ wmiCodes: newWmi, sampleVINs: newVINs }),
     });
     setWmiCodes(newWmi); setSampleVINs(newVINs); setSaving(false);
-    showToast("Đã lưu cơ sở dữ liệu VIN thành công!");
+    showToast(lang === "en" ? "VIN database saved!" : lang === "zh" ? "VIN 数据库已保存！" : "Đã lưu cơ sở dữ liệu VIN thành công!");
   };
 
   // Brand handlers
@@ -405,22 +407,22 @@ export default function AdminVehiclesPage() {
             </div>
             <div>{activeTab === "brands" && (
                 <button onClick={() => setEditingBrand(null)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ Thêm hãng xe
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "Add Brand" : lang === "zh" ? "添加品牌" : "Thêm hãng xe"}
                 </button>)}
               {activeTab === "wmi" && (
                 <button onClick={() => setEditingWMI(null)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ Thêm mã WMI
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "Add WMI" : lang === "zh" ? "添加WMI" : "Thêm mã WMI"}
                 </button>)}
               {activeTab === "vin" && (
                 <button onClick={() => setEditingVIN(null)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ Thêm VIN mẫu
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "Add Sample VIN" : lang === "zh" ? "添加VIN样本" : "Thêm VIN mẫu"}
                 </button>)}
             </div>
           </div>{/* Tabs */}
           <div className="px-6 flex gap-0 border-t border-[#f0f0f0]">{[
-              ["brands", `Hãng xe (${brands.length})`],
-              ["wmi", `Mã WMI (${Object.keys(wmiCodes).length})`],
-              ["vin", `VIN mẫu (${sampleVINs.length})`],
+              ["brands", `${lang === "en" ? "Brands" : lang === "zh" ? "品牌" : "Hãng xe"} (${brands.length})`],
+              ["wmi", `${lang === "en" ? "WMI Codes" : lang === "zh" ? "WMI 代码" : "Mã WMI"} (${Object.keys(wmiCodes).length})`],
+              ["vin", `${lang === "en" ? "Sample VINs" : lang === "zh" ? "VIN 样本" : "VIN mẫu"} (${sampleVINs.length})`],
             ].map(([key, label]) => (
               <button key={key} onClick={() => setActiveTab(key as "brands" | "wmi" | "vin")}
                 className={`px-5 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === key ? "border-[#1a4b97] text-[#1a4b97]" : "border-transparent text-[#8f9294] hover:text-[#44494d]"}`}>{label}

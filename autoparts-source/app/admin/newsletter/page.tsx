@@ -2,6 +2,7 @@
 import { confirmDialog } from "@/components/ConfirmDialog";
 import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
+import { useLang } from "@/lib/i18n";
 
 interface Subscriber {
   email: string;
@@ -29,6 +30,7 @@ function formatDate(iso: string) {
 }
 
 export default function AdminNewsletterPage() {
+  const { t, lang } = useLang();
   const [tab, setTab] = useState<"subs" | "campaigns">("subs");
   const [subs, setSubs] = useState<Subscriber[]>([]);
   const [camps, setCamps] = useState<Campaign[]>([]);
@@ -59,14 +61,14 @@ export default function AdminNewsletterPage() {
     load();
   }
   async function handleSaveCampaign() {
-    if (!editing.subject || !editing.body) { showToastMsg("Cần đủ tiêu đề và nội dung"); return; }
+    if (!editing.subject || !editing.body) { showToastMsg(lang === "en" ? "Subject and body required" : lang === "zh" ? "需要标题和内容" : "Cần đủ tiêu đề và nội dung"); return; }
     const res = await fetch("/api/newsletter/campaigns", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
       body: JSON.stringify({ subject: editing.subject, body: editing.body }),
     });
-    if (res.ok) { setShowForm(false); setEditing({ subject: "", body: "" }); load(); showToastMsg("Đã tạo chiến dịch"); }
+    if (res.ok) { setShowForm(false); setEditing({ subject: "", body: "" }); load(); showToastMsg(lang === "en" ? "Campaign created" : lang === "zh" ? "活动已创建" : "Đã tạo chiến dịch"); }
   }
   async function handleSend(id: string) {
     if (!(await confirmDialog("Gửi chiến dịch này tới toàn bộ subscribers?\n(Email gửi giả lập — chưa tích hợp SMTP thực tế.)"))) return;
@@ -96,14 +98,14 @@ export default function AdminNewsletterPage() {
       <main className="flex-1 overflow-auto">
         <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
           <div className="flex items-center justify-between px-6 h-14">
-            <h1 className="text-lg font-bold text-[#44494d]">Bản tin & Chiến dịch</h1>
-            <div className="flex items-center gap-2">{tab === "subs" && <button onClick={exportCsv} disabled={subs.length === 0} className="px-4 py-2 rounded-lg text-sm font-semibold text-white disabled:opacity-50" style={{ background: "var(--ap-primary)" }}>Xuất CSV</button>}
-              {tab === "campaigns" && <button onClick={() => { setEditing({ subject: "", body: "" }); setShowForm(true); }} className="px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>+ Tạo chiến dịch</button>}
+            <h1 className="text-lg font-bold text-[#44494d]">{lang === "en" ? "Newsletter & Campaigns" : lang === "zh" ? "邀误邮件 & 活动" : "Bản tin & Chiến dịch"}</h1>
+            <div className="flex items-center gap-2">{tab === "subs" && <button onClick={exportCsv} disabled={subs.length === 0} className="px-4 py-2 rounded-lg text-sm font-semibold text-white disabled:opacity-50" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Export CSV" : lang === "zh" ? "导出 CSV" : "Xuất CSV"}</button>}
+              {tab === "campaigns" && <button onClick={() => { setEditing({ subject: "", body: "" }); setShowForm(true); }} className="px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "New Campaign" : lang === "zh" ? "新活动" : "Tạo chiến dịch"}</button>}
             </div>
           </div>
           <div className="px-6 flex gap-0 border-t border-[#f0f0f0]">
             <button onClick={() => setTab("subs")} className={`px-4 py-3 text-sm font-medium border-b-2 ${tab === "subs" ? "border-[#1a4b97] text-[#1a4b97]" : "border-transparent text-[#8f9294]"}`}>Subscribers ({subs.length})</button>
-            <button onClick={() => setTab("campaigns")} className={`px-4 py-3 text-sm font-medium border-b-2 ${tab === "campaigns" ? "border-[#1a4b97] text-[#1a4b97]" : "border-transparent text-[#8f9294]"}`}>Chiến dịch ({camps.length})</button>
+            <button onClick={() => setTab("campaigns")} className={`px-4 py-3 text-sm font-medium border-b-2 ${tab === "campaigns" ? "border-[#1a4b97] text-[#1a4b97]" : "border-transparent text-[#8f9294]"}`}>{lang === "en" ? "Campaigns" : lang === "zh" ? "活动" : "Chiến dịch"} ({camps.length})</button>
           </div>
         </div>
 
@@ -118,9 +120,9 @@ export default function AdminNewsletterPage() {
                       <table className="w-full text-sm">
                         <thead style={{ background: "#f8f8fa" }}><tr className="text-left text-[#8f9294] uppercase text-xs">
                           <th className="px-4 py-3 font-semibold">Email</th>
-                          <th className="px-4 py-3 font-semibold">Nguồn</th>
-                          <th className="px-4 py-3 font-semibold">Thời điểm</th>
-                          <th className="px-4 py-3 font-semibold text-right">Hành động</th>
+                          <th className="px-4 py-3 font-semibold">{lang === "en" ? "Source" : lang === "zh" ? "来源" : "Nguồn"}</th>
+                          <th className="px-4 py-3 font-semibold">{lang === "en" ? "Subscribed At" : lang === "zh" ? "订阅时间" : "Thời điểm"}</th>
+                          <th className="px-4 py-3 font-semibold text-right">{t("action")}</th>
                         </tr></thead>
                         <tbody>{filtered.map((s, i) => (
                             <tr key={s.email} className={i % 2 ? "bg-[#fafafa]" : ""}>
@@ -149,7 +151,7 @@ export default function AdminNewsletterPage() {
                           <div>
                             <div className="flex items-center gap-2 mb-1">
                               <p className="font-bold text-[#44494d]">{c.subject}</p>
-                              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${c.status === "sent" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>{c.status === "sent" ? "Đã gửi" : "Nháp"}
+                              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${c.status === "sent" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>{c.status === "sent" ? (lang === "en" ? "Sent" : lang === "zh" ? "已发送" : "Đã gửi") : (lang === "en" ? "Draft" : lang === "zh" ? "草稿" : "Nháp")}
                               </span>
                             </div>
                             <p className="text-xs text-[#8f9294]">Tạo: {formatDate(c.createdAt)}{c.sentAt && ` • Gửi: ${formatDate(c.sentAt)}`}{c.recipientCount > 0 && ` • ${c.recipientCount} người nhận`}</p>

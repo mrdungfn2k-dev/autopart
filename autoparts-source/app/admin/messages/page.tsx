@@ -1,6 +1,9 @@
 "use client";
 import MessagesInbox from "@/components/MessagesInbox";
+import { useLang } from "@/lib/i18n";
 
 export default function AdminMessagesPage() {
-  return <MessagesInbox title="Tin nhắn khách hàng" />;
+  const { lang } = useLang();
+  const title = lang === "en" ? "Customer Messages" : lang === "zh" ? "客户消息" : "Tin nhắn khách hàng";
+  return <MessagesInbox title={title} />;
 }
