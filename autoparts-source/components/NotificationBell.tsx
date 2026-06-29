@@ -104,7 +104,7 @@ export default function NotificationBell({ inline = false }: { inline?: boolean 
               <span>Thông báo</span>
               {activeItems.length > 0 && <span className="text-xs font-normal text-[#8f9294]">{activeItems.length} mục</span>}
             </div>
-            {unread > 0 && (
+            {activeItems.length > 0 && (
               <button onClick={(e) => { e.preventDefault(); markSeen(); }} className="text-xs font-semibold text-[#1a4b97] hover:underline">
                 Đọc tất cả
               </button>
