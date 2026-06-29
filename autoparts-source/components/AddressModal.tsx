@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export interface AddressData {
   id: string;
@@ -20,6 +21,7 @@ interface AddressModalProps {
 
 export default function AddressModal({ onClose, onApply, addresses, selectedId }: AddressModalProps) {
   const [tempId, setTempId] = useState(selectedId);
+  const router = useRouter();
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -52,7 +54,7 @@ export default function AddressModal({ onClose, onApply, addresses, selectedId }
                </div>
             </label>
           ))}
-          <button className="w-full py-3 rounded-xl border border-dashed border-[#cbd5e1] text-[#8f9294] font-bold hover:border-[#1a4b97] hover:text-[#1a4b97] transition-all">
+          <button onClick={() => { onClose(); router.push("/customer/address"); }} className="w-full py-3 rounded-xl border border-dashed border-[#cbd5e1] text-[#8f9294] font-bold hover:border-[#1a4b97] hover:text-[#1a4b97] transition-all">
             + Thêm Địa Chỉ Mới
           </button>
         </div>

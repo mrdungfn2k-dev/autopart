@@ -17,12 +17,17 @@ async function googleTranslate(text: string, from: string, to: string): Promise<
 export async function POST(req: NextRequest) {
   try {
     const { text, from = "vi", to = "zh-CN" } = await req.json();
-    if (!text || typeof text !== "string") {
+    if (!text || (typeof text !== "string" && !Array.isArray(text))) {
       return NextResponse.json({ error: "text required" }, { status: 400 });
     }
     // Translate single string or array of strings
     if (Array.isArray(text)) {
-      const results = await Promise.all(text.map((t: string) => googleTranslate(t, from, to)));
+      const safeTexts = text
+        .filter((t: unknown): t is string => typeof t === "string")
+        .map((t: string) => t.trim())
+        .filter(Boolean)
+        .slice(0, 80);
+      const results = await Promise.all(safeTexts.map((t: string) => googleTranslate(t, from, to)));
       return NextResponse.json({ results });
     }
     const result = await googleTranslate(text, from, to);

@@ -31,6 +31,7 @@ const typeColors: Record<string, string> = {
 
 // ─── Image Upload ────────────────────────────────────────────────────
 function ImageUpload({ preview, onFile }: { preview: string | null; onFile: (url: string) => void }) {
+  const { lang } = useLang();
   const ref = useRef<HTMLInputElement>(null);
   const [drag, setDrag] = useState(false);
   function handle(file: File) {
@@ -65,7 +66,7 @@ function CategoryModal({ cat, onSave, onClose }: {
   onSave: (c: Category) => void;
   onClose: () => void;
 }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [form, setForm] = useState<Partial<Category>>({
     name: "", desc: "", icon: "PT", color: "var(--ap-primary)", count: 0, ...cat,
   });
@@ -146,7 +147,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
   onSave: (p: Product) => void;
   onClose: () => void;
 }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [form, setForm] = useState<Partial<Product>>({
     name: "", oemCode: "", categoryId: categories[0]?.id || "", type: "OEM",
     price: 0, rating: 5, reviewCount: 0, supplier: "", image: "", compatibleVehicles: [],
@@ -375,7 +376,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
 
 // ─── Delete Confirm ──────────────────────────────────────────────────
 function DeleteConfirm({ name, onConfirm, onClose }: { name: string; onConfirm: () => void; onClose: () => void }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(15,23,42,0.6)" }}>
       <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full mx-4 text-center">
@@ -398,6 +399,7 @@ function CategoryRow({ cat, path, depth, onEdit, onAddSub, onDelete }: {
   onAddSub: (p: string[]) => void;
   onDelete: (c: Category, p: string[]) => void;
 }) {
+  const { lang } = useLang();
   const [expanded, setExpanded] = useState(false);
   const currentPath = [...path, cat.id];
   const hasSubs = cat.subcategories && cat.subcategories.length > 0;
@@ -486,6 +488,10 @@ export default function AdminCatalogPage() {
     (search === "" || p.name.toLowerCase().includes(search.toLowerCase()) || p.oemCode?.toLowerCase().includes(search.toLowerCase()))
   );
   const pgCat = usePaged(filtered, 15);
+  const totalProdCount = Math.max(prods.length, 1);
+  const oemCount = prods.filter(p => p.type === "OEM").length;
+  const oesCount = prods.filter(p => p.type === "OES").length;
+  const genericCount = prods.filter(p => p.type === "Generic").length;
 
   // Category handlers
     const handleSaveCat = async (cat: Category) => {
@@ -656,9 +662,9 @@ export default function AdminCatalogPage() {
             <div>{/* Stats */}
               <div className="grid grid-cols-4 gap-4 mb-5">{[
                   { label: lang === "en" ? "Total Parts" : lang === "zh" ? "总零件" : "Tổng phụ tùng", value: prods.length.toLocaleString(), badge: lang === "en" ? "In system" : lang === "zh" ? "系统内" : "Trong hệ thống" },
-                  { label: lang === "en" ? "OEM Parts" : lang === "zh" ? "OEM零件" : "Hàng OEM", value: prods.filter(p => p.type === "OEM").length, badge: `${Math.round(prods.filter(p => p.type === "OEM").length / prods.length * 100)}%` },
-                  { label: lang === "en" ? "OES Parts" : lang === "zh" ? "OES零件" : "Hàng OES", value: prods.filter(p => p.type === "OES").length, badge: `${Math.round(prods.filter(p => p.type === "OES").length / prods.length * 100)}%` },
-                  { label: "Generic", value: prods.filter(p => p.type === "Generic").length, badge: lang === "en" ? "Aftermarket" : lang === "zh" ? "通用件" : "Phổ thông" },
+                  { label: lang === "en" ? "OEM Parts" : lang === "zh" ? "OEM零件" : "Hàng OEM", value: oemCount, badge: `${Math.round(oemCount / totalProdCount * 100)}%` },
+                  { label: lang === "en" ? "OES Parts" : lang === "zh" ? "OES零件" : "Hàng OES", value: oesCount, badge: `${Math.round(oesCount / totalProdCount * 100)}%` },
+                  { label: "Generic", value: genericCount, badge: lang === "en" ? "Aftermarket" : lang === "zh" ? "通用件" : "Phổ thông" },
                 ].map(s => (
                   <div key={s.label} className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-4">
                     <p className="text-xs text-[#8f9294] mb-1">{s.label}</p>

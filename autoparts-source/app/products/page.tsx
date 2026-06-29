@@ -141,6 +141,13 @@ function ProductsInner() {
     addToCart(prod.id, 1, prod); // pass full product data
     setCartIds(prev => new Set([...prev, prod.id]));
     fireToast(prod.name, prod.image);
+    setTimeout(() => {
+      setCartIds(prev => {
+        const next = new Set(prev);
+        next.delete(prod.id);
+        return next;
+      });
+    }, 3000);
   };
 
   const discountPct = (prod: any) =>

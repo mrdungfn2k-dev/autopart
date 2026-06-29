@@ -82,10 +82,10 @@ export default function AffiliateDashboard() {
 
  <div className="p-6 space-y-6">{/* KPI */}
  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">{[
- { label: "{lang === "en" ? "Sales this month" : lang === "zh" ? "本月销售额" : "Doanh số tháng này"}", value: fp(affiliate.sales), badge: "+18%", color: "var(--ap-primary)" },
- { label: "{lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"}", value: fp(affiliate.commissionPending), badge: "Đợt 10/10", color: "var(--ap-primary)" },
- { label: "{lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"}", value: fp(affiliate.commission - affiliate.commissionPending), badge: (lang === "en" ? "This month" : lang === "zh" ? "本月" : "Tháng này"), color: "var(--ap-primary)" },
- { label: "{lang === "en" ? "Managed Affiliates" : lang === "zh" ? "管理联盟" : "CTV quản lý"}", value: affiliate.ctv.toString(), badge: "8 {lang === "en" ? "active" : lang === "zh" ? "活跃" : "đang hoạt động"}", color: "#8B5CF6" },
+ { label: (lang === "en" ? "Sales this month" : lang === "zh" ? "本月销售额" : "Doanh số tháng này"), value: fp(affiliate.sales), badge: "+18%", color: "var(--ap-primary)" },
+ { label: (lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"), value: fp(affiliate.commissionPending), badge: "Đợt 10/10", color: "var(--ap-primary)" },
+ { label: (lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"), value: fp(affiliate.commission - affiliate.commissionPending), badge: (lang === "en" ? "This month" : lang === "zh" ? "本月" : "Tháng này"), color: "var(--ap-primary)" },
+ { label: (lang === "en" ? "Managed Affiliates" : lang === "zh" ? "管理联盟" : "CTV quản lý"), value: affiliate.ctv.toString(), badge: (lang === "en" ? "8 active" : lang === "zh" ? "8 活跃" : "8 đang hoạt động"), color: "#8B5CF6" },
  ].map(({ label, value, badge, color }) => (
  <div key={label} className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-3">
@@ -132,8 +132,8 @@ export default function AffiliateDashboard() {
  <p className="text-[#1a4b97] text-xs mt-2">Kỳ giải ngân: 10 & 25 hàng tháng</p>
  </div>
  <div className="space-y-2 text-sm mb-4">
- <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "待审核佣金" : "{lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"}"}</span><span className="font-semibold">{fp(affiliate.commissionPending)}</span></div>
- <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "已收佣金" : "{lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"}"}</span><span className="font-semibold">{fp(affiliate.commission - affiliate.commissionPending)}</span></div>
+ <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "待审核佣金" : (lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt")}</span><span className="font-semibold">{fp(affiliate.commissionPending)}</span></div>
+ <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "已收佣金" : (lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận")}</span><span className="font-semibold">{fp(affiliate.commission - affiliate.commissionPending)}</span></div>
  <div className="flex justify-between border-t border-[#f0f0f0] pt-2"><span className="font-bold text-[#44494d]">{lang === "en" ? "Total this month" : lang === "zh" ? "本月总计" : "Tổng tháng này"}</span><span className="font-bold" style={{ color: "var(--ap-primary)" }}>{fp(affiliate.commission)}</span></div>
  </div>
  <Link href="/affiliate/withdraw" className="w-full py-3 rounded-xl text-white font-bold flex items-center justify-center" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Request Withdrawal" : lang === "zh" ? "请求提款" : "Yêu cầu rút tiền"}
@@ -200,4 +200,6 @@ export default function AffiliateDashboard() {
  </main>
  </>);
 }
+
+
 

@@ -747,8 +747,8 @@ function CheckoutInner() {
                     <span className="absolute -top-[18px] right-[2px] text-white text-[10px] font-bold">✓</span>
                   </div>
                 )}
-                <div className="w-8 h-8 rounded-md flex items-center justify-center text-white font-bold text-xs" style={{ background: m.color }}>
-                  {m.logo.length <= 2 ? m.logo : <span className="text-lg">{m.logo}</span>}
+                <div className="w-10 h-10 shrink-0 rounded-md flex items-center justify-center text-white font-bold text-xs" style={{ background: m.color }}>
+                  {m.logo}
                 </div>
                 <span className="text-xs font-semibold text-[#44494d] leading-tight h-8 flex items-center">{m.label.split("(")[0]}</span>
               </button>

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { getAuth } from "@/lib/auth";
 
-type Msg = { from: "user" | "peer"; text: string; at: string };
+type Msg = { from: "user" | "peer"; text: string; at: string; image?: string };
 type Conv = {
   id: string; peerType: "admin" | "supplier"; peerId: string; peerName: string;
   messages: Msg[]; unreadForUser: number; updatedAt: string;
@@ -80,18 +80,30 @@ export default function ChatWidget() {
 
   const totalUnread = convs.reduce((a, c) => a + (c.unreadForUser || 0), 0);
 
-  const send = async () => {
-    const text = draft.trim();
-    if (!text) return;
+  const send = async (overrideText?: string, imgBase64?: string) => {
+    const text = overrideText ?? draft.trim();
+    if (!text && !imgBase64) return;
     if (!getAuth()) { window.location.href = "/login"; return; }
     const payload = active ? { conversationId: active.id }
       : pendingPeer ? { peerType: pendingPeer.peerType, peerId: pendingPeer.peerId, peerName: pendingPeer.peerName }
       : { peerType: "admin" as const };
-    setDraft("");
+    if (!overrideText) setDraft("");
     try {
-      const r = await fetch("/api/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, text }) });
+      const r = await fetch("/api/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, text, image: imgBase64 }) });
       if (r.ok) { const c = await r.json(); setActive(c); setPendingPeer(null); load(); }
     } catch { /* ignore */ }
+  };
+
+  const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const b64 = ev.target?.result as string;
+      send("[Hình ảnh]", b64);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
   };
 
   const startAdmin = () => {
@@ -140,7 +152,10 @@ export default function ChatWidget() {
                 {thread.map((m, i) => (
                   <div key={i} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[78%] px-3 py-2 rounded-2xl text-sm ${m.from === "user" ? "text-white rounded-br-sm" : "bg-white border border-[#eee] text-[#44494d] rounded-bl-sm"}`}
-                      style={m.from === "user" ? { background: "var(--ap-primary)" } : {}}>{m.text}</div>
+                      style={m.from === "user" ? { background: "var(--ap-primary)" } : {}}>
+                      {m.image && <img src={m.image} alt="uploaded" className="max-w-full rounded-md mb-1 cursor-pointer" />}
+                      {m.text}
+                    </div>
                   </div>
                 ))}
                 {(() => {
@@ -152,9 +167,13 @@ export default function ChatWidget() {
                 <div ref={endRef} />
               </div>
               <div className="p-2.5 border-t border-[#f0f0f0] flex items-center gap-2 shrink-0">
+                <label className="w-9 h-9 flex items-center justify-center text-[#8f9294] cursor-pointer hover:text-[#1a4b97]">
+                  <input type="file" accept="image/*" className="hidden" onChange={handleImage} />
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                </label>
                 <input value={draft} onChange={e => setDraft(e.target.value)} onKeyDown={e => e.key === "Enter" && send()}
                   placeholder="Nhập tin nhắn..." className="flex-1 px-3 py-2 border border-[#e5e5e5] rounded-full text-sm focus:outline-none focus:border-[#1a4b97]" />
-                <button onClick={send} className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0" style={{ background: "var(--ap-primary)" }} aria-label="Gửi">
+                <button onClick={() => send()} className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0" style={{ background: "var(--ap-primary)" }} aria-label="Gửi">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z" /></svg>
                 </button>
               </div>

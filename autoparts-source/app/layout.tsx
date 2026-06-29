@@ -4,6 +4,16 @@ import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
 import ScrollRestoration from "@/components/ScrollRestoration";
 import ThemeProvider from "@/components/ThemeProvider";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import SocialBar from "@/components/SocialBar";
+import Toaster from "@/components/Toast";
+import ConfirmHost from "@/components/ConfirmDialog";
+import ChatWidget from "@/components/ChatWidget";
+import AuthWatcher from "@/components/AuthWatcher";
+import MaintenanceGate from "@/components/MaintenanceGate";
+import NotificationBell from "@/components/NotificationBell";
+import ZoomGuard from "@/components/ZoomGuard";
+import AutoTranslator from "@/components/AutoTranslator";
 import { readJson } from "@/lib/fileStore";
 
 const roboto = Roboto({
@@ -34,10 +44,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const faviconUrl = branding.faviconUrl || "/favicon.ico";
   const siteName = branding.brandName || "AutoParts";
+  const title = settings?.seoMeta?.home?.title?.trim() || `${siteName} - Phụ Tùng Ô Tô Chính Hãng`;
+  const description = settings?.seoMeta?.home?.description?.trim() || "Nền tảng mua bán phụ tùng ô tô chính hãng, aftermarket đa dạng. Tra cứu theo hãng xe, đời xe, mã OEM hoặc số VIN.";
 
   return {
-    title: settings?.seoMeta?.home?.title?.trim() || `${siteName} — Phụ Tùng Ô Tô Chính Hãng`,
-    description: settings?.seoMeta?.home?.description?.trim() || "Nền tảng mua bán phụ tùng ô tô chính hãng, aftermarket đa dạng. Tra cứu theo hãng xe, đời xe, mã OEM hoặc số VIN.",
+    title,
+    description,
     keywords: "phụ tùng ô tô, spare parts, OEM, aftermarket, Toyota, Honda, Mazda",
     icons: {
       icon: faviconUrl,
@@ -45,31 +57,21 @@ export async function generateMetadata(): Promise<Metadata> {
       apple: "/icon.png",
     },
     openGraph: {
-      title: `${siteName} — Phụ Tùng Ô Tô Chính Hãng`,
-      description: "Nền tảng mua bán phụ tùng ô tô chính hãng, aftermarket đa dạng. Tra cứu theo hãng xe, đời xe, mã OEM hoặc số VIN.",
+      title,
+      description,
       url: `${SITE_URL}/`,
       siteName,
-      images: [{ url: logoUrl, width: 1200, height: 630, alt: `${siteName} — Phụ Tùng Ô Tô Chính Hãng` }],
+      images: [{ url: logoUrl, width: 1200, height: 630, alt: title }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${siteName} — Phụ Tùng Ô Tô Chính Hãng`,
-      description: "Nền tảng mua bán phụ tùng ô tô chính hãng, aftermarket đa dạng.",
+      title,
+      description,
       images: [logoUrl],
     },
   };
 }
-
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import SocialBar from "@/components/SocialBar";
-import Toaster from "@/components/Toast";
-import ConfirmHost from "@/components/ConfirmDialog";
-import ChatWidget from "@/components/ChatWidget";
-import AuthWatcher from "@/components/AuthWatcher";
-import MaintenanceGate from "@/components/MaintenanceGate";
-import NotificationBell from "@/components/NotificationBell";
-import ZoomGuard from "@/components/ZoomGuard";
 
 export const dynamic = "force-dynamic";
 
@@ -89,7 +91,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider />
         <ZoomGuard />
         <ScrollRestoration />
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          <AutoTranslator />
+          {children}
+        </LangProvider>
         <ScrollToTopButton />
         <SocialBar />
         <ChatWidget />

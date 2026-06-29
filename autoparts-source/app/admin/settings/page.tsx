@@ -14,32 +14,32 @@ function Toggle({ checked, onChange }: ToggleProps) {
 }
 
 const TABS = [
-  { key: "branding", label: "ThÆ°Æ¡ng hiá»‡u" },
-  { key: "colors", label: "MÃ u sáº¯c" },
-  { key: "commitments", label: "Thanh cam káº¿t" },
-  { key: "footer", label: "ChÃ¢n trang" },
-  { key: "features", label: "TÃ­nh nÄƒng" },
-  { key: "security", label: "Báº£o máº­t" },
-  { key: "payment", label: "Thanh toÃ¡n & QR" },
-  { key: "emailTemplates", label: "Máº«u email" },
-  { key: "tax", label: "Thuáº¿" },
-  { key: "customCode", label: "TÃ¹y biáº¿n mÃ£" },
+  { key: "branding", label: "Thương hiệu" },
+  { key: "colors", label: "Màu sắc" },
+  { key: "commitments", label: "Thanh cam kết" },
+  { key: "footer", label: "Chân trang" },
+  { key: "features", label: "Tính năng" },
+  { key: "security", label: "Bảo mật" },
+  { key: "payment", label: "Thanh toán & QR" },
+  { key: "emailTemplates", label: "Mẫu email" },
+  { key: "tax", label: "Thuế" },
+  { key: "customCode", label: "Tùy biến mã" },
   { key: "seo", label: "SEO" },
-  { key: "currency", label: "Tiá»n tá»‡" },
+  { key: "currency", label: "Tiền tệ" },
 ] as const;
 
 const DEFAULT_EMAIL_TEMPLATES = [
-  { key: "welcome", label: "ChÃ o má»«ng Ä‘Äƒng kÃ½", subject: "ChÃ o má»«ng Ä‘áº¿n AutoParts!", body: "Xin chÃ o {{name}},\n\nCáº£m Æ¡n báº¡n Ä‘Ã£ Ä‘Äƒng kÃ½ tÃ i khoáº£n táº¡i AutoParts. ChÃºng tÃ´i ráº¥t vui Ä‘Æ°á»£c phá»¥c vá»¥ báº¡n." },
-  { key: "order_confirmed", label: "XÃ¡c nháº­n Ä‘Æ¡n hÃ ng", subject: "XÃ¡c nháº­n Ä‘Æ¡n hÃ ng {{orderId}}", body: "Xin chÃ o {{name}},\n\nÄÆ¡n hÃ ng {{orderId}} cá»§a báº¡n Ä‘Ã£ Ä‘Æ°á»£c xÃ¡c nháº­n vÃ  sáº½ sá»›m Ä‘Æ°á»£c xá»­ lÃ½." },
-  { key: "order_shipped", label: "ÄÆ¡n hÃ ng Ä‘ang giao", subject: "ÄÆ¡n hÃ ng {{orderId}} Ä‘ang Ä‘Æ°á»£c giao", body: "ÄÆ¡n hÃ ng {{orderId}} Ä‘ang trÃªn Ä‘Æ°á»ng Ä‘áº¿n báº¡n. MÃ£ váº­n Ä‘Æ¡n: {{tracking}}" },
-  { key: "order_delivered", label: "ÄÆ¡n hÃ ng Ä‘Ã£ giao", subject: "ÄÆ¡n hÃ ng {{orderId}} Ä‘Ã£ giao thÃ nh cÃ´ng", body: "ÄÆ¡n hÃ ng {{orderId}} Ä‘Ã£ Ä‘Æ°á»£c giao. Cáº£m Æ¡n báº¡n Ä‘Ã£ mua sáº¯m táº¡i AutoParts!" },
-  { key: "return_approved", label: "Duyá»‡t Ä‘á»•i tráº£", subject: "YÃªu cáº§u Ä‘á»•i tráº£ {{returnId}} Ä‘Æ°á»£c duyá»‡t", body: "YÃªu cáº§u Ä‘á»•i tráº£ {{returnId}} cá»§a báº¡n Ä‘Ã£ Ä‘Æ°á»£c duyá»‡t. Vui lÃ²ng lÃ m theo hÆ°á»›ng dáº«n Ä‘á»ƒ hoÃ n táº¥t." },
-  { key: "refund_processed", label: "HoÃ n tiá»n", subject: "HoÃ n tiá»n Ä‘Æ¡n {{orderId}}", body: "ÄÆ¡n hÃ ng {{orderId}} Ä‘Ã£ Ä‘Æ°á»£c hoÃ n tiá»n {{amount}}. Vui lÃ²ng kiá»ƒm tra tÃ i khoáº£n trong 3-5 ngÃ y lÃ m viá»‡c." },
+  { key: "welcome", label: "Chào mừng đăng ký", subject: "Chào mừng đến AutoParts!", body: "Xin chào {{name}},\n\nCảm ơn bạn đã đăng ký tài khoản tại AutoParts. Chúng tôi rất vui được phục vụ bạn." },
+  { key: "order_confirmed", label: "Xác nhận đơn hàng", subject: "Xác nhận đơn hàng {{orderId}}", body: "Xin chào {{name}},\n\nĐơn hàng {{orderId}} của bạn đã được xác nhận và sẽ sớm được xử lý." },
+  { key: "order_shipped", label: "Đơn hàng đang giao", subject: "Đơn hàng {{orderId}} đang được giao", body: "Đơn hàng {{orderId}} đang trên đường đến bạn. Mã vận đơn: {{tracking}}" },
+  { key: "order_delivered", label: "Đơn hàng đã giao", subject: "Đơn hàng {{orderId}} đã giao thành công", body: "Đơn hàng {{orderId}} đã được giao. Cảm ơn bạn đã mua sắm tại AutoParts!" },
+  { key: "return_approved", label: "Duyệt đổi trả", subject: "Yêu cầu đổi trả {{returnId}} được duyệt", body: "Yêu cầu đổi trả {{returnId}} của bạn đã được duyệt. Vui lòng làm theo hướng dẫn để hoàn tất." },
+  { key: "refund_processed", label: "Hoàn tiền", subject: "Hoàn tiền đơn {{orderId}}", body: "Đơn hàng {{orderId}} đã được hoàn tiền {{amount}}. Vui lòng kiểm tra tài khoản trong 3-5 ngày làm việc." },
 ];
 
 type TabKey = typeof TABS[number]["key"];
 
-// â”€â”€ Logo Uploader with client-side background removal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Logo Uploader with client-side background removal ──────────────────────
 function LogoUploader({ cardCls, currentLogo }: { cardCls: string, currentLogo?: string }) {
   const [preview, setPreview] = useState<string | null>(null);
   const [original, setOriginal] = useState<string | null>(null);
@@ -126,30 +126,30 @@ function LogoUploader({ cardCls, currentLogo }: { cardCls: string, currentLogo?:
           onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); }} />{preview ? (
           <div className="flex items-center justify-center gap-6">
             <div className="text-center">
-              <p className="text-xs text-[#8f9294] mb-1">Gá»‘c</p>
-              <img src={original!} alt="Gá»‘c" className="h-12 object-contain" style={{ background: "#e5e5e5" }} />
+              <p className="text-xs text-[#8f9294] mb-1">Gốc</p>
+              <img src={original!} alt="Gốc" className="h-12 object-contain" style={{ background: "#e5e5e5" }} />
             </div>
             <svg width="20" height="20" fill="none" stroke="var(--ap-primary)" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             <div className="text-center">
-              <p className="text-xs text-[#8f9294] mb-1">Sau xÃ³a ná»n</p>
-              <img src={preview} alt="ÄÃ£ xá»­ lÃ½" className="h-12 object-contain" style={{ background: "repeating-conic-gradient(#ccc 0% 25%, white 0% 50%) 0 0 / 10px 10px" }} />
+              <p className="text-xs text-[#8f9294] mb-1">Sau xóa nền</p>
+              <img src={preview} alt="Đã xử lý" className="h-12 object-contain" style={{ background: "repeating-conic-gradient(#ccc 0% 25%, white 0% 50%) 0 0 / 10px 10px" }} />
             </div>
           </div>) : (
           <div className="py-4">{currentLogo ? (
               <div className="mb-4">
-                <p className="text-xs font-semibold text-green-600 mb-2">Logo Ä‘ang sá»­ dá»¥ng:</p>
+                <p className="text-xs font-semibold text-green-600 mb-2">Logo đang sử dụng:</p>
                 <img src={currentLogo} alt="Current Logo" className="mx-auto h-16 object-contain p-2 rounded-lg" style={{ background: "repeating-conic-gradient(#ccc 0% 25%, white 0% 50%) 0 0 / 10px 10px" }} />
               </div>) : (
               <svg className="mx-auto mb-2 text-[#8f9294]" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 20M6 8a2 2 0 100-4 2 2 0 000 4z"/>
               </svg>)}
-            <p className="text-sm text-[#44494d] font-medium">{currentLogo ? "KÃ©o tháº£ hoáº·c click Ä‘á»ƒ thay Ä‘á»•i logo" : "KÃ©o tháº£ hoáº·c click Ä‘á»ƒ chá»n áº£nh logo"}</p>
-            <p className="text-xs text-[#8f9294] mt-1">PNG, JPG, SVG â€“ ná»n tráº¯ng sáº½ tá»± Ä‘á»™ng Ä‘Æ°á»£c xÃ³a</p>
+            <p className="text-sm text-[#44494d] font-medium">{currentLogo ? "Kéo thả hoặc click để thay đổi logo" : "Kéo thả hoặc click để chọn ảnh logo"}</p>
+            <p className="text-xs text-[#8f9294] mt-1">PNG, JPG, SVG – nền trắng sẽ tự động được xóa</p>
           </div>)}
       </div>{/* Threshold control */}
       {preview && (
         <div className="flex items-center gap-3">
-          <label className="text-xs font-semibold text-slate-600 shrink-0">Má»©c xÃ³a ná»n:</label>
+          <label className="text-xs font-semibold text-slate-600 shrink-0">Mức xóa nền:</label>
           <input type="range" min={180} max={255} value={threshold}
             onChange={e => setThreshold(Number(e.target.value))}
             onMouseUp={reprocess} onTouchEnd={reprocess}
@@ -162,12 +162,12 @@ function LogoUploader({ cardCls, currentLogo }: { cardCls: string, currentLogo?:
         <div className="flex items-center gap-3">
           <button onClick={handleUpload} disabled={uploading}
             className="px-5 py-2 rounded-lg text-white text-sm font-semibold disabled:opacity-50 transition-opacity"
-            style={{ background: "var(--ap-primary)" }}>{uploading ? "Äang lÆ°u..." : "âœ“ Ãp dá»¥ng logo nÃ y"}
+            style={{ background: "var(--ap-primary)" }}>{uploading ? "Đang lưu..." : "✓ Áp dụng logo này"}
           </button>
           <button onClick={() => { setPreview(null); setOriginal(null); setStatus("idle"); if (fileRef.current) fileRef.current.value = ""; }}
-            className="px-4 py-2 rounded-lg text-sm font-medium text-[#8f9294] hover:text-[#44494d] border border-[#e5e5e5]">Chá»n láº¡i
-          </button>{status === "ok" && <span className="text-green-600 text-sm font-medium">âœ“ Logo Ä‘Ã£ cáº­p nháº­t toÃ n há»‡ thá»‘ng!</span>}
-          {status === "err" && <span className="text-red-500 text-sm font-medium">âœ• Lá»—i khi táº£i lÃªn. Thá»­ láº¡i!</span>}
+            className="px-4 py-2 rounded-lg text-sm font-medium text-[#8f9294] hover:text-[#44494d] border border-[#e5e5e5]">Chọn lại
+          </button>{status === "ok" && <span className="text-green-600 text-sm font-medium">✓ Logo đã cập nhật toàn hệ thống!</span>}
+          {status === "err" && <span className="text-red-500 text-sm font-medium">✕ Lỗi khi tải lên. Thử lại!</span>}
         </div>)}
     </div>);
 }
@@ -202,19 +202,19 @@ function FaviconUploader({ currentFavicon }: { currentFavicon?: string }) {
     <div>{currentFavicon && !preview && (
         <div className="mb-3 flex items-center gap-3 p-2 border border-[#e5e5e5] rounded">
           <img src={currentFavicon} alt="favicon" style={{ width: 32, height: 32, objectFit: "contain" }} />
-          <span className="text-xs text-[#8f9294]">Favicon hiá»‡n táº¡i</span>
+          <span className="text-xs text-[#8f9294]">Favicon hiện tại</span>
         </div>)}
       {preview && (
         <div className="mb-3 flex items-center gap-3 p-2 border border-[#1a4b97] rounded">
           <img src={preview} alt="preview" style={{ width: 32, height: 32, objectFit: "contain" }} />
-          <span className="text-xs text-[#1a4b97]">Xem trÆ°á»›c</span>
+          <span className="text-xs text-[#1a4b97]">Xem trước</span>
         </div>)}
       <input id="favicon-upload-input" ref={ref} type="file" accept=".png,.ico,.jpg,.jpeg,.svg" onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); }}
         className="block w-full text-sm text-[#44494d] file:mr-3 file:px-3 file:py-1.5 file:rounded file:border-0 file:bg-[#1a4b97] file:text-white file:font-semibold" />{preview && (
         <div className="mt-3 flex items-center gap-2">
-          <button onClick={handleUpload} disabled={uploading} className="px-4 py-1.5 rounded text-sm font-semibold text-white disabled:opacity-50" style={{ background: "var(--ap-primary)" }}>{uploading ? "Äang lÆ°u..." : "Ãp dá»¥ng favicon"}
-          </button>{status === "ok" && <span className="text-green-600 text-xs">âœ“ ÄÃ£ cáº­p nháº­t</span>}
-          {status === "err" && <span className="text-red-500 text-xs">âœ• Lá»—i táº£i lÃªn</span>}
+          <button onClick={handleUpload} disabled={uploading} className="px-4 py-1.5 rounded text-sm font-semibold text-white disabled:opacity-50" style={{ background: "var(--ap-primary)" }}>{uploading ? "Đang lưu..." : "Áp dụng favicon"}
+          </button>{status === "ok" && <span className="text-green-600 text-xs">✓ Đã cập nhật</span>}
+          {status === "err" && <span className="text-red-500 text-xs">✕ Lỗi tải lên</span>}
         </div>)}
     </div>);
 }
@@ -227,26 +227,26 @@ export default function AdminSettingsPage() {
 
   // All settings state
   const [branding, setBranding] = useState({
-    brandName: "AutoParts", brandShort: "AP", greeting: "AutoParts xin chÃ o!",
-    hotline: "19008095", tagline: "Ná»n táº£ng mua phá»¥ tÃ¹ng\nÃ´ tÃ´ chÃ­nh hÃ£ng hÃ ng Ä‘áº§u\nViá»‡t Nam",
+    brandName: "AutoParts", brandShort: "AP", greeting: "AutoParts xin chào!",
+    hotline: "19008095", tagline: "Nền tảng mua phụ tùng\nô tô chính hãng hàng đầu\nViệt Nam",
   });
   const [commitments, setCommitments] = useState([
-    { text: "ÄÆ°á»£c váº­n hÃ nh bá»Ÿi AutoParts" },
-    { text: "Thanh toÃ¡n hoÃ n toÃ n báº±ng VND" },
-    { text: "Theo dÃµi hÃ nh trÃ¬nh qua web" },
-    { text: "Order trá»±c tiáº¿p vÃ  nhanh chÃ³ng" },
+    { text: "Được vận hành bởi AutoParts" },
+    { text: "Thanh toán hoàn toàn bằng VND" },
+    { text: "Theo dõi hành trình qua web" },
+    { text: "Order trực tiếp và nhanh chóng" },
   ]);
   const [footer, setFooter] = useState({
-    companyName: "CÃ”NG TY Cá»” PHáº¦N AUTOPARTS",
+    companyName: "CÔNG TY CỔ PHẦN AUTOPARTS",
     registrationNo: "0104093672",
-    issuedBy: "do PhÃ²ng Ä‘Äƒng kÃ½ kinh doanh - Sá»Ÿ Káº¿ hoáº¡ch vÃ  Äáº§u tÆ° TP HÃ  Ná»™i cáº¥p ngÃ y 03/07/2009",
-    manager: "Nguyá»…n Tuáº¥n Anh",
-    address: "TÃ²a nhÃ  AutoParts, NgÃµ 15 Duy TÃ¢n, Cáº§u Giáº¥y, HÃ  Ná»™i",
+    issuedBy: "do Phòng đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP Hà Nội cấp ngày 03/07/2009",
+    manager: "Nguyễn Tuấn Anh",
+    address: "Tòa nhà AutoParts, Ngõ 15 Duy Tân, Cầu Giấy, Hà Nội",
     email: "cskh@autoparts.vn", phone: "19008095",
-    newsletterTitle: "ÄÄƒng kÃ½ nháº­n khuyáº¿n mÃ£i", newsletterSubtitle: "Nháº­n Flash Sale & Æ°u Ä‘Ã£i Ä‘á»™c quyá»n sá»›m nháº¥t", newsletterPromo: "MÃ£ GIAMGIA10 â€” giáº£m 10% cho Ä‘Æ¡n Ä‘áº§u tiÃªn",
-    supportLinks: ["Trung tÃ¢m há»— trá»£","HÆ°á»›ng dáº«n Ä‘áº·t hÃ ng","HÆ°á»›ng dáº«n kÃ½ há»£p Ä‘á»“ng Ä‘iá»‡n tá»­","HÆ°á»›ng dáº«n sá»­ dá»¥ng","Æ¯á»›c tÃ­nh chi phÃ­ váº­n chuyá»ƒn"],
-    policyLinks: ["ChÃ­nh sÃ¡ch váº­n chuyá»ƒn","ChÃ­nh sÃ¡ch báº£o máº­t thÃ´ng tin cÃ¡ nhÃ¢n","ChÃ­nh sÃ¡ch tráº£ hÃ ng hoÃ n tiá»n","HÃ ng cáº¥m, hÃ ng gá»­i cÃ³ Ä‘iá»u kiá»‡n"],
-    aboutLinks: ["Giá»›i thiá»‡u","Äiá»u khoáº£n dá»‹ch vá»¥","Quy cháº¿ hoáº¡t Ä‘á»™ng sÃ n","Giao dá»‹ch TMÄT","Kinh nghiá»‡m AutoParts"],
+    newsletterTitle: "Đăng ký nhận khuyến mãi", newsletterSubtitle: "Nhận Flash Sale & ưu đãi độc quyền sớm nhất", newsletterPromo: "Mã GIAMGIA10 — giảm 10% cho đơn đầu tiên",
+    supportLinks: ["Trung tâm hỗ trợ","Hướng dẫn đặt hàng","Hướng dẫn ký hợp đồng điện tử","Hướng dẫn sử dụng","Ước tính chi phí vận chuyển"],
+    policyLinks: ["Chính sách vận chuyển","Chính sách bảo mật thông tin cá nhân","Chính sách trả hàng hoàn tiền","Hàng cấm, hàng gửi có điều kiện"],
+    aboutLinks: ["Giới thiệu","Điều khoản dịch vụ","Quy chế hoạt động sàn","Giao dịch TMĐT","Kinh nghiệm AutoParts"],
     socialLinks: [
       { name: "Facebook", icon: "/ap-assets/icon_fb.svg", url: "https://www.facebook.com/" },
       { name: "YouTube", icon: "/ap-assets/icon_utube.svg", url: "https://www.youtube.com/" },
@@ -273,7 +273,7 @@ export default function AdminSettingsPage() {
   const [currency, setCurrency] = useState<{ default: string; supported: Array<{ code: string; symbol: string; rate: number }> }>({
     default: "VND",
     supported: [
-      { code: "VND", symbol: "â‚«", rate: 1 },
+      { code: "VND", symbol: "₫", rate: 1 },
       { code: "USD", symbol: "$", rate: 24500 },
     ],
   });
@@ -287,7 +287,7 @@ export default function AdminSettingsPage() {
   const [payment, setPayment] = useState({
     qrImage: "", bankName: "Vietcombank", bankAccount: "0011004095896",
     bankHolder: "CONG TY CO PHAN AUTOPARTS",
-    note: "QuÃ©t mÃ£ QR hoáº·c chuyá»ƒn khoáº£n theo thÃ´ng tin bÃªn dÆ°á»›i. Ghi ná»™i dung: TT + mÃ£ Ä‘Æ¡n.",
+    note: "Quét mã QR hoặc chuyển khoản theo thông tin bên dưới. Ghi nội dung: TT + mã đơn.",
   });
   const [emailTemplates, setEmailTemplates] = useState(DEFAULT_EMAIL_TEMPLATES.map(t => ({ ...t })));
   const [theme, setTheme] = useState({
@@ -325,7 +325,7 @@ export default function AdminSettingsPage() {
       credentials: "include",
       body: JSON.stringify({ branding, commitments, footer, general, features, security, payment, theme, emailTemplates, customCss, customJs, seoMeta, currency }),
     });
-    // Ãp dá»¥ng mÃ u/nÃºt NGAY trÃªn toÃ n site (ThemeProvider láº¯ng nghe sá»± kiá»‡n nÃ y)
+    // Áp dụng màu/nút NGAY trên toàn site (ThemeProvider lắng nghe sự kiện này)
     try { window.dispatchEvent(new CustomEvent("ap-theme-updated", { detail: theme })); } catch {}
     setSaved(true);
     setTimeout(() => setSaved(false), 2500);
@@ -340,8 +340,8 @@ export default function AdminSettingsPage() {
   <main className="flex-1 overflow-auto">
   <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
     <div className="flex items-center justify-between px-6 h-14">
-      <h1 className="text-lg font-bold text-[#44494d]">CÃ i Ä‘áº·t há»‡ thá»‘ng</h1>
-      <button onClick={handleSave} className={`px-4 py-2 rounded-lg text-sm font-semibold ${saved ? "bg-green-500 text-white" : "text-white"}`} style={saved ? {} : { background: "var(--ap-primary)" }}>{saved ? "âœ“ ÄÃ£ lÆ°u!" : "LÆ°u cÃ i Ä‘áº·t"}
+      <h1 className="text-lg font-bold text-[#44494d]">Cài đặt hệ thống</h1>
+      <button onClick={handleSave} className={`px-4 py-2 rounded-lg text-sm font-semibold ${saved ? "bg-green-500 text-white" : "text-white"}`} style={saved ? {} : { background: "var(--ap-primary)" }}>{saved ? "✓ Đã lưu!" : "Lưu cài đặt"}
       </button>
     </div>
     <div className="px-6 flex border-t border-[#f0f0f0]">{TABS.map(t => (
@@ -351,75 +351,75 @@ export default function AdminSettingsPage() {
     </div>
   </div>
 
-  <div className="p-6 max-w-3xl space-y-5">{loading && <div className="text-center py-12 text-[#8f9294]">Äang táº£i...</div>}
+  <div className="p-6 max-w-3xl space-y-5">{loading && <div className="text-center py-12 text-[#8f9294]">Đang tải...</div>}
 
-  {/* â”€â”€ BRANDING â”€â”€ */}
+  {/* ── BRANDING ── */}
   {!loading && tab === "branding" && (
     <>{/* Logo Upload Card */}
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-1">Logo há»‡ thá»‘ng</h2>
-      <p className="text-xs text-[#8f9294] mb-4">Táº£i lÃªn logo má»›i. Há»‡ thá»‘ng sáº½ <strong>tá»± Ä‘á»™ng xÃ³a ná»n tráº¯ng</strong> trÆ°á»›c khi lÆ°u.</p>
+      <h2 className="font-bold text-[#44494d] mb-1">Logo hệ thống</h2>
+      <p className="text-xs text-[#8f9294] mb-4">Tải lên logo mới. Hệ thống sẽ <strong>tự động xóa nền trắng</strong> trước khi lưu.</p>
       <LogoUploader cardCls={cardCls} currentLogo={(branding as any).logoUrl} />
     </div>
 
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">ThÃ´ng tin thÆ°Æ¡ng hiá»‡u</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Thông tin thương hiệu</h2>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className={labelCls}>TÃªn thÆ°Æ¡ng hiá»‡u</label>
+          <label className={labelCls}>Tên thương hiệu</label>
           <input value={branding.brandName} onChange={e => setBranding(b => ({ ...b, brandName: e.target.value }))} className={inputCls} placeholder="AutoParts" />
         </div>
         <div>
-          <label className={labelCls}>KÃ½ hiá»‡u viáº¿t táº¯t (Logo)</label>
+          <label className={labelCls}>Ký hiệu viết tắt (Logo)</label>
           <input value={branding.brandShort} onChange={e => setBranding(b => ({ ...b, brandShort: e.target.value }))} className={inputCls} placeholder="AP" maxLength={4} />
         </div>
         <div>
-          <label className={labelCls}>Lá»i chÃ o Top Bar</label>
-          <input value={branding.greeting} onChange={e => setBranding(b => ({ ...b, greeting: e.target.value }))} className={inputCls} placeholder="AutoParts xin chÃ o!" />
+          <label className={labelCls}>Lời chào Top Bar</label>
+          <input value={branding.greeting} onChange={e => setBranding(b => ({ ...b, greeting: e.target.value }))} className={inputCls} placeholder="AutoParts xin chào!" />
         </div>
         <div>
           <label className={labelCls}>Hotline</label>
           <input value={branding.hotline} onChange={e => setBranding(b => ({ ...b, hotline: e.target.value }))} className={inputCls} placeholder="19008095" />
         </div>
         <div className="md:col-span-2">
-          <label className={labelCls}>Tagline (má»—i dÃ²ng xuá»‘ng hÃ ng)</label>
-          <textarea rows={3} value={branding.tagline} onChange={e => setBranding(b => ({ ...b, tagline: e.target.value }))} className={inputCls + " resize-none"} placeholder="Ná»n táº£ng mua phá»¥ tÃ¹ng&#10;Ã´ tÃ´ chÃ­nh hÃ£ng" />
+          <label className={labelCls}>Tagline (mỗi dòng xuống hàng)</label>
+          <textarea rows={3} value={branding.tagline} onChange={e => setBranding(b => ({ ...b, tagline: e.target.value }))} className={inputCls + " resize-none"} placeholder="Nền tảng mua phụ tùng&#10;ô tô chính hãng" />
         </div>
       </div>
-      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>Thay Ä‘á»•i sáº½ cáº­p nháº­t trá»±c tiáº¿p trÃªn Header, Footer vÃ  toÃ n bá»™ trang chá»§ sau khi nháº¥n &quot;LÆ°u cÃ i Ä‘áº·t&quot;.
+      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>Thay đổi sẽ cập nhật trực tiếp trên Header, Footer và toàn bộ trang chủ sau khi nhấn &quot;Lưu cài đặt&quot;.
       </div>
     </div>
     </>)}
 
-  {/* â”€â”€ COLORS â”€â”€ */}
+  {/* ── COLORS ── */}
   {!loading && tab === "branding" && (
     <div className={cardCls}>
       <h2 className="font-bold text-[#44494d] mb-3">Favicon</h2>
-      <p className="text-sm text-[#8f9294] mb-3">Icon hiá»ƒn thá»‹ trÃªn tab trÃ¬nh duyá»‡t. Khuyáº¿n nghá»‹ PNG/ICO 32Ã—32 hoáº·c 48Ã—48 px.</p>
+      <p className="text-sm text-[#8f9294] mb-3">Icon hiển thị trên tab trình duyệt. Khuyến nghị PNG/ICO 32×32 hoặc 48×48 px.</p>
       <FaviconUploader currentFavicon={branding.faviconUrl as string | undefined} />
     </div>)}
 
   {!loading && tab === "colors" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-1">Báº£ng phá»‘i mÃ u há»‡ thá»‘ng</h2>
-      <p className="text-xs text-[#8f9294] mb-5">Thay Ä‘á»•i báº¥t ká»³ mÃ u nÃ o bÃªn dÆ°á»›i. Nháº¥n "LÆ°u cÃ i Ä‘áº·t" vÃ  táº£i láº¡i trang Ä‘á»ƒ Ã¡p dá»¥ng toÃ n bá»™.</p>
+      <h2 className="font-bold text-[#44494d] mb-1">Bảng phối màu hệ thống</h2>
+      <p className="text-xs text-[#8f9294] mb-5">Thay đổi bất kỳ màu nào bên dưới. Nhấn "Lưu cài đặt" và tải lại trang để áp dụng toàn bộ.</p>
       
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{[
-          ["primary", "MÃ u chÃ­nh (nÃºt, active)"],
-          ["primaryDark", "MÃ u chÃ­nh Ä‘áº­m"],
-          ["accentRed", "MÃ u nháº¥n (sale, giáº£m giÃ¡)"],
-          ["sidebarBg", "Ná»n Sidebar"],
-          ["sidebarBorder", "Viá»n Sidebar"],
-          ["sidebarText", "Chá»¯ Sidebar"],
-          ["topBarBg", "Ná»n Top Bar"],
-          ["topBarText", "Chá»¯ Top Bar"],
-          ["headerBg", "Ná»n Header"],
-          ["textPrimary", "MÃ u chá»¯ chÃ­nh"],
-          ["textMuted", "MÃ u chá»¯ phá»¥"],
-          ["linkColor", "MÃ u link"],
-          ["pageBg", "Ná»n trang"],
-          ["cardBg", "Ná»n tháº»/card"],
-          ["borderColor", "Viá»n/Ä‘Æ°á»ng káº»"],
+          ["primary", "Màu chính (nút, active)"],
+          ["primaryDark", "Màu chính đậm"],
+          ["accentRed", "Màu nhấn (sale, giảm giá)"],
+          ["sidebarBg", "Nền Sidebar"],
+          ["sidebarBorder", "Viền Sidebar"],
+          ["sidebarText", "Chữ Sidebar"],
+          ["topBarBg", "Nền Top Bar"],
+          ["topBarText", "Chữ Top Bar"],
+          ["headerBg", "Nền Header"],
+          ["textPrimary", "Màu chữ chính"],
+          ["textMuted", "Màu chữ phụ"],
+          ["linkColor", "Màu link"],
+          ["pageBg", "Nền trang"],
+          ["cardBg", "Nền thẻ/card"],
+          ["borderColor", "Viền/đường kẻ"],
         ].map(([key, label]) => (
           <div key={key} className="flex flex-col gap-1.5">
             <label className="text-xs font-semibold text-slate-600">{lang === "en" ? {primary: "Primary Color", primaryDark: "Primary Dark", accentRed: "Accent Red", sidebarBg: "Sidebar BG", sidebarBorder: "Sidebar Border", sidebarText: "Sidebar Text", topBarBg: "Top Bar BG", topBarText: "Top Bar Text", headerBg: "Header BG", textPrimary: "Text Primary", textMuted: "Text Muted", linkColor: "Link Color", pageBg: "Page BG", cardBg: "Card BG", borderColor: "Border Color"}[key] : lang === "zh" ? {primary: "主色", primaryDark: "深主色", accentRed: "强调红", sidebarBg: "侧边栏背景", sidebarBorder: "侧边栏边框", sidebarText: "侧边栏文字", topBarBg: "顶栏背景", topBarText: "顶栏文字", headerBg: "页眉背景", textPrimary: "主要文字", textMuted: "次要文字", linkColor: "链接颜色", pageBg: "页面背景", cardBg: "卡片背景", borderColor: "边框颜色"}[key] : label}</label>
@@ -443,7 +443,7 @@ export default function AdminSettingsPage() {
       </div>
 
       <div className="mt-4 flex items-center gap-3">
-        <label className="text-xs font-semibold text-slate-600">Bo gÃ³c nÃºt (px):</label>
+        <label className="text-xs font-semibold text-slate-600">Bo góc nút (px):</label>
         <input
           type="range" min={0} max={24}
           value={Number(theme.buttonRadius) || 8}
@@ -453,72 +453,72 @@ export default function AdminSettingsPage() {
         <span className="text-xs text-[#8f9294] w-8">{theme.buttonRadius}px</span>
       </div>{/* Live preview */}
       <div className="mt-5 p-4 rounded-xl border border-[#e5e5e5]" style={{ background: theme.pageBg }}>
-        <p className="text-xs font-semibold text-slate-500 mb-3">Xem trÆ°á»›c</p>
+        <p className="text-xs font-semibold text-slate-500 mb-3">Xem trước</p>
         <div className="flex items-center gap-3 mb-3">
-          <button className="px-4 py-2 text-white text-sm font-semibold" style={{ background: theme.primary, borderRadius: theme.buttonRadius + "px" }}>NÃºt chÃ­nh</button>
-          <button className="px-4 py-2 text-white text-sm font-semibold" style={{ background: theme.primaryDark, borderRadius: theme.buttonRadius + "px" }}>NÃºt tá»‘i</button>
-          <span className="text-sm" style={{ color: theme.linkColor }}>Link máº«u</span>
+          <button className="px-4 py-2 text-white text-sm font-semibold" style={{ background: theme.primary, borderRadius: theme.buttonRadius + "px" }}>Nút chính</button>
+          <button className="px-4 py-2 text-white text-sm font-semibold" style={{ background: theme.primaryDark, borderRadius: theme.buttonRadius + "px" }}>Nút tối</button>
+          <span className="text-sm" style={{ color: theme.linkColor }}>Link mẫu</span>
         </div>
         <div className="flex items-center gap-3">
           <div className="px-4 py-3 rounded-lg" style={{ background: theme.sidebarBg, color: theme.sidebarText }}>
-            <p className="text-xs font-medium">Sidebar máº«u</p>
+            <p className="text-xs font-medium">Sidebar mẫu</p>
           </div>
           <div className="px-4 py-3 rounded-lg border" style={{ background: theme.cardBg, borderColor: theme.borderColor }}>
-            <p className="text-sm font-semibold" style={{ color: theme.textPrimary }}>TiÃªu Ä‘á»</p>
-            <p className="text-xs" style={{ color: theme.textMuted }}>MÃ´ táº£ phá»¥</p>
+            <p className="text-sm font-semibold" style={{ color: theme.textPrimary }}>Tiêu đề</p>
+            <p className="text-xs" style={{ color: theme.textMuted }}>Mô tả phụ</p>
           </div>
           <div className="px-3 py-1 rounded-full text-white text-xs font-bold" style={{ background: theme.accentRed }}>-20%</div>
         </div>
       </div>
 
-      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>Sau khi lÆ°u, má»i trang Ä‘á»u tá»± Ä‘á»™ng Ã¡p dá»¥ng báº£ng mÃ u má»›i. Náº¿u khÃ´ng tháº¥y thay Ä‘á»•i, nháº¥n Ctrl+F5 Ä‘á»ƒ xÃ³a cache trÃ¬nh duyá»‡t.
+      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>Sau khi lưu, mọi trang đều tự động áp dụng bảng màu mới. Nếu không thấy thay đổi, nhấn Ctrl+F5 để xóa cache trình duyệt.
       </div>
     </div>)}
 
-  {/* â”€â”€ COMMITMENTS â”€â”€ */}
+  {/* ── COMMITMENTS ── */}
   {!loading && tab === "commitments" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">Thanh cam káº¿t (Black Bar)</h2>
-      <p className="text-xs text-[#8f9294] mb-4">4 dÃ²ng cam káº¿t hiá»ƒn thá»‹ trÃªn thanh ná»n Ä‘en phÃ­a dÆ°á»›i Header.</p>
+      <h2 className="font-bold text-[#44494d] mb-4">Thanh cam kết (Black Bar)</h2>
+      <p className="text-xs text-[#8f9294] mb-4">4 dòng cam kết hiển thị trên thanh nền đen phía dưới Header.</p>
       <div className="space-y-3">{commitments.map((c, i) => (
           <div key={i} className="flex items-center gap-3">
             <span className="text-xs text-[#8f9294] w-6 shrink-0">#{i+1}</span>
             <input value={c.text} onChange={e => {
               const arr = [...commitments]; arr[i] = { text: e.target.value }; setCommitments(arr);
-            }} className={inputCls} placeholder={`Cam káº¿t #${i+1}`} />{commitments.length > 1 && (
-              <button onClick={() => setCommitments(prev => prev.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 text-sm font-bold shrink-0">âœ•</button>)}
+            }} className={inputCls} placeholder={`Cam kết #${i+1}`} />{commitments.length > 1 && (
+              <button onClick={() => setCommitments(prev => prev.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 text-sm font-bold shrink-0">✕</button>)}
           </div>))}
       </div>{commitments.length < 6 && (
-        <button onClick={() => setCommitments(prev => [...prev, { text: "" }])} className="mt-3 text-sm text-[#1a4b97] font-semibold hover:opacity-80">+ ThÃªm cam káº¿t</button>)}
+        <button onClick={() => setCommitments(prev => [...prev, { text: "" }])} className="mt-3 text-sm text-[#1a4b97] font-semibold hover:opacity-80">+ Thêm cam kết</button>)}
     </div>)}
 
-  {/* â”€â”€ FOOTER â”€â”€ */}
+  {/* ── FOOTER ── */}
   {!loading && tab === "footer" && (
     <>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">ThÃ´ng tin cÃ´ng ty (chÃ¢n trang)</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Thông tin công ty (chân trang)</h2>
       <div className="grid md:grid-cols-2 gap-4">{[
-          ["TÃªn cÃ´ng ty", "companyName", "CÃ”NG TY Cá»” PHáº¦N..."],
-          ["MÃ£ sá»‘ doanh nghiá»‡p", "registrationNo", "0104093672"],
-          ["NgÆ°á»i quáº£n lÃ½", "manager", "Nguyá»…n Tuáº¥n Anh"],
-          ["Äá»‹a chá»‰", "address", "TÃ²a nhÃ  AutoPart..."],
+          ["Tên công ty", "companyName", "CÔNG TY CỔ PHẦN..."],
+          ["Mã số doanh nghiệp", "registrationNo", "0104093672"],
+          ["Người quản lý", "manager", "Nguyễn Tuấn Anh"],
+          ["Địa chỉ", "address", "Tòa nhà AutoPart..."],
           [lang === "en" ? "Email" : lang === "zh" ? "电子邮件" : "Email", "email", "cskh@autoparts.vn"],
-          ["Sá»‘ Ä‘iá»‡n thoáº¡i", "phone", "19008095"],
+          ["Số điện thoại", "phone", "19008095"],
         ].map(([label, key, ph]) => (
           <div key={key}>
             <label className={labelCls}>{lang === "en" ? {primary: "Primary Color", primaryDark: "Primary Dark", accentRed: "Accent Red", sidebarBg: "Sidebar BG", sidebarBorder: "Sidebar Border", sidebarText: "Sidebar Text", topBarBg: "Top Bar BG", topBarText: "Top Bar Text", headerBg: "Header BG", textPrimary: "Text Primary", textMuted: "Text Muted", linkColor: "Link Color", pageBg: "Page BG", cardBg: "Card BG", borderColor: "Border Color"}[key] : lang === "zh" ? {primary: "主色", primaryDark: "深主色", accentRed: "强调红", sidebarBg: "侧边栏背景", sidebarBorder: "侧边栏边框", sidebarText: "侧边栏文字", topBarBg: "顶栏背景", topBarText: "顶栏文字", headerBg: "页眉背景", textPrimary: "主要文字", textMuted: "次要文字", linkColor: "链接颜色", pageBg: "页面背景", cardBg: "卡片背景", borderColor: "边框颜色"}[key] : label}</label>
             <input value={(footer as any)[key] || ""} onChange={e => setFooter(f => ({ ...f, [key]: e.target.value }))} className={inputCls} placeholder={ph} />
           </div>))}
         <div className="md:col-span-2">
-          <label className={labelCls}>CÆ¡ quan cáº¥p giáº¥y phÃ©p</label>
+          <label className={labelCls}>Cơ quan cấp giấy phép</label>
           <input value={footer.issuedBy} onChange={e => setFooter(f => ({ ...f, issuedBy: e.target.value }))} className={inputCls} />
         </div>
       </div>
     </div>{/* Footer link groups */}
     {[
-      ["LiÃªn káº¿t Há»— trá»£ khÃ¡ch hÃ ng", "supportLinks"],
-      ["LiÃªn káº¿t ChÃ­nh sÃ¡ch", "policyLinks"],
-      ["LiÃªn káº¿t Vá» chÃºng tÃ´i", "aboutLinks"],
+      ["Liên kết Hỗ trợ khách hàng", "supportLinks"],
+      ["Liên kết Chính sách", "policyLinks"],
+      ["Liên kết Về chúng tôi", "aboutLinks"],
     ].map(([title, key]) => (
       <div key={key} className={cardCls}>
         <h2 className="font-bold text-[#44494d] mb-3 text-sm">{title}</h2>
@@ -531,25 +531,25 @@ export default function AdminSettingsPage() {
               <button onClick={() => {
                 const arr = (footer as any)[key].filter((_: string, j: number) => j !== i);
                 setFooter(f => ({ ...f, [key]: arr }));
-              }} className="text-red-400 hover:text-red-600 text-sm font-bold shrink-0">âœ•</button>
+              }} className="text-red-400 hover:text-red-600 text-sm font-bold shrink-0">✕</button>
             </div>))}
         </div>
-        <button onClick={() => setFooter(f => ({ ...f, [key]: [...(f as any)[key], ""] }))} className="mt-2 text-sm text-[#1a4b97] font-semibold hover:opacity-80">+ ThÃªm liÃªn káº¿t</button>
+        <button onClick={() => setFooter(f => ({ ...f, [key]: [...(f as any)[key], ""] }))} className="mt-2 text-sm text-[#1a4b97] font-semibold hover:opacity-80">+ Thêm liên kết</button>
       </div>))}
-    {/* ÄÄƒng kÃ½ nháº­n khuyáº¿n mÃ£i (newsletter) */}
+    {/* Đăng ký nhận khuyến mãi (newsletter) */}
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-1 text-sm">ÄÄƒng kÃ½ nháº­n khuyáº¿n mÃ£i (chÃ¢n trang)</h2>
-      <p className="text-xs text-[#8f9294] mb-3">TiÃªu Ä‘á», mÃ´ táº£ vÃ  Æ°u Ä‘Ã£i hiá»ƒn thá»‹ á»Ÿ Ã´ "ÄÄƒng kÃ½ nháº­n khuyáº¿n mÃ£i" dÆ°á»›i chÃ¢n trang. NgÆ°á»i dÃ¹ng pháº£i Ä‘Äƒng nháº­p + email Ä‘Ãºng Ä‘á»‹nh dáº¡ng má»›i nháº­n Ä‘Æ°á»£c.</p>
+      <h2 className="font-bold text-[#44494d] mb-1 text-sm">Đăng ký nhận khuyến mãi (chân trang)</h2>
+      <p className="text-xs text-[#8f9294] mb-3">Tiêu đề, mô tả và ưu đãi hiển thị ở ô "Đăng ký nhận khuyến mãi" dưới chân trang. Người dùng phải đăng nhập + email đúng định dạng mới nhận được.</p>
       <div className="space-y-3">
-        <div><label className={labelCls}>TiÃªu Ä‘á»</label><input value={(footer as any).newsletterTitle || ""} onChange={e => setFooter(f => ({ ...f, newsletterTitle: e.target.value }))} className={inputCls} placeholder="ÄÄƒng kÃ½ nháº­n khuyáº¿n mÃ£i" /></div>
-        <div><label className={labelCls}>MÃ´ táº£</label><input value={(footer as any).newsletterSubtitle || ""} onChange={e => setFooter(f => ({ ...f, newsletterSubtitle: e.target.value }))} className={inputCls} placeholder="Nháº­n Flash Sale & Æ°u Ä‘Ã£i..." /></div>
-        <div><label className={labelCls}>Æ¯u Ä‘Ã£i (hiá»‡n sau khi Ä‘Äƒng kÃ½ thÃ nh cÃ´ng)</label><input value={(footer as any).newsletterPromo || ""} onChange={e => setFooter(f => ({ ...f, newsletterPromo: e.target.value }))} className={inputCls} placeholder="VD: MÃ£ GIAMGIA10 â€” giáº£m 10% Ä‘Æ¡n Ä‘áº§u" /></div>
+        <div><label className={labelCls}>Tiêu đề</label><input value={(footer as any).newsletterTitle || ""} onChange={e => setFooter(f => ({ ...f, newsletterTitle: e.target.value }))} className={inputCls} placeholder="Đăng ký nhận khuyến mãi" /></div>
+        <div><label className={labelCls}>Mô tả</label><input value={(footer as any).newsletterSubtitle || ""} onChange={e => setFooter(f => ({ ...f, newsletterSubtitle: e.target.value }))} className={inputCls} placeholder="Nhận Flash Sale & ưu đãi..." /></div>
+        <div><label className={labelCls}>Ưu đãi (hiện sau khi đăng ký thành công)</label><input value={(footer as any).newsletterPromo || ""} onChange={e => setFooter(f => ({ ...f, newsletterPromo: e.target.value }))} className={inputCls} placeholder="VD: Mã GIAMGIA10 — giảm 10% đơn đầu" /></div>
       </div>
     </div>
-    {/* LiÃªn káº¿t máº¡ng xÃ£ há»™i â€” hiá»‡n trÃªn thanh ná»•i gÃ³c pháº£i + chÃ¢n trang */}
+    {/* Liên kết mạng xã hội — hiện trên thanh nổi góc phải + chân trang */}
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-1 text-sm">LiÃªn káº¿t máº¡ng xÃ£ há»™i</h2>
-      <p className="text-xs text-[#8f9294] mb-3">URL hiá»ƒn thá»‹ á»Ÿ thanh ná»•i gÃ³c pháº£i mÃ n hÃ¬nh vÃ  chÃ¢n trang. Äá»ƒ trá»‘ng = icon váº«n hiá»‡n nhÆ°ng KHÃ”NG báº¥m Ä‘Æ°á»£c (tÄ©nh).</p>
+      <h2 className="font-bold text-[#44494d] mb-1 text-sm">Liên kết mạng xã hội</h2>
+      <p className="text-xs text-[#8f9294] mb-3">URL hiển thị ở thanh nổi góc phải màn hình và chân trang. Để trống = icon vẫn hiện nhưng KHÔNG bấm được (tĩnh).</p>
       <div className="space-y-2">{(["Facebook","YouTube","TikTok","Zalo","Instagram"] as const).map(name => {
           const iconFile: Record<string, string> = { Facebook: "fb", YouTube: "utube", TikTok: "tiktok", Zalo: "zalo", Instagram: "ig" };
           const cur = (footer.socialLinks || []).find(x => x.name === name);
@@ -568,18 +568,18 @@ export default function AdminSettingsPage() {
     </div>
     </>)}
 
-  {/* â”€â”€ FEATURES â”€â”€ */}
+  {/* ── FEATURES ── */}
   {!loading && tab === "features" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">Báº­t/Táº¯t tÃ­nh nÄƒng</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Bật/Tắt tính năng</h2>
       <div className="space-y-0">{[
-        ["flashSale", "Flash Sale & Countdown", "Báº­t section flash sale trÃªn trang chá»§"],
-        ["voucherSystem", "Há»‡ thá»‘ng Voucher & MÃ£ giáº£m giÃ¡", "Cho phÃ©p khÃ¡ch nháº­p mÃ£ giáº£m giÃ¡"],
-        ["mechanicPortal", "Portal Thá»£ Pro", "Báº­t tÃ­nh nÄƒng Ä‘áº·t phá»¥ tÃ¹ng cho thá»£"],
-        ["affiliatePortal", "Portal Äáº¡i LÃ½ / CTV", "Cho phÃ©p Ä‘Äƒng kÃ½ vÃ  quáº£n lÃ½ affiliate"],
-        ["warrantyTracking", "Theo dÃµi báº£o hÃ nh", "KhÃ¡ch hÃ ng track báº£o hÃ nh trá»±c tuyáº¿n"],
-        ["vinLookup", "VIN Lookup (API)", "Tra cá»©u xe qua mÃ£ VIN thá»±c táº¿"],
-        ["maintenanceMode", "Cháº¿ Ä‘á»™ báº£o trÃ¬", "Táº¡m ngÆ°ng hoáº¡t Ä‘á»™ng, hiá»‡n trang thÃ´ng bÃ¡o"],
+        ["flashSale", "Flash Sale & Countdown", "Bật section flash sale trên trang chủ"],
+        ["voucherSystem", "Hệ thống Voucher & Mã giảm giá", "Cho phép khách nhập mã giảm giá"],
+        ["mechanicPortal", "Portal Thợ Pro", "Bật tính năng đặt phụ tùng cho thợ"],
+        ["affiliatePortal", "Portal Đại Lý / CTV", "Cho phép đăng ký và quản lý affiliate"],
+        ["warrantyTracking", "Theo dõi bảo hành", "Khách hàng track bảo hành trực tuyến"],
+        ["vinLookup", "VIN Lookup (API)", "Tra cứu xe qua mã VIN thực tế"],
+        ["maintenanceMode", "Chế độ bảo trì", "Tạm ngưng hoạt động, hiện trang thông báo"],
       ].map(([key, label, desc]) => (
         <div key={key} className={`flex items-center justify-between py-3 border-b border-slate-50 last:border-0 ${key === "maintenanceMode" ? "rounded-xl px-3 mt-2" : ""}`}
           style={key === "maintenanceMode" ? { background: features.maintenanceMode ? "#FEF2F2" : "transparent" } : {}}>
@@ -592,11 +592,11 @@ export default function AdminSettingsPage() {
       </div>
     </div>)}
 
-  {/* â”€â”€ SECURITY â”€â”€ */}
+  {/* ── SECURITY ── */}
   {!loading && tab === "emailTemplates" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">Máº«u email vÃ  thÃ´ng bÃ¡o</h2>
-      <p className="text-sm text-[#8f9294] mb-4">Cáº¥u hÃ¬nh cÃ¡c máº«u email gá»­i tá»± Ä‘á»™ng. Há»— trá»£ biáº¿n: <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{name}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{orderId}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{tracking}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{amount}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{returnId}}`}</code></p>
+      <h2 className="font-bold text-[#44494d] mb-4">Mẫu email và thông báo</h2>
+      <p className="text-sm text-[#8f9294] mb-4">Cấu hình các mẫu email gửi tự động. Hỗ trợ biến: <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{name}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{orderId}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{tracking}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{amount}}`}</code> <code className="bg-[#f4f4f4] px-1.5 py-0.5 rounded text-xs">{`{{returnId}}`}</code></p>
       <div className="space-y-4">{emailTemplates.map((tpl, idx) => (
           <div key={tpl.key} className="border border-[#e5e5e5] rounded-xl p-4">
             <div className="flex items-center justify-between mb-3">
@@ -604,25 +604,25 @@ export default function AdminSettingsPage() {
             </div>
             <div className="space-y-3">
               <div>
-                <label className={labelCls}>TiÃªu Ä‘á»</label>
+                <label className={labelCls}>Tiêu đề</label>
                 <input value={tpl.subject} onChange={e => { const ns = [...emailTemplates]; ns[idx] = { ...ns[idx], subject: e.target.value }; setEmailTemplates(ns); }} className={inputCls} />
               </div>
               <div>
-                <label className={labelCls}>Ná»™i dung</label>
+                <label className={labelCls}>Nội dung</label>
                 <textarea value={tpl.body} onChange={e => { const ns = [...emailTemplates]; ns[idx] = { ...ns[idx], body: e.target.value }; setEmailTemplates(ns); }} rows={4} className={inputCls + " font-mono text-xs"} />
               </div>
             </div>
           </div>))}
       </div>
-      <p className="text-xs text-[#8f9294] mt-4">LÆ°u Ã½: Há»‡ thá»‘ng chÆ°a tÃ­ch há»£p gá»­i email tá»± Ä‘á»™ng. ÄÃ¢y lÃ  pháº§n lÆ°u trá»¯ template Ä‘á»ƒ chuáº©n bá»‹ tÃ­ch há»£p sau (SendGrid/SMTP).</p>
+      <p className="text-xs text-[#8f9294] mt-4">Lưu ý: Hệ thống chưa tích hợp gửi email tự động. Đây là phần lưu trữ template để chuẩn bị tích hợp sau (SendGrid/SMTP).</p>
     </div>)}
 
   {!loading && tab === "tax" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-3">Thuáº¿ VAT</h2>
-      <p className="text-sm text-[#8f9294] mb-4">Äáº·t 0 Ä‘á»ƒ táº¯t VAT. Khi &gt; 0, VAT sáº½ Ä‘Æ°á»£c tÃ­nh trÃªn (táº¡m tÃ­nh - voucher giáº£m) vÃ  cá»™ng vÃ o tá»•ng thanh toÃ¡n táº¡i checkout.</p>
+      <h2 className="font-bold text-[#44494d] mb-3">Thuế VAT</h2>
+      <p className="text-sm text-[#8f9294] mb-4">Đặt 0 để tắt VAT. Khi &gt; 0, VAT sẽ được tính trên (tạm tính - voucher giảm) và cộng vào tổng thanh toán tại checkout.</p>
       <div className="max-w-xs">
-        <label className={labelCls}>Thuáº¿ suáº¥t VAT (%)</label>
+        <label className={labelCls}>Thuế suất VAT (%)</label>
         <input type="number" min="0" max="100" step="0.1" value={general.vatPercent} onChange={e => setGeneral(p => ({ ...p, vatPercent: e.target.value }))} className={inputCls} />
       </div>
     </div>)}
@@ -630,27 +630,27 @@ export default function AdminSettingsPage() {
   {!loading && tab === "customCode" && (
     <>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-2">CSS tÃ¹y biáº¿n</h2>
-      <p className="text-xs text-[#8f9294] mb-3">Inject vÃ o &lt;head&gt; cá»§a táº¥t cáº£ trang. Cáº©n tháº­n vá»›i selector toÃ n cá»¥c.</p>
-      <textarea value={customCss} onChange={e => setCustomCss(e.target.value)} rows={10} placeholder="/* VÃ­ dá»¥: .ap-container { max-width: 1280px; } */" className={inputCls + " font-mono text-xs"} />
+      <h2 className="font-bold text-[#44494d] mb-2">CSS tùy biến</h2>
+      <p className="text-xs text-[#8f9294] mb-3">Inject vào &lt;head&gt; của tất cả trang. Cẩn thận với selector toàn cục.</p>
+      <textarea value={customCss} onChange={e => setCustomCss(e.target.value)} rows={10} placeholder="/* Ví dụ: .ap-container { max-width: 1280px; } */" className={inputCls + " font-mono text-xs"} />
     </div>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-2">JavaScript tÃ¹y biáº¿n</h2>
-      <p className="text-xs text-[#8f9294] mb-3">Inject vÃ o cuá»‘i &lt;body&gt;. DÃ¹ng cho analytics, tracking, chat widget. <span className="text-red-500 font-semibold">KhÃ´ng paste mÃ£ khÃ´ng tin cáº­y.</span></p>
-      <textarea value={customJs} onChange={e => setCustomJs(e.target.value)} rows={10} placeholder="// VÃ­ dá»¥: window.addEventListener('load', () => console.log('loaded'));" className={inputCls + " font-mono text-xs"} />
+      <h2 className="font-bold text-[#44494d] mb-2">JavaScript tùy biến</h2>
+      <p className="text-xs text-[#8f9294] mb-3">Inject vào cuối &lt;body&gt;. Dùng cho analytics, tracking, chat widget. <span className="text-red-500 font-semibold">Không paste mã không tin cậy.</span></p>
+      <textarea value={customJs} onChange={e => setCustomJs(e.target.value)} rows={10} placeholder="// Ví dụ: window.addEventListener('load', () => console.log('loaded'));" className={inputCls + " font-mono text-xs"} />
     </div>
     </>)}
 
   {!loading && tab === "seo" && (
     <div className={cardCls}>
       <h2 className="font-bold text-[#44494d] mb-2">{lang === "en" ? "SEO Meta per page" : lang === "zh" ? "每页的SEO元数据" : "SEO Meta theo trang"}</h2>
-      <p className="text-xs text-[#8f9294] mb-4">Cáº¥u hÃ¬nh &lt;title&gt; vÃ  &lt;meta name=&quot;description&quot;&gt; cho tá»«ng trang ná»™i dung. Bá» trá»‘ng Ä‘á»ƒ dÃ¹ng giÃ¡ trá»‹ máº·c Ä‘á»‹nh.</p>
+      <p className="text-xs text-[#8f9294] mb-4">Cấu hình &lt;title&gt; và &lt;meta name=&quot;description&quot;&gt; cho từng trang nội dung. Bỏ trống để dùng giá trị mặc định.</p>
       <div className="space-y-4">{Object.entries(seoMeta).map(([slug, meta]) => (
           <div key={slug} className="border border-[#e5e5e5] rounded-xl p-3">
             <p className="font-semibold text-[#44494d] mb-2">/{slug === "home" ? "" : slug}</p>
             <div className="space-y-2">
-              <input value={meta.title} onChange={e => setSeoMeta(prev => ({ ...prev, [slug]: { ...prev[slug], title: e.target.value } }))} placeholder="Title (50-60 kÃ½ tá»±)" className={inputCls} />
-              <textarea value={meta.description} onChange={e => setSeoMeta(prev => ({ ...prev, [slug]: { ...prev[slug], description: e.target.value } }))} placeholder="Description (150-160 kÃ½ tá»±)" rows={2} className={inputCls} />
+              <input value={meta.title} onChange={e => setSeoMeta(prev => ({ ...prev, [slug]: { ...prev[slug], title: e.target.value } }))} placeholder="Title (50-60 ký tự)" className={inputCls} />
+              <textarea value={meta.description} onChange={e => setSeoMeta(prev => ({ ...prev, [slug]: { ...prev[slug], description: e.target.value } }))} placeholder="Description (150-160 ký tự)" rows={2} className={inputCls} />
             </div>
           </div>))}
       </div>
@@ -658,31 +658,31 @@ export default function AdminSettingsPage() {
 
   {!loading && tab === "currency" && (
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-3">Tiá»n tá»‡ vÃ  tá»· giÃ¡</h2>
-      <p className="text-sm text-[#8f9294] mb-4">Cáº¥u hÃ¬nh cÃ¡c Ä‘Æ¡n vá»‹ tiá»n tá»‡. Tá»· giÃ¡ lÃ  <strong>1 Ä‘Æ¡n vá»‹ = X VNÄ</strong>. KhÃ¡ch hÃ ng chá»n Ä‘Æ°á»£c trong header storefront.</p>
+      <h2 className="font-bold text-[#44494d] mb-3">Tiền tệ và tỷ giá</h2>
+      <p className="text-sm text-[#8f9294] mb-4">Cấu hình các đơn vị tiền tệ. Tỷ giá là <strong>1 đơn vị = X VNĐ</strong>. Khách hàng chọn được trong header storefront.</p>
       <div className="space-y-3">{currency.supported.map((c, i) => (
           <div key={i} className="flex items-center gap-2 p-3 border border-[#e5e5e5] rounded">
             <input value={c.code} onChange={e => { const next = [...currency.supported]; next[i] = { ...next[i], code: e.target.value.toUpperCase() }; setCurrency({ ...currency, supported: next }); }} placeholder="Code (VD: USD)" className="w-20 px-2 py-1 border border-[#e5e5e5] rounded text-sm font-mono" maxLength={5} />
             <input value={c.symbol} onChange={e => { const next = [...currency.supported]; next[i] = { ...next[i], symbol: e.target.value }; setCurrency({ ...currency, supported: next }); }} placeholder="$" className="w-16 px-2 py-1 border border-[#e5e5e5] rounded text-sm" maxLength={3} />
             <input type="number" min="1" step="any" value={c.rate} onChange={e => { const next = [...currency.supported]; next[i] = { ...next[i], rate: Number(e.target.value) || 1 }; setCurrency({ ...currency, supported: next }); }} placeholder="24500" className="flex-1 px-2 py-1 border border-[#e5e5e5] rounded text-sm" />
-            <span className="text-xs text-[#8f9294] min-w-[80px]">VNÄ / 1 {c.code}</span>
-            <button onClick={() => setCurrency({ ...currency, supported: currency.supported.filter((_, idx) => idx !== i) })} className="text-red-500 px-2" disabled={c.code === "VND"}>Ã—</button>
+            <span className="text-xs text-[#8f9294] min-w-[80px]">VNĐ / 1 {c.code}</span>
+            <button onClick={() => setCurrency({ ...currency, supported: currency.supported.filter((_, idx) => idx !== i) })} className="text-red-500 px-2" disabled={c.code === "VND"}>×</button>
           </div>))}
-        <button onClick={() => setCurrency({ ...currency, supported: [...currency.supported, { code: "EUR", symbol: "â‚¬", rate: 26800 }] })} className="px-3 py-1.5 rounded bg-[#1a4b97] text-white text-xs font-semibold">+ ThÃªm Ä‘Æ¡n vá»‹</button>
+        <button onClick={() => setCurrency({ ...currency, supported: [...currency.supported, { code: "EUR", symbol: "€", rate: 26800 }] })} className="px-3 py-1.5 rounded bg-[#1a4b97] text-white text-xs font-semibold">+ Thêm đơn vị</button>
       </div>
-      <p className="text-xs text-[#8f9294] mt-4">LÆ°u Ã½: VND luÃ´n lÃ  tiá»n tá»‡ gá»‘c (rate=1), khÃ´ng xoÃ¡ Ä‘Æ°á»£c. Äá»•i rate USD/EUR theo tá»· giÃ¡ thá»‹ trÆ°á»ng.</p>
+      <p className="text-xs text-[#8f9294] mt-4">Lưu ý: VND luôn là tiền tệ gốc (rate=1), không xoá được. Đổi rate USD/EUR theo tỷ giá thị trường.</p>
     </div>)}
 
   {!loading && tab === "security" && (
     <>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">ThÃ´ng tin chung</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Thông tin chung</h2>
       <div className="grid md:grid-cols-2 gap-4">{[
-        ["TÃªn ná»n táº£ng", "siteName"],
-        ["Email há»— trá»£", "supportEmail"],
+        ["Tên nền tảng", "siteName"],
+        ["Email hỗ trợ", "supportEmail"],
         [lang === "en" ? "Hotline" : lang === "zh" ? "热线" : "Hotline", "supportPhone"],
-        ["PhÃ­ ná»n táº£ng máº·c Ä‘á»‹nh (%)", "platformFeeDefault"],
-        ["RÃºt tiá»n tá»‘i thiá»ƒu (VNÄ)", "minWithdraw"],
+        ["Phí nền tảng mặc định (%)", "platformFeeDefault"],
+        ["Rút tiền tối thiểu (VNĐ)", "minWithdraw"],
       ].map(([label, key]) => (
         <div key={key}>
           <label className={labelCls}>{lang === "en" ? {primary: "Primary Color", primaryDark: "Primary Dark", accentRed: "Accent Red", sidebarBg: "Sidebar BG", sidebarBorder: "Sidebar Border", sidebarText: "Sidebar Text", topBarBg: "Top Bar BG", topBarText: "Top Bar Text", headerBg: "Header BG", textPrimary: "Text Primary", textMuted: "Text Muted", linkColor: "Link Color", pageBg: "Page BG", cardBg: "Card BG", borderColor: "Border Color"}[key] : lang === "zh" ? {primary: "主色", primaryDark: "深主色", accentRed: "强调红", sidebarBg: "侧边栏背景", sidebarBorder: "侧边栏边框", sidebarText: "侧边栏文字", topBarBg: "顶栏背景", topBarText: "顶栏文字", headerBg: "页眉背景", textPrimary: "主要文字", textMuted: "次要文字", linkColor: "链接颜色", pageBg: "页面背景", cardBg: "卡片背景", borderColor: "边框颜色"}[key] : label}</label>
@@ -691,21 +691,21 @@ export default function AdminSettingsPage() {
       </div>
     </div>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">Báº£o máº­t & PhiÃªn Ä‘Äƒng nháº­p</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Bảo mật & Phiên đăng nhập</h2>
       <div className="grid md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className={labelCls}>Timeout phiÃªn (phÃºt)</label>
+          <label className={labelCls}>Timeout phiên (phút)</label>
           <input value={security.sessionTimeout} onChange={e => setSecurity(p => ({ ...p, sessionTimeout: e.target.value }))} type="number" className={inputCls} />
         </div>
         <div>
-          <label className={labelCls}>Sá»‘ láº§n Ä‘Äƒng nháº­p sai tá»‘i Ä‘a</label>
+          <label className={labelCls}>Số lần đăng nhập sai tối đa</label>
           <input value={security.loginAttempts} onChange={e => setSecurity(p => ({ ...p, loginAttempts: e.target.value }))} type="number" className={inputCls} />
         </div>
       </div>
       <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: "#f8f8fa" }}>
         <div>
-          <p className="font-semibold text-[#44494d] text-sm">Báº¯t buá»™c 2FA cho Admin</p>
-          <p className="text-xs text-[#8f9294]">Táº¥t cáº£ tÃ i khoáº£n Admin pháº£i báº­t xÃ¡c thá»±c 2 bÆ°á»›c</p>
+          <p className="font-semibold text-[#44494d] text-sm">Bắt buộc 2FA cho Admin</p>
+          <p className="text-xs text-[#8f9294]">Tất cả tài khoản Admin phải bật xác thực 2 bước</p>
         </div>
         <Toggle checked={security.twoFARequired} onChange={() => setSecurity(p => ({ ...p, twoFARequired: !p.twoFARequired }))} />
       </div>
@@ -715,41 +715,41 @@ export default function AdminSettingsPage() {
   {!loading && tab === "payment" && (
     <>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-1">MÃ£ QR thanh toÃ¡n</h2>
-      <p className="text-xs text-[#8f9294] mb-4">Vá»›i <b>Chuyá»ƒn khoáº£n ngÃ¢n hÃ ng</b>: chá»‰ cáº§n nháº­p Ä‘Ãºng <b>NgÃ¢n hÃ ng + Sá»‘ tÃ i khoáº£n + Chá»§ tÃ i khoáº£n</b> bÃªn dÆ°á»›i â€” há»‡ thá»‘ng tá»± táº¡o <b>mÃ£ VietQR tháº­t</b> (kÃ¨m sá»‘ tiá»n + ná»™i dung Ä‘Æ¡n) cho khÃ¡ch quÃ©t. Ã” táº£i áº£nh QR dÆ°á»›i Ä‘Ã¢y dÃ nh cho <b>MoMo / ZaloPay</b> (táº£i QR vÃ­ cá»§a báº¡n); Ä‘á»ƒ trá»‘ng sáº½ dÃ¹ng QR minh hoáº¡.</p>
+      <h2 className="font-bold text-[#44494d] mb-1">Mã QR thanh toán</h2>
+      <p className="text-xs text-[#8f9294] mb-4">Với <b>Chuyển khoản ngân hàng</b>: chỉ cần nhập đúng <b>Ngân hàng + Số tài khoản + Chủ tài khoản</b> bên dưới — hệ thống tự tạo <b>mã VietQR thật</b> (kèm số tiền + nội dung đơn) cho khách quét. Ô tải ảnh QR dưới đây dành cho <b>MoMo / ZaloPay</b> (tải QR ví của bạn); để trống sẽ dùng QR minh hoạ.</p>
       <div className="flex items-center gap-5 flex-wrap">
         <div className="w-[150px] h-[150px] rounded-xl border-2 border-dashed border-[#e5e5e5] flex items-center justify-center overflow-hidden bg-[#f8f8fa] shrink-0">
-          {payment.qrImage ? <img src={payment.qrImage} alt="QR" className="w-full h-full object-contain" /> : <span className="text-xs text-[#8f9294] text-center px-2">ChÆ°a cÃ³ QR</span>}
+          {payment.qrImage ? <img src={payment.qrImage} alt="QR" className="w-full h-full object-contain" /> : <span className="text-xs text-[#8f9294] text-center px-2">Chưa có QR</span>}
         </div>
         <div className="flex flex-col gap-2">
           <label className="px-4 py-2 rounded-lg text-white text-sm font-semibold cursor-pointer inline-block w-fit" style={{ background: "var(--ap-primary)" }}>
-            Táº£i áº£nh QR
+            Tải ảnh QR
             <input type="file" accept={IMG_ACCEPT} className="hidden" onChange={async e => {
               const f = e.target.files?.[0]; if (!f) return;
               const verr = validateImageFile(f); if (verr) { imageError(verr); e.target.value = ""; return; }
-              window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: "Äang kiá»ƒm tra mÃ£ QRâ€¦", type: "info" } }));
+              window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: "Đang kiểm tra mã QR…", type: "info" } }));
               const dataUrl = await fileToDataUrl(f);
               const isQr = await detectQrCode(dataUrl);
               if (isQr === false) {
-                window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: "áº¢nh khÃ´ng pháº£i mÃ£ QR há»£p lá»‡ â€” khÃ´ng lÆ°u. Vui lÃ²ng táº£i Ä‘Ãºng áº£nh mÃ£ QR ngÃ¢n hÃ ng.", type: "error" } }));
+                window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: "Ảnh không phải mã QR hợp lệ — không lưu. Vui lòng tải đúng ảnh mã QR ngân hàng.", type: "error" } }));
                 e.target.value = ""; return;
               }
               setPayment(p => ({ ...p, qrImage: dataUrl }));
-              window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: isQr === null ? "TrÃ¬nh duyá»‡t khÃ´ng kiá»ƒm tra Ä‘Æ°á»£c mÃ£ QR â€” hÃ£y Ä‘áº£m báº£o áº£nh Ä‘Ãºng lÃ  mÃ£ QR." : "ÄÃ£ nháº­n diá»‡n mÃ£ QR há»£p lá»‡.", type: isQr === null ? "warning" : "success" } }));
+              window.dispatchEvent(new CustomEvent("app-toast", { detail: { message: isQr === null ? "Trình duyệt không kiểm tra được mã QR — hãy đảm bảo ảnh đúng là mã QR." : "Đã nhận diện mã QR hợp lệ.", type: isQr === null ? "warning" : "success" } }));
               e.target.value = "";
             }} />
           </label>
-          {payment.qrImage && <button onClick={() => setPayment(p => ({ ...p, qrImage: "" }))} className="text-xs text-red-500 hover:text-red-600 font-medium text-left">âœ• XoÃ¡ QR</button>}
-          <p className="text-[11px] text-[#8f9294] max-w-[260px]">Khuyáº¿n nghá»‹ áº£nh vuÃ´ng, rÃµ nÃ©t.</p>
+          {payment.qrImage && <button onClick={() => setPayment(p => ({ ...p, qrImage: "" }))} className="text-xs text-red-500 hover:text-red-600 font-medium text-left">✕ Xoá QR</button>}
+          <p className="text-[11px] text-[#8f9294] max-w-[260px]">Khuyến nghị ảnh vuông, rõ nét.</p>
         </div>
       </div>
     </div>
     <div className={cardCls}>
-      <h2 className="font-bold text-[#44494d] mb-4">ThÃ´ng tin chuyá»ƒn khoáº£n</h2>
+      <h2 className="font-bold text-[#44494d] mb-4">Thông tin chuyển khoản</h2>
       <div className="grid md:grid-cols-2 gap-4">{([
-        ["NgÃ¢n hÃ ng", "bankName"],
-        ["Sá»‘ tÃ i khoáº£n", "bankAccount"],
-        ["Chá»§ tÃ i khoáº£n", "bankHolder"],
+        ["Ngân hàng", "bankName"],
+        ["Số tài khoản", "bankAccount"],
+        ["Chủ tài khoản", "bankHolder"],
       ] as [string, "bankName" | "bankAccount" | "bankHolder"][]).map(([label, key]) => (
         <div key={key}>
           <label className={labelCls}>{lang === "en" ? {primary: "Primary Color", primaryDark: "Primary Dark", accentRed: "Accent Red", sidebarBg: "Sidebar BG", sidebarBorder: "Sidebar Border", sidebarText: "Sidebar Text", topBarBg: "Top Bar BG", topBarText: "Top Bar Text", headerBg: "Header BG", textPrimary: "Text Primary", textMuted: "Text Muted", linkColor: "Link Color", pageBg: "Page BG", cardBg: "Card BG", borderColor: "Border Color"}[key] : lang === "zh" ? {primary: "主色", primaryDark: "深主色", accentRed: "强调红", sidebarBg: "侧边栏背景", sidebarBorder: "侧边栏边框", sidebarText: "侧边栏文字", topBarBg: "顶栏背景", topBarText: "顶栏文字", headerBg: "页眉背景", textPrimary: "主要文字", textMuted: "次要文字", linkColor: "链接颜色", pageBg: "页面背景", cardBg: "卡片背景", borderColor: "边框颜色"}[key] : label}</label>
@@ -757,10 +757,10 @@ export default function AdminSettingsPage() {
         </div>))}
       </div>
       <div className="mt-4">
-        <label className={labelCls}>Ghi chÃº hÆ°á»›ng dáº«n thanh toÃ¡n</label>
+        <label className={labelCls}>Ghi chú hướng dẫn thanh toán</label>
         <textarea rows={2} value={payment.note} onChange={e => setPayment(p => ({ ...p, note: e.target.value }))} className={inputCls + " resize-none"} />
       </div>
-      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>MÃ£ QR + thÃ´ng tin nÃ y hiá»ƒn thá»‹ á»Ÿ bÆ°á»›c thanh toÃ¡n cá»§a khÃ¡ch. Nháº¥n &quot;LÆ°u cÃ i Ä‘áº·t&quot; Ä‘á»ƒ Ã¡p dá»¥ng.</div>
+      <div className="mt-4 p-3 rounded-xl text-xs text-blue-700" style={{ background: "#EFF6FF" }}>Mã QR + thông tin này hiển thị ở bước thanh toán của khách. Nhấn &quot;Lưu cài đặt&quot; để áp dụng.</div>
     </div>
     </>)}
 

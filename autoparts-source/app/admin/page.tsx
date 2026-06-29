@@ -70,12 +70,16 @@ const pendingApprovals = [
 ];
 
 function KPICard({ value, label, change, positive }: { value: string; label: string; change: string; positive: boolean; icon?: string }) {
+ const numericChange = Number(String(change || "0").replace(/[+%]/g, ""));
+ const isUp = numericChange > 0 || (numericChange === 0 && positive);
+ const isDown = numericChange < 0 || !positive;
+ const badgeClass = isDown ? "bg-red-50 text-red-600" : isUp ? "bg-green-50 text-green-600" : "bg-slate-100 text-slate-500";
+ const arrow = isDown ? "↓" : isUp ? "↑" : "→";
  return (
  <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-3">
  <p className="text-xs font-semibold text-[#8f9294] uppercase tracking-wide">{label}</p>
- <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${positive ? "bg-green-50 text-green-600" : "bg-red-50 text-red-500"}`}>{positive ? "^" : "v"} {change}
- </span>
+ <span className={`inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full ${badgeClass}`}>{arrow} {change}</span>
  </div>
  <p className="text-2xl font-bold text-[#44494d] tracking-tight">{value}</p>
  </div>);

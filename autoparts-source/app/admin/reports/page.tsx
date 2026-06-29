@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
@@ -115,7 +115,7 @@ const categoryData = Object.entries(_catCount).sort((a,b) => b[1] - a[1]).slice(
  <div className="flex items-center gap-4">
  <div className="shrink-0">
  <PieChart width={170} height={170}>
- <Pie data={categoryData} dataKey="value" cx="50%" cy="50%" innerRadius={52} outerRadius={78} paddingAngle={3}>{categoryData.map((entry, index) => (
+ <Pie data={categoryData} dataKey="value" cx="50%" cy="50%" innerRadius={52} outerRadius={78}>{categoryData.map((entry, index) => (
  <Cell key={index} fill={entry.color} />))}
  </Pie>
  </PieChart>

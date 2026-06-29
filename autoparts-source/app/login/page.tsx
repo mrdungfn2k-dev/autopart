@@ -68,7 +68,10 @@ export default function LoginPage() {
         document.cookie = `ap_token=${data.token}; path=/; SameSite=Lax; expires=${expires}`;
       }
       if (data.user) setAuth(data.user);
-      const dest = fromUrl && fromUrl.startsWith("/") ? fromUrl : (data.redirect ?? "/");
+      let dest = fromUrl && fromUrl.startsWith("/") ? fromUrl : (data.redirect ?? "/");
+      if (data.user && data.user.role === "customer" && dest.startsWith("/customer")) {
+        dest = "/";
+      }
       window.location.href = dest;
     } catch {
       setError("Lỗi kết nối, vui lòng thử lại");

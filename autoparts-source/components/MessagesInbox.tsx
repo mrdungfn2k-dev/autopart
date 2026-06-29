@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useLang } from "@/lib/i18n";
 
-type Msg = { from: "user" | "peer"; text: string; at: string };
+type Msg = { from: "user" | "peer"; text: string; at: string; image?: string };
 type Conv = {
   id: string; userName: string; userEmail?: string; peerName: string;
   messages: Msg[]; unreadForPeer: number; updatedAt: string;
@@ -24,10 +24,22 @@ export default function MessagesInbox({ title }: { title: string }) {
 
   const active = convs.find(c => c.id === activeId) || null;
 
-  const send = async () => {
-    const text = draft.trim(); if (!text || !active) return;
-    setDraft("");
-    try { const r = await fetch("/api/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: active.id, text }) }); if (r.ok) load(); } catch { /* ignore */ }
+  const send = async (overrideText?: string, imgBase64?: string) => {
+    const text = overrideText ?? draft.trim(); if (!text && !imgBase64 || !active) return;
+    if (!overrideText) setDraft("");
+    try { const r = await fetch("/api/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: active.id, text, image: imgBase64 }) }); if (r.ok) load(); } catch { /* ignore */ }
+  };
+
+  const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const b64 = ev.target?.result as string;
+      send("[Hình ảnh]", b64);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
   };
 
   return (
@@ -65,7 +77,10 @@ export default function MessagesInbox({ title }: { title: string }) {
                 {active.messages.map((m, i) => (
                   <div key={i} className={`flex ${m.from === "peer" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[70%] px-3 py-2 rounded-2xl text-sm ${m.from === "peer" ? "text-white rounded-br-sm" : "bg-white border border-[#eee] text-[#44494d] rounded-bl-sm"}`}
-                      style={m.from === "peer" ? { background: "var(--ap-primary)" } : {}}>{m.text}</div>
+                      style={m.from === "peer" ? { background: "var(--ap-primary)" } : {}}>
+                      {m.image && <img src={m.image} alt="uploaded" className="max-w-full rounded-md mb-1 cursor-pointer" />}
+                      {m.text}
+                    </div>
                   </div>
                 ))}
                 {(() => {
@@ -76,10 +91,14 @@ export default function MessagesInbox({ title }: { title: string }) {
                 })()}
                 <div ref={endRef} />
               </div>
-              <div className="p-3 border-t border-[#f0f0f0] bg-white flex gap-2 shrink-0">
+              <div className="p-3 border-t border-[#f0f0f0] bg-white flex items-center gap-2 shrink-0">
+                <label className="w-9 h-9 flex items-center justify-center text-[#8f9294] cursor-pointer hover:text-[#1a4b97]">
+                  <input type="file" accept="image/*" className="hidden" onChange={handleImage} />
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                </label>
                 <input value={draft} onChange={e => setDraft(e.target.value)} onKeyDown={e => e.key === "Enter" && send()}
                   placeholder={lang === "zh" ? "输入回复..." : lang === "en" ? "Type a reply..." : "Nhập trả lời..."} className="flex-1 px-3 py-2 border border-[#e5e5e5] rounded-full text-sm focus:outline-none focus:border-[#1a4b97]" />
-                <button onClick={send} className="px-5 py-2 rounded-full text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "发送" : lang === "en" ? "Send" : "Gửi"}</button>
+                <button onClick={() => send()} className="px-5 py-2 rounded-full text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "发送" : lang === "en" ? "Send" : "Gửi"}</button>
               </div>
             </>
           )}

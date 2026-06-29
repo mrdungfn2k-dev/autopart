@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
@@ -17,16 +17,21 @@ export default function AddToCartToast() {
   const [visible, setVisible] = useState(false);
   const { t } = useLang();
 
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent<ToastInfo>).detail;
       setToast(detail);
       setVisible(true);
-      const t = setTimeout(() => setVisible(false), 2500);
-      return () => clearTimeout(t);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => setVisible(false), 3000);
     };
     window.addEventListener("add-to-cart-toast", handler);
-    return () => window.removeEventListener("add-to-cart-toast", handler);
+    return () => {
+      window.removeEventListener("add-to-cart-toast", handler);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   if (!toast) return null;

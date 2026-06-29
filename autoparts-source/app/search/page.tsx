@@ -123,6 +123,13 @@ export default function SearchPage() {
     addToCart(product.id, 1, product);
     setCartIds(prev => new Set([...prev, product.id]));
     fireToast(product.name);
+    setTimeout(() => {
+      setCartIds(prev => {
+        const next = new Set(prev);
+        next.delete(product.id);
+        return next;
+      });
+    }, 3000);
   };
 
   const Stars = ({ rating, count }: { rating: number; count?: number }) => {

@@ -510,6 +510,11 @@ function FlashSaleSection() {
                  限时特惠
                  <svg className="w-6 h-6 ml-1 text-[#1a4b97]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clipRule="evenodd"></path></svg>
               </div>
+            ) : lang === "en" ? (
+              <div className="flex items-center text-[#1a4b97] italic font-black text-[22px] px-2 tracking-wide">
+                 Daily Best Deals
+                 <svg className="w-6 h-6 ml-1 text-[#1a4b97]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clipRule="evenodd"></path></svg>
+              </div>
             ) : (
               <img loading="lazy" decoding="async" src="/ap-assets/price-good-ic.png" alt="" className="h-[28px]" />
             )}
@@ -1017,7 +1022,7 @@ function APHotDeals() {
       <svg className="absolute -right-6 top-0 w-48 h-48 text-[#1a4b97] opacity-[0.03] pointer-events-none transform -rotate-12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2C12 2 8 6.5 8 11C8 13.5 9.5 15.5 11.5 16.5C10.5 15.5 10.5 14 10.5 14C10.5 14 12 11.5 13.5 11.5C14.5 11.5 15.5 13 15.5 15C15.5 16.5 14.5 18 13 18.5C15.5 18 18 16 18 12C18 8 13 4 12 2Z" />
       </svg>
-      <h3 className="font-bold text-[#1a4b97] text-[15px] mb-2 flex items-center uppercase relative z-10"><span className="text-[#f5a623] mr-1"></span> SẢN PHẨM HOT BÁN CHẠY</h3>
+      <h3 className="font-bold text-[#1a4b97] text-[15px] mb-2 flex items-center uppercase relative z-10"><span className="text-[#f5a623] mr-1"></span> {lang === 'zh' ? '热销产品' : lang === 'en' ? 'HOT SELLING PRODUCTS' : 'SẢN PHẨM HOT BÁN CHẠY'}</h3>
       <SlidingCategoryNav items={hotDealItems} colorHex="#1a4b97" gradientFrom="from-white" />
       <div className="flex gap-2 flex-1 min-h-0">
         <div className="w-[45%] h-full rounded-lg overflow-hidden relative group bg-white shadow-sm border border-gray-100">
@@ -1092,7 +1097,7 @@ function APFlashSaleCompact() {
     <div className="bg-[#eef2ff] rounded-[16px] p-4 flex flex-col shadow-sm border border-[#e0e7ff] h-full">
       <div className="flex items-center justify-between mb-2">
          <div className="flex items-center gap-2">
-            <img loading="lazy" decoding="async" src="/ap-assets/price-good-ic.png" alt="" className="h-[22px]" />
+            {lang === 'zh' ? <span className="text-[16px] font-black text-[#1a4b97] italic mr-2">限时特惠</span> : lang === 'en' ? <span className="text-[16px] font-black text-[#1a4b97] italic mr-2">Best Deals</span> : <img loading="lazy" decoding="async" src="/ap-assets/price-good-ic.png" alt="" className="h-[22px] mr-1" />}
             <div className="flex items-center text-white gap-[3px]">
                <div className="w-[22px] h-[19px] rounded flex justify-center items-center bg-[var(--ap-primary-dark)] text-[12px]">{pad(timeLeft.h)}</div>
                <span className="text-[12px] text-[#44494d] font-bold">:</span>
@@ -1163,7 +1168,7 @@ function APTaobaoDeals() {
     <div className="bg-[#fff9f9] rounded-[16px] p-4 flex flex-col shadow-sm border border-[#ffebeb] h-full">
       <h3 className="font-bold text-[#ef4444] text-[15px] mb-2 flex items-center uppercase">
         <span className="text-red-500 mr-1 text-[18px]"></span>
-        SẢN PHẨM HOT TỪ TAOBAO, 1688
+        {lang === 'zh' ? '淘宝、1688 热门产品' : lang === 'en' ? 'HOT PRODUCTS FROM TAOBAO, 1688' : 'SẢN PHẨM HOT TỪ TAOBAO, 1688'}
       </h3>
       <div className="flex gap-4 text-[12px] font-medium text-gray-600 mb-3 overflow-x-hidden whitespace-nowrap">
          <span className="text-[#fe0035] border-b-2 border-[#fe0035] pb-1 cursor-pointer">≡ Bộ Lọc</span>
@@ -1243,7 +1248,7 @@ function APTopSellers() {
       </svg>
       <h3 className="font-bold text-[#1a4b97] text-[15px] mb-4 flex items-center uppercase relative z-10">
          <img loading="lazy" decoding="async" src="/ap-assets/category-blue.svg" className="w-[16px] h-[16px] mr-1" />
-         {lang === 'zh' ? '优质卖家' : 'NHÀ BÁN NỔI BẬT'}
+         {lang === 'zh' ? '优质卖家' : lang === 'en' ? 'TOP SELLERS' : 'NHÀ BÁN NỔI BẬT'}
       </h3>
       <div className="flex flex-col gap-4 overflow-y-auto custom-scrollbar flex-1 pr-1 pt-2 pb-4">
         {suppliers.length === 0

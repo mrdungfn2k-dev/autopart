@@ -202,6 +202,9 @@ export default function FlashSalePage() {
                             rating: p.rating, stock: p.stock,
                           });
                           setCartIds(prev => [...prev, p.id]);
+                          setTimeout(() => {
+                            setCartIds(prev => prev.filter(id => id !== p.id));
+                          }, 3000);
                         }
                       }}
                       className="w-full py-2 rounded-xl text-sm font-bold transition-all"

@@ -1061,7 +1061,9 @@ export function LangProvider({ children }: { children: ReactNode }) {
 
  useEffect(() => {
   const saved = localStorage.getItem("lang") as Lang | null;
-  if (saved === "vi" || saved === "en" || saved === "zh") setLangState(saved);
+  const next = saved === "vi" || saved === "en" || saved === "zh" ? saved : "vi";
+  setLangState(next);
+  document.documentElement.lang = next === "en" ? "en" : next === "zh" ? "zh-CN" : "vi";
  }, []);
 
  const setLang = (l: Lang) => {
