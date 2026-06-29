@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useCallback } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
 import { validateField } from "@/lib/validators";
@@ -29,7 +29,7 @@ const BLANK: Partial<Supplier> = {
 function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | null; onClose: () => void; onSaved: () => void; }) {
   const [form, setForm] = useState<Partial<Supplier>>({ ...BLANK, ...sup });
   const [busy, setBusy] = useState(false);
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const isEdit = !!sup?.id;
   const set = (k: keyof Supplier, v: unknown) => setForm(f => ({ ...f, [k]: v }));
 
@@ -61,17 +61,17 @@ function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | nul
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(15,23,42,0.55)" }}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 relative max-h-[92vh] overflow-auto">
-        <button onClick={onClose} className="absolute top-4 right-4 text-[#8f9294] hover:text-slate-600 text-xl font-bold">✕</button>
+        <button onClick={onClose} className="absolute top-4 right-4 text-[#8f9294] hover:text-slate-600 text-xl font-bold">âœ•</button>
         <h2 className="text-lg font-bold text-[#44494d] mb-5">{isEdit ? t("edit") : t("add")} {t("adminSuppliers")}</h2>
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-2"><label className={lab}>{t("userName")} <span className="text-red-500">*</span></label>
-            <input value={form.name || ""} onChange={e => set("name", e.target.value)} maxLength={80} className={inp} placeholder="Phụ Tùng An Thái" /></div>
+            <input value={form.name || ""} onChange={e => set("name", e.target.value)} maxLength={80} className={inp} placeholder="Phá»¥ TÃ¹ng An ThÃ¡i" /></div>
           <div className="col-span-2"><label className={lab}>Logo (URL)</label>
-            <input value={form.logo || ""} onChange={e => set("logo", e.target.value)} className={inp} placeholder="https://... hoặc /ap-assets/..." /></div>
+            <input value={form.logo || ""} onChange={e => set("logo", e.target.value)} className={inp} placeholder="https://... hoáº·c /ap-assets/..." /></div>
           <div className="col-span-2"><label className={lab}>{t("description")}</label>
-            <input value={form.description || ""} onChange={e => set("description", e.target.value)} className={inp} placeholder="Chuyên phụ tùng chính hãng..." /></div>
+            <input value={form.description || ""} onChange={e => set("description", e.target.value)} className={inp} placeholder="ChuyÃªn phá»¥ tÃ¹ng chÃ­nh hÃ£ng..." /></div>
           <div className="col-span-2 text-[11px] text-[#8f9294] bg-[#f8f8fa] rounded-lg px-3 py-2 -mb-1">
-            🔒 <b>{t("rating")} / {t("review")} / {t("product")} / {t("order")}</b>: {t("notUpdated")}
+            ðŸ”’ <b>{t("rating")} / {t("review")} / {t("product")} / {t("order")}</b>: {t("notUpdated")}
           </div>
           <div><label className={lab}>{t("rating")} (0-5)</label>
             <input type="number" value={form.rating ?? 0} disabled readOnly className={lockInp} /></div>
@@ -81,10 +81,10 @@ function SupplierModal({ sup, onClose, onSaved }: { sup: Partial<Supplier> | nul
             <input type="number" value={form.totalProducts ?? 0} disabled readOnly className={lockInp} /></div>
           <div><label className={lab}>{t("totalOrders")}</label>
             <input type="number" value={form.totalOrders ?? 0} disabled readOnly className={lockInp} /></div>
-          <div><label className={lab}>{t("responseRate" as any) || "Tỉ lệ phản hồi (%)"}}</label>
+          <div><label className={lab}>{t("responseRate" as any) || "Tá»‰ lá»‡ pháº£n há»“i (%)"}}</label>
             <input type="number" value={form.responseRate ?? 0} disabled readOnly className={lockInp} /></div>
           <div><label className={lab}>{t("email")}</label>
-            <input type="email" value={form.email || ""} onChange={e => set("email", e.target.value)} className={inp} placeholder="ncc@email.com" /></div>
+            <input type="email" value={form.email || ""} onChange={e => set("email", e.target.value)} className={inp} placeholder="supplier@email.com" /></div>
           <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={!!form.verified} onChange={e => set("verified", e.target.checked)} className="accent-[#1a4b97]" /> {t("verified")}</label>
           <label className="flex items-center gap-2 text-sm text-[#44494d] cursor-pointer"><input type="checkbox" checked={form.active !== false} onChange={e => set("active", e.target.checked)} className="accent-[#1a4b97]" /> {t("active")}</label>
         </div>
@@ -103,7 +103,7 @@ export default function AdminSuppliersPage() {
   const [editing, setEditing] = useState<Partial<Supplier> | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [q, setQ] = useState("");
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const load = useCallback(() => {
     setLoading(true);
@@ -132,7 +132,7 @@ export default function AdminSuppliersPage() {
           <div className="flex items-center justify-between px-6 h-16">
             <div>
               <h1 className="text-xl font-bold text-[#44494d]">{t("adminSuppliers")} ({list.length})</h1>
-              <p className="text-xs text-[#8f9294]">{t("notUpdated" as any) ? t("adminSuppliers") : "Dữ liệu hiển thị trực tiếp ở trang /suppliers"}</p>
+              <p className="text-xs text-[#8f9294]">{t("notUpdated" as any) ? t("adminSuppliers") : "Dá»¯ liá»‡u hiá»ƒn thá»‹ trá»±c tiáº¿p á»Ÿ trang /suppliers"}</p>
             </div>
             <div className="flex items-center gap-2">
               <input value={q} onChange={e => setQ(e.target.value)} placeholder={t("searchGeneric")} className="w-52 px-3 py-2 rounded-lg text-sm border border-[#e5e5e5] focus:outline-none focus:border-[#1a4b97]" />
@@ -155,10 +155,10 @@ export default function AdminSuppliersPage() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-full overflow-hidden bg-[#f0f4ff] border border-gray-100 shrink-0 flex items-center justify-center text-[#1a4b97] font-bold text-xs">{s.logo ? <img src={s.logo} className="w-full h-full object-cover" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} /> : s.name.charAt(0)}</div>
-                        <div><p className="font-semibold text-[#44494d]">{s.name}</p>{s.verified && <span className="text-[10px] text-green-600 font-semibold">✓ {t("verified")}</span>}</div>
+                        <div><p className="font-semibold text-[#44494d]">{s.name}</p>{s.verified && <span className="text-[10px] text-green-600 font-semibold">âœ“ {t("verified")}</span>}</div>
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-[#44494d]">★ {s.rating ?? 0} <span className="text-[#8f9294] text-xs">({s.reviewCount ?? 0})</span></td>
+                    <td className="px-4 py-3 text-[#44494d]">â˜… {s.rating ?? 0} <span className="text-[#8f9294] text-xs">({s.reviewCount ?? 0})</span></td>
                     <td className="px-4 py-3 text-[#44494d]">{s.totalProducts ?? 0}</td>
                     <td className="px-4 py-3 text-[#44494d]">{s.totalOrders ?? 0}</td>
                     <td className="px-4 py-3 text-[#44494d]">{s.responseRate ?? 0}%</td>
@@ -171,7 +171,7 @@ export default function AdminSuppliersPage() {
                 ))}</tbody>
               </table>
             )}
-            <Pagination page={pageSafe} totalPages={totalPages} onChange={setPage} totalItems={filtered.length} pageSize={PAGE_SIZE} unit="NCC" />
+            <Pagination page={pageSafe} totalPages={totalPages} onChange={setPage} totalItems={filtered.length} pageSize={PAGE_SIZE} unit={lang === "en" ? "Suppliers" : lang === "zh" ? "供应商" : "NCC"} />
           </div>
         </div>
       </main>
@@ -179,3 +179,4 @@ export default function AdminSuppliersPage() {
     </>
   );
 }
+

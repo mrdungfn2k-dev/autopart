@@ -40,7 +40,7 @@ function ImageUpload({ preview, onFile }: { preview: string | null; onFile: (url
   }
   return (
     <div>
-      <label className="text-xs font-semibold text-slate-600 mb-1 block">Ảnh</label>
+      <label className="text-xs font-semibold text-slate-600 mb-1 block">{lang === "en" ? "Image" : lang === "zh" ? "图片" : "Ảnh"}</label>
       <div
         onDragOver={e => { e.preventDefault(); setDrag(true); }}
         onDragLeave={() => setDrag(false)}
@@ -91,11 +91,11 @@ function CategoryModal({ cat, onSave, onClose }: {
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(15,23,42,0.6)" }}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
         <button onClick={onClose} className="absolute top-4 right-4 text-[#8f9294] hover:text-[#44494d] font-bold text-xl">✕</button>
-        <h2 className="text-lg font-bold text-[#44494d] mb-5">{isEdit ? "Sửa danh mục" : "Thêm danh mục mới"}</h2>
+        <h2 className="text-lg font-bold text-[#44494d] mb-5">{isEdit ? (lang === "en" ? "Edit Category" : lang === "zh" ? "编辑分类" : "Sửa danh mục") : (lang === "en" ? "Add New Category" : lang === "zh" ? "添加新分类" : "Thêm danh mục mới")}</h2>
         <div className="space-y-4">
           <ImageUpload preview={img || null} onFile={url => setImg(url)} />
           <div>
-            <label className="block text-xs font-semibold text-[#8f9294] mb-1">Tên danh mục <span className="text-red-500">*</span></label>
+            <label className="block text-xs font-semibold text-[#8f9294] mb-1">{lang === "en" ? "Category Name" : lang === "zh" ? "分类名称" : "Tên danh mục"} <span className="text-red-500">*</span></label>
             <input value={form.name || ""} onChange={e => set("name", e.target.value)}
               className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
               placeholder="VD: Má phanh, Lọc dầu..." />
@@ -108,13 +108,13 @@ function CategoryModal({ cat, onSave, onClose }: {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-[#8f9294] mb-1">Ký hiệu / Icon</label>
+              <label className="block text-xs font-semibold text-[#8f9294] mb-1">{lang === "en" ? "Symbol / Icon" : lang === "zh" ? "符号/图标" : "Ký hiệu / Icon"}</label>
               <input value={form.icon || ""} onChange={e => set("icon", e.target.value)}
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
                 placeholder="VD: Phanh, Lọc, Bugi..." maxLength={6} />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#8f9294] mb-1">Màu sắc</label>
+              <label className="block text-xs font-semibold text-[#8f9294] mb-1">{lang === "en" ? "Color" : lang === "zh" ? "颜色" : "Màu sắc"}</label>
               <div className="flex gap-2 items-center">
                 <input type="color" value={form.color || "var(--ap-primary)"} onChange={e => set("color", e.target.value)}
                   className="w-10 h-10 rounded-lg border border-[#e5e5e5] cursor-pointer p-0.5" />
@@ -125,14 +125,14 @@ function CategoryModal({ cat, onSave, onClose }: {
             </div>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-[#8f9294] mb-1">Số lượng phụ tùng (ước tính)</label>
+            <label className="block text-xs font-semibold text-[#8f9294] mb-1">{lang === "en" ? "Parts Count (estimate)" : lang === "zh" ? "零件数量（估计）" : "Số lượng phụ tùng (ước tính)"}</label>
             <input type="number" value={form.count || 0} onChange={e => set("count", parseInt(e.target.value) || 0)}
               className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]" />
           </div>
         </div>
         <div className="flex gap-3 mt-6">
           <button onClick={onClose} className="flex-1 py-2.5 border border-[#e5e5e5] rounded-xl text-sm font-semibold text-slate-600 hover:bg-[#f8f8fa]">{t("cancel")}</button>
-          <button onClick={handleSave} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{isEdit ? "Lưu thay đổi" : "Thêm danh mục"}
+          <button onClick={handleSave} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{isEdit ? (lang === "en" ? "Save Changes" : lang === "zh" ? "保存更改" : "Lưu thay đổi") : (lang === "en" ? "Add Category" : lang === "zh" ? "添加分类" : "Thêm danh mục")}
           </button>
         </div>
       </div>
@@ -210,13 +210,13 @@ function ProductModal({ prod, categories, onSave, onClose }: {
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(15,23,42,0.6)" }}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[92vh] overflow-y-auto">
         <div className="flex items-center justify-between p-5 border-b border-[#f0f0f0] sticky top-0 bg-white z-10">
-          <h3 className="font-bold text-[#44494d] text-lg">{isEdit ? "Sửa phụ tùng" : "Thêm phụ tùng mới"}</h3>
+          <h3 className="font-bold text-[#44494d] text-lg">{isEdit ? (lang === "en" ? "Edit Part" : lang === "zh" ? "编辑零件" : "Sửa phụ tùng") : (lang === "en" ? "Add New Part" : lang === "zh" ? "添加新零件" : "Thêm phụ tùng mới")}</h3>
           <button onClick={onClose} className="text-[#8f9294] hover:text-[#44494d] font-bold text-xl">✕</button>
         </div>
         <div className="p-5 space-y-4">
           <ImageUpload preview={img || null} onFile={url => setImg(url)} />
           <div>
-            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Tên sản phẩm <span className="text-red-500">*</span></label>
+            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Product Name" : lang === "zh" ? "产品名称" : "Tên sản phẩm"} <span className="text-red-500">*</span></label>
             <input value={form.name || ""} onChange={e => set("name", e.target.value)}
               className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
               placeholder="VD: Má phanh trước Toyota Vios 2020" />
@@ -229,7 +229,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
                 placeholder="04465-0D156" />
             </div>
             <div>
-              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Nhà cung cấp</label>
+              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Supplier" : lang === "zh" ? "供应商" : "Nhà cung cấp"}</label>
               <input value={form.supplier || ""} onChange={e => set("supplier", e.target.value)}
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
                 placeholder="Tên NCC" />
@@ -237,7 +237,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Danh mục <span className="text-red-500">*</span></label>
+              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Category" : lang === "zh" ? "分类" : "Danh mục"} <span className="text-red-500">*</span></label>
               <select value={form.categoryId || ""} onChange={e => set("categoryId", e.target.value)}
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97] bg-white">{categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
@@ -252,7 +252,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
               </select>
             </div>
             <div>
-              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Xuất xứ</label>
+              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Origin" : lang === "zh" ? "产地" : "Xuất xứ"}</label>
               <input type="text" list="origin-list" value={form.origin || ""} onChange={e => set("origin", e.target.value)}
                 placeholder="Ví dụ: Trung Quốc"
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97] bg-white" />
@@ -272,50 +272,50 @@ function ProductModal({ prod, categories, onSave, onClose }: {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Giá niêm yết (VNĐ) <span className="text-red-500">*</span></label>
+              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "List Price (VND)" : lang === "zh" ? "标价 (VND)" : "Giá niêm yết (VNĐ)"} <span className="text-red-500">*</span></label>
               <input type="number" value={form.price || ""} onChange={e => set("price", parseInt(e.target.value) || 0)}
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
                 placeholder="1250000" />
             </div>
             <div>
-              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Tồn kho (số lượng)</label>
+              <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Stock (qty)" : lang === "zh" ? "库存（数量）" : "Tồn kho (số lượng)"}</label>
               <input type="number" min="0" value={form.stock ?? 0} onChange={e => set("stock", parseInt(e.target.value) || 0)}
                 className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97]"
                 placeholder="100" />
             </div>
           </div>
           <div>
-            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Mô tả sản phẩm</label>
+            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Product Description" : lang === "zh" ? "产品描述" : "Mô tả sản phẩm"}</label>
             <textarea rows={2} value={form.description || ""} onChange={e => set("description", e.target.value)}
               placeholder="Mô tả ngắn về sản phẩm..."
               className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm resize-none focus:outline-none focus:border-[#1a4b97]" />
           </div>
           <div>
-            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">Xe tương thích (mỗi dòng một xe)</label>
+            <label className="text-xs font-semibold text-[#8f9294] mb-1 block">{lang === "en" ? "Compatible Vehicles (one per line)" : lang === "zh" ? "兼容车型（每行一个）" : "Xe tương thích (mỗi dòng một xe)"}</label>
             <textarea rows={3} value={vehicles} onChange={e => setVehicles(e.target.value)}
               placeholder={"Toyota Vios 2018-2022\nToyota Yaris 2019-2023"}
               className="w-full px-3 py-2.5 border border-[#e5e5e5] rounded-lg text-sm resize-none focus:outline-none focus:border-[#1a4b97]" />
           </div>{/* ── Cài đặt hiển thị trang chủ ── */}
           <div className="border border-[#f0f0f0] rounded-lg p-3 bg-[#fafafa]">
-            <label className="text-xs font-semibold text-[#44494d] mb-2 block">Hiển thị trên Trang chủ</label>
+            <label className="text-xs font-semibold text-[#44494d] mb-2 block">{lang === "en" ? "Show on Homepage" : lang === "zh" ? "在首页显示" : "Hiển thị trên Trang chủ"}</label>
             <div className="space-y-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" checked={(form as any).isTrending ?? false}
                   onChange={e => setForm(f => ({ ...f, isTrending: e.target.checked } as any))}
                   className="accent-orange-500 w-4 h-4" />
-                <span className="text-sm text-[#44494d]">Sản phẩm Trending</span>
+                <span className="text-sm text-[#44494d]">{lang === "en" ? "Trending Product" : lang === "zh" ? "热门产品" : "Sản phẩm Trending"}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" checked={(form as any).isHot ?? false}
                   onChange={e => setForm(f => ({ ...f, isHot: e.target.checked } as any))}
                   className="accent-orange-500 w-4 h-4" />
-                <span className="text-sm text-[#44494d]">Phụ tùng hot bán chạy</span>
+                <span className="text-sm text-[#44494d]">{lang === "en" ? "Hot Selling Part" : lang === "zh" ? "热销零件" : "Phụ tùng hot bán chạy"}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" checked={(form as any).isImported ?? false}
                   onChange={e => setForm(f => ({ ...f, isImported: e.target.checked } as any))}
                   className="accent-orange-500 w-4 h-4" />
-                <span className="text-sm text-[#44494d]">Phụ tùng nhập khẩu chính hãng</span>
+                <span className="text-sm text-[#44494d]">{lang === "en" ? "Genuine Import Part" : lang === "zh" ? "正品进口零件" : "Phụ tùng nhập khẩu chính hãng"}</span>
               </label>
             </div>
           </div>
@@ -366,7 +366,7 @@ function ProductModal({ prod, categories, onSave, onClose }: {
 
         <div className="flex gap-3 p-5 border-t border-[#f0f0f0] sticky bottom-0 bg-white">
           <button onClick={onClose} className="flex-1 py-2.5 border border-[#e5e5e5] rounded-xl text-sm font-semibold text-slate-600 hover:bg-[#f8f8fa]">{t("cancel")}</button>
-          <button onClick={handleSave} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{isEdit ? "Lưu thay đổi" : "Thêm phụ tùng"}
+          <button onClick={handleSave} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{isEdit ? (lang === "en" ? "Save Changes" : lang === "zh" ? "保存更改" : "Lưu thay đổi") : (lang === "en" ? "Add Part" : lang === "zh" ? "添加零件" : "Thêm phụ tùng")}
           </button>
         </div>
       </div>
@@ -380,8 +380,8 @@ function DeleteConfirm({ name, onConfirm, onClose }: { name: string; onConfirm: 
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(15,23,42,0.6)" }}>
       <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full mx-4 text-center">
         <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-3 text-xl font-bold text-red-500"></div>
-        <h3 className="font-bold text-[#44494d] mb-2">Xác nhận xóa</h3>
-        <p className="text-sm text-[#8f9294] mb-5">Bạn có chắc muốn xóa <strong>"{name}"</strong>? Hành động này không thể hoàn tác.</p>
+        <h3 className="font-bold text-[#44494d] mb-2">{lang === "en" ? "Confirm Delete" : lang === "zh" ? "确认删除" : "Xác nhận xóa"}</h3>
+        <p className="text-sm text-[#8f9294] mb-5">{lang === "en" ? `Are you sure you want to delete "${name}"? This action cannot be undone.` : lang === "zh" ? `确定要删除 "${name}" 吗？此操作无法撤销。` : `Bạn có chắc muốn xóa "${name}"? Hành động này không thể hoàn tác.`}</p>
         <div className="flex gap-3">
           <button onClick={onClose} className="flex-1 py-2.5 border border-[#e5e5e5] rounded-xl text-sm font-semibold text-slate-600">{t("cancel")}</button>
           <button onClick={onConfirm} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#1a4b97]">{t("delete")}</button>
@@ -433,13 +433,13 @@ function CategoryRow({ cat, path, depth, onEdit, onAddSub, onDelete }: {
         <td className="px-4 py-3">
           <div className="flex gap-1 flex-wrap w-[160px]">
             <button onClick={() => onEdit(cat, path)}
-              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600 hover:bg-orange-50 hover:border-orange-300 hover:text-[#1a4b97] transition-colors">Sửa
+              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600 hover:bg-orange-50 hover:border-orange-300 hover:text-[#1a4b97] transition-colors">{lang === "en" ? "Edit" : lang === "zh" ? "编辑" : "Sửa"}
             </button>
             <button onClick={() => onAddSub(currentPath)}
-              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-[#1a4b97] hover:bg-[#1a4b97] hover:text-white transition-colors">+ Mục con
+              className="px-2 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-[#1a4b97] hover:bg-[#1a4b97] hover:text-white transition-colors">+ {lang === "en" ? "Subcategory" : lang === "zh" ? "子分类" : "Mục con"}
             </button>
             <button onClick={() => onDelete(cat, path)}
-              className="px-2 py-1 rounded-lg text-xs font-semibold border border-red-100 text-red-400 hover:bg-red-50 transition-colors">Xóa
+              className="px-2 py-1 rounded-lg text-xs font-semibold border border-red-100 text-red-400 hover:bg-red-50 transition-colors">{lang === "en" ? "Delete" : lang === "zh" ? "删除" : "Xóa"}
             </button>
           </div>
         </td>
@@ -600,17 +600,17 @@ export default function AdminCatalogPage() {
       <main className="flex-1 overflow-auto">{/* Top bar */}
         <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
           <div className="flex items-center justify-between px-6 h-16">
-            <h1 className="text-xl font-bold text-[#44494d]">Sản phẩm &amp; Danh mục</h1>
+            <h1 className="text-xl font-bold text-[#44494d]">{lang === "en" ? "Products & Categories" : lang === "zh" ? "产品 & 分类" : "Sản phẩm & Danh mục"}</h1>
             <div className="flex gap-2">
                 <button onClick={() => { setEditingCat({ node: null, parentPath: [] }); setShowCatModal(true); }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border border-[#1a4b97] text-[#1a4b97] hover:bg-[#eff4fc]">+ Thêm danh mục
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border border-[#1a4b97] text-[#1a4b97] hover:bg-[#eff4fc]">+ {lang === "en" ? "Add Category" : lang === "zh" ? "添加分类" : "Thêm danh mục"}
                 </button>
                 <button onClick={() => { setEditingProd(null); setShowProdModal(true); }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ Thêm sản phẩm
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "Add Product" : lang === "zh" ? "添加产品" : "Thêm sản phẩm"}
                 </button>
             </div>
           </div>{/* Sub tabs */}
-          <div className="px-6 flex gap-0 border-t border-[#f0f0f0]">{[["categories", `Danh mục (${categories.length})`], ["products", `Tất cả phụ tùng (${prods.length})`]].map(([key, label]) => (
+          <div className="px-6 flex gap-0 border-t border-[#f0f0f0]">{[["categories", lang === "en" ? `Categories (${categories.length})` : lang === "zh" ? `分类 (${categories.length})` : `Danh mục (${categories.length})`], ["products", lang === "en" ? `All Parts (${prods.length})` : lang === "zh" ? `全部零件 (${prods.length})` : `Tất cả phụ tùng (${prods.length})`]].map(([key, label]) => (
               <button key={key} onClick={() => setActiveTab(key as "products" | "categories")}
                 className={`px-5 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === key ? "border-[#1a4b97] text-[#1a4b97]" : "border-transparent text-[#8f9294] hover:text-[#44494d]"}`}>{label}
               </button>))}
@@ -622,18 +622,18 @@ export default function AdminCatalogPage() {
             <div>{categories.length === 0 && (
                 <div className="text-center py-20 text-[#8f9294]">
                   <p className="text-4xl mb-3"></p>
-                  <p className="font-semibold">Chưa có danh mục nào</p>
-                  <p className="text-sm">Nhấn "+ Thêm danh mục" để bắt đầu</p>
+                  <p className="font-semibold">{lang === "en" ? "No categories yet" : lang === "zh" ? "暂无分类" : "Chưa có danh mục nào"}</p>
+                  <p className="text-sm">{lang === "en" ? 'Click "+ Add Category" to begin' : lang === "zh" ? '点击 "+ 添加分类" 开始' : 'Nhấn "+ Thêm danh mục" để bắt đầu'}</p>
                 </div>)}
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] overflow-hidden">
                 <table className="w-full">
                   <thead style={{ background: "#f8f8fa" }}>
                     <tr className="text-xs text-[#8f9294] font-semibold">
-                      <th className="text-left px-4 py-3">DANH MỤC</th>
-                      <th className="text-left px-4 py-3">MÔ TẢ</th>
-                      <th className="text-left px-4 py-3">PHỤ TÙNG</th>
-                      <th className="text-left px-4 py-3">MÀU SẮC</th>
-                      <th className="text-left px-4 py-3">HÀNH ĐỘNG</th>
+                      <th className="text-left px-4 py-3">{lang === "en" ? "CATEGORY" : lang === "zh" ? "分类" : "DANH MỤC"}</th>
+                      <th className="text-left px-4 py-3">{lang === "en" ? "DESCRIPTION" : lang === "zh" ? "描述" : "MÔ TẢ"}</th>
+                      <th className="text-left px-4 py-3">{lang === "en" ? "PARTS" : lang === "zh" ? "零件" : "PHỤ TÙNG"}</th>
+                      <th className="text-left px-4 py-3">{lang === "en" ? "COLOR" : lang === "zh" ? "颜色" : "MÀU SẮC"}</th>
+                      <th className="text-left px-4 py-3">{t("action")}</th>
                     </tr>
                   </thead>
                   <tbody>{categories.map(cat => (
@@ -655,10 +655,10 @@ export default function AdminCatalogPage() {
           {activeTab === "products" && (
             <div>{/* Stats */}
               <div className="grid grid-cols-4 gap-4 mb-5">{[
-                  { label: "Tổng phụ tùng", value: prods.length.toLocaleString(), badge: "Trong hệ thống" },
-                  { label: "Hàng OEM", value: prods.filter(p => p.type === "OEM").length, badge: `${Math.round(prods.filter(p => p.type === "OEM").length / prods.length * 100)}%` },
-                  { label: "Hàng OES", value: prods.filter(p => p.type === "OES").length, badge: `${Math.round(prods.filter(p => p.type === "OES").length / prods.length * 100)}%` },
-                  { label: "Generic", value: prods.filter(p => p.type === "Generic").length, badge: "Phổ thông" },
+                  { label: lang === "en" ? "Total Parts" : lang === "zh" ? "总零件" : "Tổng phụ tùng", value: prods.length.toLocaleString(), badge: lang === "en" ? "In system" : lang === "zh" ? "系统内" : "Trong hệ thống" },
+                  { label: lang === "en" ? "OEM Parts" : lang === "zh" ? "OEM零件" : "Hàng OEM", value: prods.filter(p => p.type === "OEM").length, badge: `${Math.round(prods.filter(p => p.type === "OEM").length / prods.length * 100)}%` },
+                  { label: lang === "en" ? "OES Parts" : lang === "zh" ? "OES零件" : "Hàng OES", value: prods.filter(p => p.type === "OES").length, badge: `${Math.round(prods.filter(p => p.type === "OES").length / prods.length * 100)}%` },
+                  { label: "Generic", value: prods.filter(p => p.type === "Generic").length, badge: lang === "en" ? "Aftermarket" : lang === "zh" ? "通用件" : "Phổ thông" },
                 ].map(s => (
                   <div key={s.label} className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-4">
                     <p className="text-xs text-[#8f9294] mb-1">{s.label}</p>
@@ -668,7 +668,7 @@ export default function AdminCatalogPage() {
               </div>{/* Filters */}
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-4 mb-4 flex flex-wrap gap-3 items-center">
                 <input value={search} onChange={e => setSearch(e.target.value)}
-                  placeholder={lang === "zh" ? "搜索名称、OEM编码..." : "Tìm tên, mã OEM..."} className="pl-4 pr-4 py-2 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97] w-56" />
+                  placeholder={lang === "en" ? "Search name, OEM code..." : lang === "zh" ? "搜索名称、OEM编码..." : "Tìm tên, mã OEM..."} className="pl-4 pr-4 py-2 border border-[#e5e5e5] rounded-lg text-sm focus:outline-none focus:border-[#1a4b97] w-56" />
                 <select value={catFilter} onChange={e => setCatFilter(e.target.value)} className="px-3 py-2 border border-[#e5e5e5] rounded-lg text-sm text-slate-600 bg-white">
                   <option value="">{t("allCategories")}</option>{categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
@@ -679,8 +679,8 @@ export default function AdminCatalogPage() {
                   <option value="Generic">Generic</option>
                 </select>{(catFilter || typeFilter || search) && (
                   <button onClick={() => { setCatFilter(""); setTypeFilter(""); setSearch(""); }}
-                    className="text-xs text-[#8f9294] hover:text-red-500 border border-[#e5e5e5] px-2 py-1.5 rounded-lg">✕ Xóa lọc</button>)}
-                <span className="ml-auto text-sm text-[#8f9294]">{filtered.length} kết quả</span>
+                    className="text-xs text-[#8f9294] hover:text-red-500 border border-[#e5e5e5] px-2 py-1.5 rounded-lg">✕ {lang === "en" ? "Clear" : lang === "zh" ? "清除" : "Xóa lọc"}</button>)}
+                <span className="ml-auto text-sm text-[#8f9294]">{filtered.length} {lang === "en" ? "results" : lang === "zh" ? "结果" : "kết quả"}</span>
               </div>{/* Table */}
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] overflow-hidden">
                 <div className="overflow-x-auto">
