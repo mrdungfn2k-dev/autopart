@@ -1,0 +1,28 @@
+[
+  {
+    "id": "b1",
+    "title": "",
+    "subtitle": "",
+    "cta": "",
+    "href": "/products",
+    "status": "active",
+    "startDate": "2020-01-01",
+    "endDate": "2030-12-31",
+    "clicks": 0,
+    "gradient": "from-[var(--ap-primary)] to-[var(--ap-primary-dark)]",
+    "image": "/uploads/b1.png"
+  },
+  {
+    "id": "b2",
+    "title": "",
+    "subtitle": "",
+    "cta": "",
+    "href": "/products",
+    "status": "active",
+    "startDate": "2020-01-01",
+    "endDate": "2030-12-31",
+    "clicks": 0,
+    "gradient": "from-[var(--ap-primary)] to-[var(--ap-primary-dark)]",
+    "image": "/uploads/b2.png"
+  }
+]

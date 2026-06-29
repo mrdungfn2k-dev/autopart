@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0e7490"/><stop offset="100%" stop-color="#06b6d4"/>
+  </linearGradient></defs>
+  <rect width="200" height="200" fill="url(#g)"/>
+  <text x="100" y="100" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="86" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central" letter-spacing="2">MP</text>
+</svg>

@@ -1,0 +1,258 @@
+{
+  "brands": [
+    {
+      "id": "toyota",
+      "name": "Toyota",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/toyota.png",
+      "source": "catcar",
+      "slug": "toyota"
+    },
+    {
+      "id": "lexus",
+      "name": "Lexus",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/lexus.png",
+      "source": "catcar",
+      "slug": "toyota"
+    },
+    {
+      "id": "honda",
+      "name": "Honda",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/honda.png",
+      "source": "catcar",
+      "slug": "honda"
+    },
+    {
+      "id": "nissan",
+      "name": "Nissan",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/nissan.png",
+      "source": "catcar",
+      "slug": "nissan"
+    },
+    {
+      "id": "infiniti",
+      "name": "Infiniti",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/infiniti.png",
+      "source": "catcar",
+      "slug": "nissan"
+    },
+    {
+      "id": "mazda",
+      "name": "Mazda",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/mazda.png",
+      "source": "catcar",
+      "slug": "mazda"
+    },
+    {
+      "id": "mitsubishi",
+      "name": "Mitsubishi",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/mitsubishi.png",
+      "source": "catcar",
+      "slug": "mitsubishi"
+    },
+    {
+      "id": "suzuki",
+      "name": "Suzuki",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/suzuki.png",
+      "source": "catcar",
+      "slug": "suzuki"
+    },
+    {
+      "id": "subaru",
+      "name": "Subaru",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/subaru.png",
+      "source": "catcar",
+      "slug": "subaru"
+    },
+    {
+      "id": "isuzu",
+      "name": "Isuzu",
+      "region": "japan",
+      "logo": "/vipo-assets/brand-logos/isuzu.png",
+      "source": "catcar",
+      "slug": "isuzu"
+    },
+    {
+      "id": "hyundai",
+      "name": "Hyundai",
+      "region": "korea",
+      "logo": "/vipo-assets/brand-logos/hyundai.png",
+      "source": "catcar",
+      "slug": "hyundai"
+    },
+    {
+      "id": "kia",
+      "name": "Kia",
+      "region": "korea",
+      "logo": "/vipo-assets/brand-logos/kia.png",
+      "source": "catcar",
+      "slug": "kia"
+    },
+    {
+      "id": "ssangyong",
+      "name": "SsangYong",
+      "region": "korea",
+      "logo": "/vipo-assets/brand-logos/ssangyong.png",
+      "source": "catcar",
+      "slug": "ssangyong"
+    },
+    {
+      "id": "bmw",
+      "name": "BMW",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/bmw.png",
+      "source": "catcar",
+      "slug": "bmw"
+    },
+    {
+      "id": "mini",
+      "name": "Mini",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/mini.png",
+      "source": "catcar",
+      "slug": "bmw"
+    },
+    {
+      "id": "rolls-royce",
+      "name": "Rolls-Royce",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/rolls-royce.png",
+      "source": "catcar",
+      "slug": "bmw"
+    },
+    {
+      "id": "mercedes",
+      "name": "Mercedes-Benz",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/mercedes.png",
+      "source": "catcar",
+      "slug": "mercedes"
+    },
+    {
+      "id": "smart",
+      "name": "Smart",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/smart.png",
+      "source": "catcar",
+      "slug": "mercedes"
+    },
+    {
+      "id": "audi",
+      "name": "Audi",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/audi.png",
+      "source": "catcar",
+      "slug": "audivw"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/volkswagen.png",
+      "source": "catcar",
+      "slug": "audivw"
+    },
+    {
+      "id": "skoda",
+      "name": "Skoda",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/skoda.png",
+      "source": "catcar",
+      "slug": "audivw"
+    },
+    {
+      "id": "seat",
+      "name": "Seat",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/seat.png",
+      "source": "catcar",
+      "slug": "audivw"
+    },
+    {
+      "id": "renault",
+      "name": "Renault",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/renault.png",
+      "source": "catcar",
+      "slug": "renault"
+    },
+    {
+      "id": "dacia",
+      "name": "Dacia",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/dacia.png",
+      "source": "catcar",
+      "slug": "renault"
+    },
+    {
+      "id": "ford",
+      "name": "Ford",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/ford.png",
+      "source": "catcar",
+      "slug": "ford"
+    },
+    {
+      "id": "peugeot",
+      "name": "Peugeot",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/peugeot.png",
+      "source": "catcar",
+      "slug": "peugeot"
+    },
+    {
+      "id": "opel",
+      "name": "Opel",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/opel.png",
+      "source": "catcar",
+      "slug": "opel"
+    },
+    {
+      "id": "citroen",
+      "name": "Citroën",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/citroen.png",
+      "source": "catcar",
+      "slug": "citroen"
+    },
+    {
+      "id": "volvo",
+      "name": "Volvo",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/volvo.png",
+      "source": "catcar",
+      "slug": "volvo"
+    },
+    {
+      "id": "jaguar",
+      "name": "Jaguar",
+      "region": "europe",
+      "logo": "/vipo-assets/brand-logos/jaguar.png",
+      "source": "catcar",
+      "slug": "jaguar"
+    },
+    {
+      "id": "chrysler",
+      "name": "Chrysler",
+      "region": "usa",
+      "logo": "/vipo-assets/brand-logos/chrysler.png",
+      "source": "catcar",
+      "slug": "chrysler"
+    }
+  ],
+  "regions": {
+    "japan": "Nhật Bản",
+    "korea": "Hàn Quốc",
+    "europe": "Châu Âu",
+    "usa": "Mỹ"
+  }
+}

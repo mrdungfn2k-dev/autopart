@@ -1,0 +1,17 @@
+# Cursor Rules — AutoParts
+# Cursor tự đọc file này. Chế độ: AUTONOMOUS (xem RULES.md).
+
+NÊN ĐỌC TRƯỚC KHI CODE (theo thứ tự):
+1. RULES.md          — cách làm việc + lưới an toàn + VÙNG NHẠY CẢM
+2. docs/ARCHITECTURE.md
+3. docs/CRITICAL_PATHS.md   (khi đụng backend/nghiệp vụ)
+4. docs/DATABASE.md         (khi đụng dữ liệu data/*.json)
+5. DESIGN.md                (khi làm giao diện MỚI)
+
+NGUYÊN TẮC (AUTONOMOUS — "tự làm hết, báo khi xong"):
+- Tự làm trọn vẹn yêu cầu, KHÔNG xin phép từng bước; liệt kê file đã sửa SAU khi xong.
+- Thấy code lỗi trong phạm vi → sửa luôn + báo lại.
+- Lưới an toàn (bắt buộc): backup trước thay đổi lớn; build + thử luồng chính trước khi báo xong; validate đầu vào mọi API; không hardcode secrets; dữ liệu chỉ qua lib/fileStore (không SQL/ORM); giữ UI AutoParts (--ap-primary), không áp navy+gold của DESIGN.md.
+- Vùng nhạy cảm (lib/jwt, lib/auth, middleware, lib/fileStore, api/auth, api/orders, data/*.json, .env): sửa được nhưng backup + verify kỹ + nêu rõ.
+- Chỉ dừng hỏi khi thao tác khó đảo ngược ngoài code (xoá data thật, đổi DNS/hạ tầng, deploy production) hoặc phạm vi mơ hồ.
+- Xong: cập nhật docs/CHANGELOG.md.

@@ -1,0 +1,20 @@
+{
+  "u004": {
+    "spent": 600,
+    "history": [
+      {
+        "ts": "2026-06-12T17:47:48.479Z",
+        "delta": -300,
+        "reason": "Đổi quà: Miễn phí vận chuyển",
+        "refId": "v_1781286468478_p5hnv"
+      },
+      {
+        "ts": "2026-06-12T18:23:42.686Z",
+        "delta": -300,
+        "reason": "Đổi quà: Miễn phí vận chuyển",
+        "refId": "v_1781288622685_7z1c8",
+        "code": "RWMQB995R1914"
+      }
+    ]
+  }
+}

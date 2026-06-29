@@ -1,0 +1,150 @@
+{
+  "branding": {
+    "logoUrl": "/api/uploads/avatars/autoparts-logo-custom.png?v=1776846203549",
+    "brandName": "AutoParts",
+    "brandShort": "AP",
+    "greeting": "AutoParts xin chào!",
+    "hotline": "19008095",
+    "tagline": "Nền tảng mua phụ tùng\nô tô chính hãng hàng đầu\nViệt Nam",
+    "faviconUrl": ""
+  },
+  "commitments": [
+    {
+      "text": "Được vận hành bởi AutoParts"
+    },
+    {
+      "text": "Thanh toán hoàn toàn bằng VND"
+    },
+    {
+      "text": "Theo dõi hành trình qua web"
+    },
+    {
+      "text": "Order trực tiếp và nhanh chóng"
+    }
+  ],
+  "footer": {
+    "companyName": "CÔNG TY CỔ PHẦN AUTOPARTS",
+    "registrationNo": "0104093672",
+    "issuedBy": "do Phòng đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP Hà Nội cấp ngày 03/07/2009",
+    "manager": "Nguyễn Tuấn Anh",
+    "address": "Tòa nhà AutoParts, Ngõ 15 Duy Tân, Cầu Giấy, Hà Nội",
+    "email": "cskh@autoparts.vn",
+    "phone": "19008095",
+    "supportLinks": [
+      "Trung tâm hỗ trợ",
+      "Hướng dẫn đặt hàng",
+      "Hướng dẫn ký hợp đồng điện tử",
+      "Hướng dẫn sử dụng",
+      "Ước tính chi phí vận chuyển"
+    ],
+    "policyLinks": [
+      "Chính sách vận chuyển",
+      "Chính sách bảo mật thông tin cá nhân",
+      "Chính sách trả hàng hoàn tiền",
+      "Hàng cấm, hàng gửi có điều kiện"
+    ],
+    "aboutLinks": [
+      "Giới thiệu",
+      "Điều khoản dịch vụ",
+      "Quy chế hoạt động sàn",
+      "Giao dịch TMĐT",
+      "Kinh nghiệm AutoParts"
+    ],
+    "socialLinks": [
+      {
+        "name": "Instagram",
+        "icon": "/vipo-assets/icon_ig.svg"
+      },
+      {
+        "name": "Facebook",
+        "icon": "/vipo-assets/icon_fb.svg"
+      },
+      {
+        "name": "YouTube",
+        "icon": "/vipo-assets/icon_utube.svg"
+      },
+      {
+        "name": "TikTok",
+        "icon": "/vipo-assets/icon_tiktok.svg"
+      }
+    ]
+  },
+  "general": {
+    "siteName": "AutoParts",
+    "supportEmail": "support@autoparts.vn",
+    "supportPhone": "1900 1234",
+    "minWithdraw": "500000",
+    "platformFeeDefault": "11.1",
+    "affiliateT1": "10",
+    "affiliatePassive": "5",
+    "vatPercent": "0"
+  },
+  "features": {
+    "flashSale": true,
+    "voucherSystem": true,
+    "mechanicPortal": true,
+    "affiliatePortal": true,
+    "warrantyTracking": true,
+    "vinLookup": false,
+    "maintenanceMode": false
+  },
+  "security": {
+    "twoFARequired": false,
+    "sessionTimeout": "60",
+    "loginAttempts": "5"
+  },
+  "theme": {
+    "primary": "#1a4b97",
+    "primaryDark": "#113264",
+    "sidebarBg": "#0d1f3b",
+    "sidebarBorder": "#1a3258",
+    "sidebarText": "#a5c0e1",
+    "headerBg": "#ffffff",
+    "textPrimary": "#24292e",
+    "textMuted": "#6a737d",
+    "linkColor": "#2188ff",
+    "pageBg": "#f6f8fa",
+    "cardBg": "#ffffff",
+    "accentRed": "#5C4DB1",
+    "borderColor": "#e1e4e8",
+    "topBarBg": "#04142d",
+    "topBarText": "#ffffff",
+    "buttonRadius": "6"
+  },
+  "emailTemplates": [
+    {
+      "key": "welcome",
+      "label": "Welcome",
+      "subject": "Hi {{name}}",
+      "body": "Hello"
+    }
+  ],
+  "customCss": "",
+  "customJs": "",
+  "seoMeta": {
+    "about": {
+      "title": "",
+      "description": ""
+    },
+    "home": {
+      "title": "",
+      "description": ""
+    },
+    "policy": {
+      "title": "",
+      "description": ""
+    },
+    "privacy": {
+      "title": "",
+      "description": ""
+    },
+    "license": {
+      "title": "",
+      "description": ""
+    },
+    "support": {
+      "title": "",
+      "description": ""
+    }
+  }
+}

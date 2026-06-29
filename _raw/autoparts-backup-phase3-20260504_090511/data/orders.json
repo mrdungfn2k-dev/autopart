@@ -1,0 +1,263 @@
+[
+  {
+    "id": "AP-1001",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-001",
+        "name": "Trạm Sạc EV Gia Đình 7kW Level 2 (AC)",
+        "qty": 1,
+        "price": 4000000
+      }
+    ],
+    "shipping": {
+      "name": "Nguyễn Văn An",
+      "phone": "0901234567",
+      "city": "Hà Nội",
+      "address": "123 Trần Hưng Đạo, Hoàn Kiếm",
+      "method": "ghtk",
+      "fee": 35000
+    },
+    "payment": {
+      "method": "momo",
+      "status": "paid"
+    },
+    "subtotal": 4000000,
+    "discount": 0,
+    "total": 4035000,
+    "status": "shipping",
+    "note": "",
+    "tracking": "GHTK-98234",
+    "createdAt": "2025-10-15T07:20:00Z",
+    "updatedAt": "2026-05-03T14:43:02.086Z"
+  },
+  {
+    "id": "AP-1002",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-007",
+        "name": "Bugi Iridium NGK ILTR5A-13G (Set 4)",
+        "qty": 2,
+        "price": 1200000
+      },
+      {
+        "id": "yy-006",
+        "name": "Bộ Van Giãn Nở + Gas Lạnh R134a Kit",
+        "qty": 1,
+        "price": 1200000
+      }
+    ],
+    "shipping": {
+      "name": "Trần Thị Bé",
+      "phone": "0912345678",
+      "city": "Hà Nội",
+      "address": "456 Hai Bà Trưng, Hoàng Mai",
+      "method": "ghn",
+      "fee": 25000
+    },
+    "payment": {
+      "method": "bank",
+      "status": "paid"
+    },
+    "subtotal": 3600000,
+    "discount": 0,
+    "total": 3625000,
+    "status": "confirmed",
+    "note": "Giao giờ hành chính",
+    "tracking": "",
+    "createdAt": "2025-10-14T03:15:00Z",
+    "updatedAt": "2025-10-14T08:00:00Z"
+  },
+  {
+    "id": "AP-1003",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-004",
+        "name": "Máy Nén Điều Hòa Toyota Camry/RAV4 2018-2023",
+        "qty": 1,
+        "price": 7000000
+      }
+    ],
+    "shipping": {
+      "name": "Lê Minh Thành",
+      "phone": "0923456789",
+      "city": "Đà Nẵng",
+      "address": "789 Nguyễn Huệ, Hải Châu",
+      "method": "vtp",
+      "fee": 30000
+    },
+    "payment": {
+      "method": "cod",
+      "status": "pending"
+    },
+    "subtotal": 7000000,
+    "discount": 0,
+    "total": 7030000,
+    "status": "delivered",
+    "note": "",
+    "tracking": "VTP-345678",
+    "createdAt": "2025-10-13T11:45:00Z",
+    "updatedAt": "2025-10-15T14:00:00Z"
+  },
+  {
+    "id": "AP-1004",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-010",
+        "name": "Bộ Sạc Xe Hơi 65W PD USB-C + USB-A Dual Port",
+        "qty": 3,
+        "price": 500000
+      }
+    ],
+    "shipping": {
+      "name": "Phùng Văn Tuấn",
+      "phone": "0934567890",
+      "city": "TP.HCM",
+      "address": "321 Lê Lợi, Quận 1",
+      "method": "ghtk",
+      "fee": 35000
+    },
+    "payment": {
+      "method": "momo",
+      "status": "paid"
+    },
+    "subtotal": 1500000,
+    "discount": 0,
+    "total": 1535000,
+    "status": "delivered",
+    "note": "",
+    "tracking": "GHTK-56789",
+    "createdAt": "2025-10-12T06:30:00Z",
+    "updatedAt": "2025-10-14T10:00:00Z"
+  },
+  {
+    "id": "AP-1005",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-003",
+        "name": "Trạm Sạc Nhanh DC 60kW (CCS+CHAdeMO)",
+        "qty": 1,
+        "price": 45000000
+      }
+    ],
+    "shipping": {
+      "name": "Hoàng Thị Mai",
+      "phone": "0945678901",
+      "city": "Bình Dương",
+      "address": "111 Điện Biên Phủ, Thủ Dầu Một",
+      "method": "ghn",
+      "fee": 25000
+    },
+    "payment": {
+      "method": "bank",
+      "status": "paid"
+    },
+    "subtotal": 45000000,
+    "discount": 0,
+    "total": 45025000,
+    "status": "pending",
+    "note": "Lắp đặt tại nhà máy",
+    "tracking": "",
+    "createdAt": "2025-10-10T02:00:00Z",
+    "updatedAt": "2025-10-10T02:00:00Z"
+  },
+  {
+    "id": "AP-1006",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-012",
+        "name": "Cảm Biến Bãi Đỗ Xe 4 Điểm + Màn Hình LCD",
+        "qty": 1,
+        "price": 600000
+      }
+    ],
+    "shipping": {
+      "name": "Võ Quang Hải",
+      "phone": "0956789012",
+      "city": "TP.HCM",
+      "address": "222 Nguyễn Thị Minh Khai, Quận 3",
+      "method": "ghtk",
+      "fee": 35000
+    },
+    "payment": {
+      "method": "cod",
+      "status": "pending"
+    },
+    "subtotal": 600000,
+    "discount": 0,
+    "total": 635000,
+    "status": "cancelled",
+    "note": "Khách hủy - đổi ý",
+    "tracking": "",
+    "createdAt": "2025-10-09T08:00:00Z",
+    "updatedAt": "2025-10-09T15:00:00Z"
+  },
+  {
+    "id": "AP-1007",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-005",
+        "name": "Dàn Nóng (Condenser) Honda Civic/CR-V 2016-2022",
+        "qty": 1,
+        "price": 3500000
+      }
+    ],
+    "shipping": {
+      "name": "Đỗ Thị Hương",
+      "phone": "0967890123",
+      "city": "Cần Thơ",
+      "address": "333 30 Tháng 4, Ninh Kiều",
+      "method": "vtp",
+      "fee": 30000
+    },
+    "payment": {
+      "method": "zalopay",
+      "status": "paid"
+    },
+    "subtotal": 3500000,
+    "discount": 0,
+    "total": 3530000,
+    "status": "pending",
+    "note": "",
+    "tracking": "",
+    "createdAt": "2025-10-08T05:00:00Z",
+    "updatedAt": "2025-10-08T05:00:00Z"
+  },
+  {
+    "id": "AP-1776421583011-3825",
+    "userId": "guest",
+    "items": [
+      {
+        "id": "yy-003",
+        "name": "Trạm Sạc Nhanh DC 60kW (CCS+CHAdeMO)",
+        "nameZh": "60kW直流快充站 (CCS+CHAdeMO)",
+        "qty": 3,
+        "price": 45000000
+      }
+    ],
+    "shipping": {
+      "name": "Nguyễn Văn An",
+      "phone": "0901 234 567",
+      "city": "Hà Nội",
+      "address": "123 Trần Hưng Đạo, Phường Cửa Nam, Quận Hoàn Kiếm",
+      "method": "ghtk",
+      "fee": 35000
+    },
+    "payment": {
+      "method": "momo",
+      "status": "pending"
+    },
+    "subtotal": 135000000,
+    "discount": 0,
+    "total": 135035000,
+    "status": "pending",
+    "createdAt": "2026-04-17T10:26:23.011Z",
+    "updatedAt": "2026-04-17T10:26:23.011Z"
+  }
+]

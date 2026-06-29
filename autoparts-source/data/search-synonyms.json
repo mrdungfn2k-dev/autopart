@@ -1,0 +1,42 @@
+[
+  {
+    "id": "syn1",
+    "term": "lọc dầu",
+    "synonyms": [
+      "loc dau",
+      "lọc nhớt",
+      "oil filter"
+    ],
+    "active": true
+  },
+  {
+    "id": "syn2",
+    "term": "má phanh",
+    "synonyms": [
+      "ma phanh",
+      "brake pad",
+      "phanh đĩa"
+    ],
+    "active": true
+  },
+  {
+    "id": "syn3",
+    "term": "bugi",
+    "synonyms": [
+      "bu gi",
+      "spark plug",
+      "bougie"
+    ],
+    "active": true
+  },
+  {
+    "id": "syn4",
+    "term": "ắc quy",
+    "synonyms": [
+      "ac quy",
+      "battery",
+      "bình điện"
+    ],
+    "active": true
+  }
+]

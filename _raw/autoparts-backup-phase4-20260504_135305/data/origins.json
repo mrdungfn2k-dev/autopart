@@ -1,0 +1,37 @@
+[
+  {
+    "id": "korea",
+    "name": "Hàn Quốc",
+    "nameZh": "韩国",
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "china",
+    "name": "Trung Quốc",
+    "nameZh": "中国",
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "vietnam",
+    "name": "Việt Nam",
+    "nameZh": "越南",
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "japan",
+    "name": "Nhật Bản",
+    "nameZh": "日本",
+    "image": "",
+    "active": true
+  },
+  {
+    "id": "australia",
+    "name": "Úc (Coming)",
+    "nameZh": "澳洲",
+    "image": "",
+    "active": true
+  }
+]

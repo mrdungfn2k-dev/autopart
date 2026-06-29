@@ -1,0 +1,35 @@
+[
+  {
+    "id": "l1",
+    "name": "Link tổng — Trang chủ",
+    "target": "homepage",
+    "url": "https://autopartsvietnam.com.vn/?ref=LP2024",
+    "clicks": 0,
+    "orders": 0,
+    "revenue": 0,
+    "conversion": "0%",
+    "createdAt": "2024-10-01"
+  },
+  {
+    "id": "l2",
+    "name": "Link danh mục Má Phanh",
+    "target": "brake-pads",
+    "url": "https://autopartsvietnam.com.vn/products?ref=LP2024MP",
+    "clicks": 1,
+    "orders": 0,
+    "revenue": 0,
+    "conversion": "0.0%",
+    "createdAt": "2024-10-05"
+  },
+  {
+    "id": "l3",
+    "name": "Link Flash Sale tháng 10",
+    "target": "flash-sale",
+    "url": "https://autopartsvietnam.com.vn/flash-sale?ref=LP2024FS",
+    "clicks": 0,
+    "orders": 0,
+    "revenue": 0,
+    "conversion": "0%",
+    "createdAt": "2024-10-10"
+  }
+]

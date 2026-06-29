@@ -1,0 +1,61 @@
+[
+  {
+    "id": "v1",
+    "code": "AUTOPARTS10",
+    "type": "percent",
+    "value": 10,
+    "minOrder": 500000,
+    "limit": 100,
+    "used": 12,
+    "expiry": "2026-05-06",
+    "active": true
+  },
+  {
+    "id": "v2",
+    "code": "FREESHIP50K",
+    "type": "shipping",
+    "value": 50000,
+    "minOrder": 300000,
+    "limit": 500,
+    "used": 64,
+    "expiry": "2026-05-06",
+    "active": true
+  },
+  {
+    "id": "v3",
+    "code": "GIAMGIA200K",
+    "type": "fixed",
+    "value": 200000,
+    "minOrder": 2000000,
+    "limit": 50,
+    "used": 5,
+    "expiry": "2026-05-06",
+    "active": true
+  },
+  {
+    "id": "v_1781286468478_p5hnv",
+    "code": "RWMQB7YZJY388",
+    "type": "shipping",
+    "value": 0,
+    "minOrder": 0,
+    "limit": 1,
+    "used": 0,
+    "expiry": "2026-07-12",
+    "active": true,
+    "userId": "u004",
+    "description": "Đổi 300 điểm: Miễn phí vận chuyển"
+  },
+  {
+    "id": "v_1781288622685_7z1c8",
+    "code": "RWMQB995R1914",
+    "type": "shipping",
+    "value": 0,
+    "minOrder": 0,
+    "limit": 1,
+    "used": 0,
+    "expiry": "2026-07-12",
+    "active": true,
+    "userId": "u004",
+    "description": "Đổi 300 điểm: Miễn phí vận chuyển"
+  }
+]

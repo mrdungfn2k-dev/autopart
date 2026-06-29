@@ -1,0 +1,202 @@
+[
+  {
+    "id": "s001",
+    "name": "Phụ Tùng An Thái",
+    "nameZh": "安泰配件",
+    "logo": "/ap-assets/suppliers/s001.svg",
+    "banner": "",
+    "description": "Chuyên phân phối phụ tùng ô tô chính hãng OEM/OES từ các thương hiệu Nhật Bản, Hàn Quốc. Hơn 10 năm kinh nghiệm trong ngành.",
+    "descriptionZh": "专营日韩品牌OEM/OES正品汽车配件，拥有10年以上行业经验。",
+    "address": "123 Trần Phú, Q5, TP.HCM",
+    "phone": "0901234567",
+    "email": "anthai.parts@gmail.com",
+    "taxCode": "0123456789",
+    "rating": 4.9,
+    "reviewCount": 10240,
+    "totalProducts": 428,
+    "totalOrders": 12500,
+    "responseRate": 98,
+    "responseTime": "trong vài giờ",
+    "joinedAt": "2022-01-15T00:00:00Z",
+    "verified": true,
+    "active": true,
+    "tags": [
+      "OEM",
+      "Nhật Bản",
+      "Hàn Quốc",
+      "Chính hãng"
+    ],
+    "categories": [
+      "Động cơ",
+      "Lọc dầu",
+      "Phanh"
+    ]
+  },
+  {
+    "id": "s002",
+    "name": "Nhà Phân Phối Denso Auto",
+    "nameZh": "电装汽配分销商",
+    "logo": "/ap-assets/suppliers/s002.svg",
+    "banner": "",
+    "description": "Đại lý phân phối chính thức Denso tại Việt Nam. Cung cấp toàn bộ dòng sản phẩm Denso: bugi, lọc khí, hệ thống điện.",
+    "descriptionZh": "电装越南官方经销商，提供电装全系产品：火花塞、空气滤清器、电气系统等。",
+    "address": "456 Lý Thường Kiệt, Q10, TP.HCM",
+    "phone": "0912345678",
+    "email": "densoauto.vn@gmail.com",
+    "taxCode": "9876543210",
+    "rating": 4.8,
+    "reviewCount": 5300,
+    "totalProducts": 215,
+    "totalOrders": 8700,
+    "responseRate": 96,
+    "responseTime": "trong ngày",
+    "joinedAt": "2022-06-01T00:00:00Z",
+    "verified": true,
+    "active": true,
+    "tags": [
+      "Denso",
+      "Nhật Bản",
+      "Điện",
+      "Bugi"
+    ],
+    "categories": [
+      "Hệ thống điện",
+      "Lọc gió",
+      "Làm mát"
+    ]
+  },
+  {
+    "id": "s003",
+    "name": "Bosch Automotive Global",
+    "nameZh": "博世汽车全球",
+    "logo": "/ap-assets/suppliers/s003.svg",
+    "banner": "",
+    "description": "Đối tác phân phối Bosch ủy quyền tại Việt Nam. Chuyên cung cấp phụ tùng Bosch: gạt mưa, bugi, lọc dầu, cảm biến.",
+    "descriptionZh": "博世越南授权经销商，专供博世零件：雨刮器、火花塞、机油滤清器、传感器。",
+    "address": "789 Nguyễn Văn Linh, Q7, TP.HCM",
+    "phone": "0923456789",
+    "email": "bosch.auto.global@gmail.com",
+    "taxCode": "1122334455",
+    "rating": 4.9,
+    "reviewCount": 20100,
+    "totalProducts": 632,
+    "totalOrders": 31200,
+    "responseRate": 99,
+    "responseTime": "trong vài giờ",
+    "joinedAt": "2021-09-01T00:00:00Z",
+    "verified": true,
+    "active": true,
+    "tags": [
+      "Bosch",
+      "Đức",
+      "Gạt mưa",
+      "Cảm biến",
+      "Chính hãng"
+    ],
+    "categories": [
+      "Lọc dầu",
+      "Hệ thống phanh",
+      "Cảm biến",
+      "Gạt mưa"
+    ]
+  },
+  {
+    "id": "s004",
+    "name": "Kim Khánh Auto Parts",
+    "nameZh": "金庆汽配",
+    "logo": "/ap-assets/suppliers/s004.svg",
+    "banner": "",
+    "description": "Chuyên phụ tùng Toyota, Honda, Mitsubishi. Đại lý ủy quyền cấp 1 tại miền Nam.",
+    "descriptionZh": "专营丰田、本田、三菱配件，华南一级授权经销商。",
+    "address": "22 Đinh Tiên Hoàng, Bình Thạnh, TP.HCM",
+    "phone": "0934567890",
+    "email": "kimkhanh.auto@gmail.com",
+    "taxCode": "5566778899",
+    "rating": 4.7,
+    "reviewCount": 8800,
+    "totalProducts": 312,
+    "totalOrders": 15600,
+    "responseRate": 95,
+    "responseTime": "trong ngày",
+    "joinedAt": "2022-03-10T00:00:00Z",
+    "verified": true,
+    "active": true,
+    "tags": [
+      "Toyota",
+      "Honda",
+      "Mitsubishi",
+      "Chính hãng"
+    ],
+    "categories": [
+      "Động cơ",
+      "Phanh",
+      "Hộp số"
+    ]
+  },
+  {
+    "id": "s005",
+    "name": "Thành Lợi Phụ Tùng",
+    "nameZh": "成利零件",
+    "logo": "/ap-assets/suppliers/s005.svg",
+    "banner": "",
+    "description": "Nhà phân phối phụ tùng xe tải và xe thương mại. Chuyên Isuzu, Hino, Hyundai Truck.",
+    "descriptionZh": "卡车及商用车配件经销商，专营五十铃、日野、现代商用车。",
+    "address": "100 Điện Biên Phủ, Bình Dương",
+    "phone": "0945678901",
+    "email": "thanhloi.parts@gmail.com",
+    "taxCode": "7788990011",
+    "rating": 4.6,
+    "reviewCount": 3200,
+    "totalProducts": 185,
+    "totalOrders": 5400,
+    "responseRate": 92,
+    "responseTime": "trong ngày",
+    "joinedAt": "2023-01-20T00:00:00Z",
+    "verified": false,
+    "active": true,
+    "tags": [
+      "Isuzu",
+      "Hino",
+      "Xe tải",
+      "Thương mại"
+    ],
+    "categories": [
+      "Động cơ Diesel",
+      "Hệ thống phanh",
+      "Truyền động"
+    ]
+  },
+  {
+    "id": "s006",
+    "name": "Minh Phát Auto",
+    "nameZh": "明发汽配",
+    "logo": "/ap-assets/suppliers/s006.svg",
+    "banner": "",
+    "description": "Phụ tùng xe Hàn Quốc: Kia, Hyundai. Chuyên phụ tùng điện, điều hòa và hộp số.",
+    "descriptionZh": "韩系车配件：起亚、现代。专营电气、空调及变速箱配件。",
+    "address": "55 Phan Đình Phùng, Đà Nẵng",
+    "phone": "0956789012",
+    "email": "minhphat.auto@gmail.com",
+    "taxCode": "2233445566",
+    "rating": 4.7,
+    "reviewCount": 4600,
+    "totalProducts": 240,
+    "totalOrders": 7800,
+    "responseRate": 94,
+    "responseTime": "trong vài giờ",
+    "joinedAt": "2022-08-15T00:00:00Z",
+    "verified": true,
+    "active": true,
+    "tags": [
+      "Kia",
+      "Hyundai",
+      "Hàn Quốc",
+      "Điều hòa"
+    ],
+    "categories": [
+      "Điều hòa",
+      "Hệ thống điện",
+      "Hộp số"
+    ]
+  }
+]

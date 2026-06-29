@@ -1,0 +1,58 @@
+[
+  {
+    "id": "c1",
+    "name": "Giao Hàng Tiết Kiệm",
+    "code": "ghtk",
+    "active": true,
+    "baseFee": 35000,
+    "perKgFee": 5000,
+    "freeshipThreshold": 500000,
+    "estimatedDays": "3–5 ngày",
+    "zones": [
+      "Toàn quốc"
+    ]
+  },
+  {
+    "id": "c2",
+    "name": "Giao Hàng Nhanh",
+    "code": "ghn",
+    "active": true,
+    "baseFee": 25000,
+    "perKgFee": 7000,
+    "freeshipThreshold": 800000,
+    "estimatedDays": "2–3 ngày",
+    "zones": [
+      "Toàn quốc"
+    ]
+  },
+  {
+    "id": "c3",
+    "name": "Viettel Post",
+    "code": "vtp",
+    "active": true,
+    "baseFee": 30000,
+    "perKgFee": 6000,
+    "estimatedDays": "3–4 ngày",
+    "zones": [
+      "Toàn quốc"
+    ]
+  },
+  {
+    "id": "c4",
+    "name": "J&T Express",
+    "code": "jt",
+    "active": false,
+    "baseFee": 28000,
+    "perKgFee": 5500,
+    "estimatedDays": "2–4 ngày"
+  },
+  {
+    "id": "c5",
+    "name": "BEST Express",
+    "code": "best",
+    "active": false,
+    "baseFee": 30000,
+    "perKgFee": 6000,
+    "estimatedDays": "3–5 ngày"
+  }
+]

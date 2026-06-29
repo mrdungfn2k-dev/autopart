@@ -1,0 +1,78 @@
+[
+  {
+    "id": "P-001",
+    "type": "supplier",
+    "name": "Phụ Tùng An Thái",
+    "amount": 38400000,
+    "fee": 4266000,
+    "net": 34134000,
+    "date": "10/10/2024",
+    "status": "PAID"
+  },
+  {
+    "id": "P-002",
+    "type": "supplier",
+    "name": "Hà Thành Parts",
+    "amount": 29100000,
+    "fee": 3233000,
+    "net": 25867000,
+    "date": "10/10/2024",
+    "status": "PAID"
+  },
+  {
+    "id": "P-003",
+    "type": "supplier",
+    "name": "Nam Bộ Auto Parts",
+    "amount": 21800000,
+    "fee": 2422000,
+    "net": 19378000,
+    "date": "10/10/2024",
+    "status": "PENDING"
+  },
+  {
+    "id": "P-004",
+    "type": "supplier",
+    "name": "Motors Việt Nam",
+    "amount": 15600000,
+    "fee": 1733000,
+    "net": 13867000,
+    "date": "25/10/2024",
+    "status": "SCHEDULED"
+  },
+  {
+    "id": "C-001",
+    "type": "affiliate",
+    "name": "Lê Partner Gold",
+    "amount": 14640000,
+    "role": "T1",
+    "date": "10/10/2024",
+    "status": "PAID"
+  },
+  {
+    "id": "C-002",
+    "type": "affiliate",
+    "name": "Nguyễn Văn An",
+    "amount": 9720000,
+    "role": "T1",
+    "date": "10/10/2024",
+    "status": "PAID"
+  },
+  {
+    "id": "C-003",
+    "type": "affiliate",
+    "name": "Trần CTV Pro",
+    "amount": 3650000,
+    "role": "T2",
+    "date": "10/10/2024",
+    "status": "PENDING"
+  },
+  {
+    "id": "C-004",
+    "type": "affiliate",
+    "name": "Phạm CTV Mới",
+    "amount": 1840000,
+    "role": "T2",
+    "date": "25/10/2024",
+    "status": "SCHEDULED"
+  }
+]

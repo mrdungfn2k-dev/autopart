@@ -1,0 +1,18 @@
+[
+  {
+    "id": "tr1",
+    "name": "VAT 10% (chuẩn)",
+    "rate": 10,
+    "isDefault": true
+  },
+  {
+    "id": "tr2",
+    "name": "VAT 8% (giảm)",
+    "rate": 8
+  },
+  {
+    "id": "tr3",
+    "name": "VAT 0% (xuất khẩu)",
+    "rate": 0
+  }
+]

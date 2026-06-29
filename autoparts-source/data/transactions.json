@@ -1,0 +1,11 @@
+[
+  {
+    "id": "tx-1781245125027-12",
+    "orderId": "AP-1781245125025-1473",
+    "type": "payment",
+    "method": "cod",
+    "amount": 37345,
+    "status": "pending",
+    "createdAt": "2026-06-12T06:18:45.028Z"
+  }
+]

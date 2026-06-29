@@ -1,0 +1,1381 @@
+{
+  "wmiCodes": {
+    "JTD": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JTE": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "SUV/Truck"
+    },
+    "JTN": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JTK": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "Compact"
+    },
+    "JTL": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "Commercial"
+    },
+    "JTA": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "2T1": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Canada",
+      "type": "Passenger"
+    },
+    "4T1": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "5TD": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "5TF": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Mỹ",
+      "type": "Truck"
+    },
+    "MR0": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Thái Lan",
+      "type": "Pickup"
+    },
+    "MHF": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Thái Lan",
+      "type": "SUV"
+    },
+    "MBJ": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Thái Lan",
+      "type": "Passenger"
+    },
+    "LVG": {
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "country": "Trung Quốc",
+      "type": "Passenger"
+    },
+    "JTH": {
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "country": "Nhật Bản",
+      "type": "Sedan"
+    },
+    "JTJ": {
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "2T2": {
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "country": "Canada",
+      "type": "Passenger"
+    },
+    "JHM": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JHL": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "JHG": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "1HG": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "2HG": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Canada",
+      "type": "Passenger"
+    },
+    "5FN": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Mỹ",
+      "type": "Minivan"
+    },
+    "5J6": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "93H": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Brazil",
+      "type": "Passenger"
+    },
+    "RLH": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Việt Nam",
+      "type": "Passenger"
+    },
+    "LHG": {
+      "brand": "Honda",
+      "brandId": "honda",
+      "country": "Trung Quốc",
+      "type": "Passenger"
+    },
+    "JN1": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JN3": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "JN6": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Nhật Bản",
+      "type": "Truck"
+    },
+    "JN8": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "1N4": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Mỹ",
+      "type": "Sedan"
+    },
+    "1N6": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Mỹ",
+      "type": "Truck"
+    },
+    "3N1": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Mexico",
+      "type": "Passenger"
+    },
+    "5N1": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "MNT": {
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "country": "Thái Lan",
+      "type": "Pickup"
+    },
+    "JNK": {
+      "brand": "Infiniti",
+      "brandId": "infiniti",
+      "country": "Nhật Bản",
+      "type": "Luxury"
+    },
+    "JM1": {
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JMZ": {
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JM3": {
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "JM6": {
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "3MZ": {
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "country": "Mexico",
+      "type": "Passenger"
+    },
+    "JA3": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JA4": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "JA7": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Nhật Bản",
+      "type": "Truck"
+    },
+    "JMB": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JMY": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "4A3": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "MMA": {
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "country": "Thái Lan",
+      "type": "Passenger"
+    },
+    "JS1": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Nhật Bản",
+      "type": "Motorcycle"
+    },
+    "JS2": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JS3": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "JSA": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "MA3": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Ấn Độ",
+      "type": "Passenger"
+    },
+    "MHY": {
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "country": "Indonesia",
+      "type": "Passenger"
+    },
+    "JF1": {
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "country": "Nhật Bản",
+      "type": "Passenger"
+    },
+    "JF2": {
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "country": "Nhật Bản",
+      "type": "SUV"
+    },
+    "4S3": {
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "4S4": {
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "JAA": {
+      "brand": "Isuzu",
+      "brandId": "isuzu",
+      "country": "Nhật Bản",
+      "type": "Truck"
+    },
+    "JAB": {
+      "brand": "Isuzu",
+      "brandId": "isuzu",
+      "country": "Nhật Bản",
+      "type": "Commercial"
+    },
+    "MP1": {
+      "brand": "Isuzu",
+      "brandId": "isuzu",
+      "country": "Thái Lan",
+      "type": "Pickup"
+    },
+    "KMH": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Hàn Quốc",
+      "type": "Passenger"
+    },
+    "KMJ": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Hàn Quốc",
+      "type": "SUV"
+    },
+    "5NM": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "5NP": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "MAL": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Ấn Độ",
+      "type": "Passenger"
+    },
+    "RL4": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Việt Nam",
+      "type": "Passenger"
+    },
+    "LJD": {
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "country": "Trung Quốc",
+      "type": "Passenger"
+    },
+    "KNA": {
+      "brand": "Kia",
+      "brandId": "kia",
+      "country": "Hàn Quốc",
+      "type": "Passenger"
+    },
+    "KND": {
+      "brand": "Kia",
+      "brandId": "kia",
+      "country": "Hàn Quốc",
+      "type": "SUV"
+    },
+    "KNM": {
+      "brand": "Kia",
+      "brandId": "kia",
+      "country": "Hàn Quốc",
+      "type": "Passenger"
+    },
+    "3KP": {
+      "brand": "Kia",
+      "brandId": "kia",
+      "country": "Mexico",
+      "type": "Passenger"
+    },
+    "5XY": {
+      "brand": "Kia",
+      "brandId": "kia",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "KMT": {
+      "brand": "Genesis",
+      "brandId": "genesis",
+      "country": "Hàn Quốc",
+      "type": "Luxury"
+    },
+    "WBA": {
+      "brand": "BMW",
+      "brandId": "bmw",
+      "country": "Đức",
+      "type": "Sedan"
+    },
+    "WBS": {
+      "brand": "BMW M",
+      "brandId": "bmw",
+      "country": "Đức",
+      "type": "Performance"
+    },
+    "WBY": {
+      "brand": "BMW i",
+      "brandId": "bmw",
+      "country": "Đức",
+      "type": "Electric"
+    },
+    "WBX": {
+      "brand": "BMW",
+      "brandId": "bmw",
+      "country": "Đức",
+      "type": "SUV"
+    },
+    "5UX": {
+      "brand": "BMW",
+      "brandId": "bmw",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "LBV": {
+      "brand": "BMW Brilliance",
+      "brandId": "bmw",
+      "country": "Trung Quốc",
+      "type": "Passenger"
+    },
+    "WMW": {
+      "brand": "Mini",
+      "brandId": "mini",
+      "country": "Đức/Anh",
+      "type": "Compact"
+    },
+    "WDB": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "Sedan"
+    },
+    "WDC": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "SUV"
+    },
+    "WDD": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "Sedan"
+    },
+    "WDF": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "Van"
+    },
+    "W1K": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "Compact"
+    },
+    "W1N": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Đức",
+      "type": "SUV"
+    },
+    "4JG": {
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "55S": {
+      "brand": "Mercedes-AMG",
+      "brandId": "mercedes",
+      "country": "Mỹ",
+      "type": "Performance"
+    },
+    "WAU": {
+      "brand": "Audi",
+      "brandId": "audi",
+      "country": "Đức",
+      "type": "Sedan"
+    },
+    "WA1": {
+      "brand": "Audi",
+      "brandId": "audi",
+      "country": "Đức",
+      "type": "SUV"
+    },
+    "TRU": {
+      "brand": "Audi",
+      "brandId": "audi",
+      "country": "Hungary",
+      "type": "Passenger"
+    },
+    "WVW": {
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "country": "Đức",
+      "type": "Passenger"
+    },
+    "WV2": {
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "country": "Đức",
+      "type": "Commercial"
+    },
+    "3VW": {
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "country": "Mexico",
+      "type": "Passenger"
+    },
+    "LFV": {
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "country": "Trung Quốc",
+      "type": "Passenger"
+    },
+    "WP0": {
+      "brand": "Porsche",
+      "brandId": "porsche",
+      "country": "Đức",
+      "type": "Sports"
+    },
+    "WP1": {
+      "brand": "Porsche",
+      "brandId": "porsche",
+      "country": "Đức",
+      "type": "SUV"
+    },
+    "W0L": {
+      "brand": "Opel",
+      "brandId": "opel",
+      "country": "Đức",
+      "type": "Passenger"
+    },
+    "VF3": {
+      "brand": "Peugeot",
+      "brandId": "peugeot",
+      "country": "Pháp",
+      "type": "Passenger"
+    },
+    "VF7": {
+      "brand": "Citroën",
+      "brandId": "citroen",
+      "country": "Pháp",
+      "type": "Passenger"
+    },
+    "VR7": {
+      "brand": "Citroën",
+      "brandId": "citroen",
+      "country": "Pháp",
+      "type": "Passenger"
+    },
+    "VF1": {
+      "brand": "Renault",
+      "brandId": "renault",
+      "country": "Pháp",
+      "type": "Passenger"
+    },
+    "VF6": {
+      "brand": "Renault",
+      "brandId": "renault",
+      "country": "Pháp",
+      "type": "Commercial"
+    },
+    "SAJ": {
+      "brand": "Jaguar",
+      "brandId": "jaguar",
+      "country": "Anh",
+      "type": "Luxury"
+    },
+    "SAL": {
+      "brand": "Land Rover",
+      "brandId": "land-rover",
+      "country": "Anh",
+      "type": "SUV"
+    },
+    "SCA": {
+      "brand": "Rolls-Royce",
+      "brandId": "rolls-royce",
+      "country": "Anh",
+      "type": "Ultra Luxury"
+    },
+    "SCB": {
+      "brand": "Bentley",
+      "brandId": "bentley",
+      "country": "Anh",
+      "type": "Luxury"
+    },
+    "YV1": {
+      "brand": "Volvo",
+      "brandId": "volvo",
+      "country": "Thụy Điển",
+      "type": "Sedan"
+    },
+    "YV4": {
+      "brand": "Volvo",
+      "brandId": "volvo",
+      "country": "Thụy Điển",
+      "type": "SUV"
+    },
+    "ZFF": {
+      "brand": "Ferrari",
+      "brandId": "ferrari",
+      "country": "Ý",
+      "type": "Sports"
+    },
+    "ZHW": {
+      "brand": "Lamborghini",
+      "brandId": "lamborghini",
+      "country": "Ý",
+      "type": "Sports"
+    },
+    "ZAM": {
+      "brand": "Maserati",
+      "brandId": "maserati",
+      "country": "Ý",
+      "type": "Luxury"
+    },
+    "1FA": {
+      "brand": "Ford",
+      "brandId": "ford",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "1FM": {
+      "brand": "Ford",
+      "brandId": "ford",
+      "country": "Mỹ",
+      "type": "SUV"
+    },
+    "1FT": {
+      "brand": "Ford",
+      "brandId": "ford",
+      "country": "Mỹ",
+      "type": "Truck"
+    },
+    "3FA": {
+      "brand": "Ford",
+      "brandId": "ford",
+      "country": "Mexico",
+      "type": "Passenger"
+    },
+    "MAJ": {
+      "brand": "Ford",
+      "brandId": "ford",
+      "country": "Ấn Độ",
+      "type": "Passenger"
+    },
+    "1G1": {
+      "brand": "Chevrolet",
+      "brandId": "chevrolet",
+      "country": "Mỹ",
+      "type": "Passenger"
+    },
+    "5YJ": {
+      "brand": "Tesla",
+      "brandId": "tesla",
+      "country": "Mỹ",
+      "type": "Electric"
+    },
+    "7SA": {
+      "brand": "Tesla",
+      "brandId": "tesla",
+      "country": "Mỹ",
+      "type": "Electric"
+    },
+    "RLV": {
+      "brand": "VinFast",
+      "brandId": "vinfast",
+      "country": "Việt Nam",
+      "type": "Electric"
+    }
+  },
+  "sampleVINs": [
+    {
+      "vin": "JTDKN3DU5A0456789",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Camry",
+      "year": "2024"
+    },
+    {
+      "vin": "JTDBR32E960789012",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Corolla",
+      "year": "2023"
+    },
+    {
+      "vin": "JTERU5JR5M5345678",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "RAV4",
+      "year": "2024"
+    },
+    {
+      "vin": "JTEBU5JR8K5678901",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Land Cruiser",
+      "year": "2023"
+    },
+    {
+      "vin": "JTNB11HK1J3234567",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Vios",
+      "year": "2022"
+    },
+    {
+      "vin": "JTDKARFP8K3890123",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Prius",
+      "year": "2024"
+    },
+    {
+      "vin": "MR0FZ29G5N0123456",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Hilux",
+      "year": "2022"
+    },
+    {
+      "vin": "MHFZ19G1NJ0567890",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Fortuner",
+      "year": "2022"
+    },
+    {
+      "vin": "4T1BF1FK5EU123456",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Camry (US)",
+      "year": "2024"
+    },
+    {
+      "vin": "5TDYZ3DC1LS123456",
+      "brand": "Toyota",
+      "brandId": "toyota",
+      "model": "Sequoia",
+      "year": "2020"
+    },
+    {
+      "vin": "JTHBK1GG2E2345678",
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "model": "ES 350",
+      "year": "2024"
+    },
+    {
+      "vin": "JTHBA1D28L5678901",
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "model": "IS 300",
+      "year": "2023"
+    },
+    {
+      "vin": "JTJBARBZ7L2890123",
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "model": "RX 350",
+      "year": "2024"
+    },
+    {
+      "vin": "JTJYARBZ2L2567890",
+      "brand": "Lexus",
+      "brandId": "lexus",
+      "model": "LX 570",
+      "year": "2020"
+    },
+    {
+      "vin": "JHMCR2F30FC234567",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "Civic",
+      "year": "2024"
+    },
+    {
+      "vin": "JHMCY1F34LC567890",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "Accord",
+      "year": "2023"
+    },
+    {
+      "vin": "JHLRW2H53MC890123",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "CR-V",
+      "year": "2024"
+    },
+    {
+      "vin": "JHMGE8H39DC345678",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "City",
+      "year": "2022"
+    },
+    {
+      "vin": "1HGCV1F34LA123456",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "Accord (US)",
+      "year": "2020"
+    },
+    {
+      "vin": "5J6RW2H85LA234567",
+      "brand": "Honda",
+      "brandId": "honda",
+      "model": "CR-V (US)",
+      "year": "2020"
+    },
+    {
+      "vin": "JN1TBNT32Z0456789",
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "model": "X-Trail",
+      "year": "2024"
+    },
+    {
+      "vin": "JN1GANR36U0789012",
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "model": "Navara",
+      "year": "2023"
+    },
+    {
+      "vin": "JN1CAAT31U0234567",
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "model": "Almera",
+      "year": "2023"
+    },
+    {
+      "vin": "1N4AA6AP8HC567890",
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "model": "Maxima",
+      "year": "2022"
+    },
+    {
+      "vin": "5N1AT2MV9KC890123",
+      "brand": "Nissan",
+      "brandId": "nissan",
+      "model": "Pathfinder",
+      "year": "2024"
+    },
+    {
+      "vin": "JNKBY01E28M123456",
+      "brand": "Infiniti",
+      "brandId": "infiniti",
+      "model": "G37",
+      "year": "2023"
+    },
+    {
+      "vin": "JM1BN1V7XM1567890",
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "model": "Mazda 3",
+      "year": "2024"
+    },
+    {
+      "vin": "JM1GJEN2R01890123",
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "model": "CX-5",
+      "year": "2024"
+    },
+    {
+      "vin": "JM1DKFC76N0234567",
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "model": "CX-8",
+      "year": "2023"
+    },
+    {
+      "vin": "JM3KFBCM5M0567890",
+      "brand": "Mazda",
+      "brandId": "mazda",
+      "model": "CX-30",
+      "year": "2021"
+    },
+    {
+      "vin": "JA3AU26U98U890123",
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "model": "Xpander",
+      "year": "2024"
+    },
+    {
+      "vin": "JA4AZ3A35JZ234567",
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "model": "Outlander",
+      "year": "2023"
+    },
+    {
+      "vin": "JMBXTGA3WJZ567890",
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "model": "Pajero Sport",
+      "year": "2022"
+    },
+    {
+      "vin": "MMBJNKA40MH890123",
+      "brand": "Mitsubishi",
+      "brandId": "mitsubishi",
+      "model": "Triton",
+      "year": "2021"
+    },
+    {
+      "vin": "KMHD841DBLU234567",
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "model": "Accent",
+      "year": "2024"
+    },
+    {
+      "vin": "KMHK381GBKU567890",
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "model": "Tucson",
+      "year": "2024"
+    },
+    {
+      "vin": "KMHS381CDKU890123",
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "model": "Santa Fe",
+      "year": "2023"
+    },
+    {
+      "vin": "5NMS3CAD8NH234567",
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "model": "Palisade",
+      "year": "2022"
+    },
+    {
+      "vin": "KMHGN4JE0FU567890",
+      "brand": "Hyundai",
+      "brandId": "hyundai",
+      "model": "Sonata",
+      "year": "2024"
+    },
+    {
+      "vin": "KNAPH81ABL5890123",
+      "brand": "Kia",
+      "brandId": "kia",
+      "model": "Seltos",
+      "year": "2024"
+    },
+    {
+      "vin": "KNADN512AL6234567",
+      "brand": "Kia",
+      "brandId": "kia",
+      "model": "Sorento",
+      "year": "2023"
+    },
+    {
+      "vin": "KNAGM4A79G5567890",
+      "brand": "Kia",
+      "brandId": "kia",
+      "model": "Sportage",
+      "year": "2024"
+    },
+    {
+      "vin": "KNDPM3AC3L7890123",
+      "brand": "Kia",
+      "brandId": "kia",
+      "model": "Carnival",
+      "year": "2020"
+    },
+    {
+      "vin": "5XYZU3LB6JG234567",
+      "brand": "Kia",
+      "brandId": "kia",
+      "model": "K5",
+      "year": "2024"
+    },
+    {
+      "vin": "WBAPH7C57BA567890",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "3 Series",
+      "year": "2024"
+    },
+    {
+      "vin": "WBAJB9C50KB890123",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "5 Series",
+      "year": "2023"
+    },
+    {
+      "vin": "WBXHT3C37H5234567",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "X1",
+      "year": "2024"
+    },
+    {
+      "vin": "WBSJF0C55JB567890",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "M3",
+      "year": "2023"
+    },
+    {
+      "vin": "5UXCR6C05K9890123",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "X5 (US)",
+      "year": "2024"
+    },
+    {
+      "vin": "WBY1Z4C55FV234567",
+      "brand": "BMW",
+      "brandId": "bmw",
+      "model": "i3",
+      "year": "2022"
+    },
+    {
+      "vin": "WDBRF61J11F567890",
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "model": "C-Class",
+      "year": "2024"
+    },
+    {
+      "vin": "WDDHF5KB7EA890123",
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "model": "E-Class",
+      "year": "2023"
+    },
+    {
+      "vin": "WDCGG5HB1AF234567",
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "model": "GLC",
+      "year": "2024"
+    },
+    {
+      "vin": "W1K5J6EB9MA567890",
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "model": "A-Class",
+      "year": "2021"
+    },
+    {
+      "vin": "4JGFF6HEXMA890123",
+      "brand": "Mercedes-Benz",
+      "brandId": "mercedes",
+      "model": "GLS (US)",
+      "year": "2021"
+    },
+    {
+      "vin": "WAUZZZ8V5KA234567",
+      "brand": "Audi",
+      "brandId": "audi",
+      "model": "A4",
+      "year": "2024"
+    },
+    {
+      "vin": "WAUEFAFL7FN567890",
+      "brand": "Audi",
+      "brandId": "audi",
+      "model": "A6",
+      "year": "2023"
+    },
+    {
+      "vin": "WAUENAF46LN890123",
+      "brand": "Audi",
+      "brandId": "audi",
+      "model": "Q5",
+      "year": "2024"
+    },
+    {
+      "vin": "WA1LAAF72ND234567",
+      "brand": "Audi",
+      "brandId": "audi",
+      "model": "Q7",
+      "year": "2022"
+    },
+    {
+      "vin": "WVWZZZ3CZWE567890",
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "model": "Tiguan",
+      "year": "2024"
+    },
+    {
+      "vin": "WVWZZZ1KZAM890123",
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "model": "Passat",
+      "year": "2023"
+    },
+    {
+      "vin": "3VW5T7AU8KM234567",
+      "brand": "Volkswagen",
+      "brandId": "volkswagen",
+      "model": "Jetta (MX)",
+      "year": "2024"
+    },
+    {
+      "vin": "WP0AA2A99KS567890",
+      "brand": "Porsche",
+      "brandId": "porsche",
+      "model": "911",
+      "year": "2024"
+    },
+    {
+      "vin": "WP1AB2A57NL890123",
+      "brand": "Porsche",
+      "brandId": "porsche",
+      "model": "Cayenne",
+      "year": "2022"
+    },
+    {
+      "vin": "1FAHP3F24CL234567",
+      "brand": "Ford",
+      "brandId": "ford",
+      "model": "Ranger",
+      "year": "2024"
+    },
+    {
+      "vin": "1FMCU9J94KU567890",
+      "brand": "Ford",
+      "brandId": "ford",
+      "model": "Everest",
+      "year": "2023"
+    },
+    {
+      "vin": "1FTFW1ET5KF890123",
+      "brand": "Ford",
+      "brandId": "ford",
+      "model": "F-150",
+      "year": "2024"
+    },
+    {
+      "vin": "YV1RS592962234567",
+      "brand": "Volvo",
+      "brandId": "volvo",
+      "model": "XC60",
+      "year": "2024"
+    },
+    {
+      "vin": "YV1CZ592561567890",
+      "brand": "Volvo",
+      "brandId": "volvo",
+      "model": "XC90",
+      "year": "2023"
+    },
+    {
+      "vin": "YV4A22PK6N1890123",
+      "brand": "Volvo",
+      "brandId": "volvo",
+      "model": "XC40",
+      "year": "2022"
+    },
+    {
+      "vin": "JS3TD54V174234567",
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "model": "XL7",
+      "year": "2024"
+    },
+    {
+      "vin": "JSAFJB33V00567890",
+      "brand": "Suzuki",
+      "brandId": "suzuki",
+      "model": "Swift",
+      "year": "2023"
+    },
+    {
+      "vin": "JF1GPAC63G8890123",
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "model": "Forester",
+      "year": "2024"
+    },
+    {
+      "vin": "JF2SJABC5GH234567",
+      "brand": "Subaru",
+      "brandId": "subaru",
+      "model": "Outback",
+      "year": "2023"
+    },
+    {
+      "vin": "VF3LCBHZMGS567890",
+      "brand": "Peugeot",
+      "brandId": "peugeot",
+      "model": "3008",
+      "year": "2024"
+    },
+    {
+      "vin": "VF3MRHNS6LS890123",
+      "brand": "Peugeot",
+      "brandId": "peugeot",
+      "model": "5008",
+      "year": "2023"
+    },
+    {
+      "vin": "VF7SXHMZ6LT234567",
+      "brand": "Citroën",
+      "brandId": "citroen",
+      "model": "C5 Aircross",
+      "year": "2024"
+    },
+    {
+      "vin": "VF15SRNS563567890",
+      "brand": "Renault",
+      "brandId": "renault",
+      "model": "Koleos",
+      "year": "2023"
+    },
+    {
+      "vin": "SAJWA1C64FMK90123",
+      "brand": "Jaguar",
+      "brandId": "jaguar",
+      "model": "F-PACE",
+      "year": "2024"
+    },
+    {
+      "vin": "SALGS2RE5LA234567",
+      "brand": "Land Rover",
+      "brandId": "land-rover",
+      "model": "Range Rover Sport",
+      "year": "2024"
+    },
+    {
+      "vin": "SCA664S54GU567890",
+      "brand": "Rolls-Royce",
+      "brandId": "rolls-royce",
+      "model": "Ghost",
+      "year": "2023"
+    },
+    {
+      "vin": "ZFF67NFA7F0890123",
+      "brand": "Ferrari",
+      "brandId": "ferrari",
+      "model": "488 GTB",
+      "year": "2024"
+    },
+    {
+      "vin": "ZHWUC1ZF8KL234567",
+      "brand": "Lamborghini",
+      "brandId": "lamborghini",
+      "model": "Huracán",
+      "year": "2023"
+    },
+    {
+      "vin": "5YJ3E1EA5LF567890",
+      "brand": "Tesla",
+      "brandId": "tesla",
+      "model": "Model 3",
+      "year": "2024"
+    },
+    {
+      "vin": "5YJSA1E29KF890123",
+      "brand": "Tesla",
+      "brandId": "tesla",
+      "model": "Model S",
+      "year": "2023"
+    },
+    {
+      "vin": "7SAYGDEE9PA234567",
+      "brand": "Tesla",
+      "brandId": "tesla",
+      "model": "Model Y",
+      "year": "2024"
+    },
+    {
+      "vin": "RLVEG11B4NB567890",
+      "brand": "VinFast",
+      "brandId": "vinfast",
+      "model": "VF 8",
+      "year": "2024"
+    },
+    {
+      "vin": "RLVGD21B5NB890123",
+      "brand": "VinFast",
+      "brandId": "vinfast",
+      "model": "VF 9",
+      "year": "2023"
+    },
+    {
+      "vin": "WMWXP5C52DT234567",
+      "brand": "Mini",
+      "brandId": "mini",
+      "model": "Cooper",
+      "year": "2024"
+    },
+    {
+      "vin": "JAAFS85H8N0567890",
+      "brand": "Isuzu",
+      "brandId": "isuzu",
+      "model": "D-Max",
+      "year": "2022"
+    },
+    {
+      "vin": "MP1TFB94HMT890123",
+      "brand": "Isuzu",
+      "brandId": "isuzu",
+      "model": "mu-X",
+      "year": "2023"
+    }
+  ]
+}

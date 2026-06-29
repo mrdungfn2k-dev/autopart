@@ -1,0 +1,36 @@
+[
+  {
+    "id": "v001",
+    "userId": "u004",
+    "nickname": "Xe điện BYD",
+    "brand": "BYD",
+    "model": "Han EV",
+    "year": 2023,
+    "licensePlate": "51K-888.88",
+    "vin": "LGXC76C42N0000001",
+    "color": "#60A5FA",
+    "nextService": "2026-08-01",
+    "lastOilChange": "—",
+    "mileage": 18500,
+    "fuelType": "Electric 469HP",
+    "transmission": "Tự động",
+    "createdAt": "2025-01-10T00:00:00Z"
+  },
+  {
+    "id": "v002",
+    "userId": "u004",
+    "nickname": "Camry gia đình",
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2021,
+    "licensePlate": "30A-123.45",
+    "vin": "JTNB11HK0J3000002",
+    "color": "#34D399",
+    "nextService": "2026-07-15",
+    "lastOilChange": "2026-03-01",
+    "mileage": 42000,
+    "fuelType": "2.5L Hybrid",
+    "transmission": "Số tự động",
+    "createdAt": "2025-02-15T00:00:00Z"
+  }
+]

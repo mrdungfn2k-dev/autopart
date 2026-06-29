@@ -1,0 +1,64 @@
+[
+  {
+    "id": "as001",
+    "name": "Bugi đánh lửa",
+    "categoryId": "ignition",
+    "attributes": [
+      {
+        "id": "a1",
+        "name": "Khoảng cách điện cực",
+        "type": "number",
+        "unit": "mm"
+      },
+      {
+        "id": "a2",
+        "name": "Loại điện cực",
+        "type": "select",
+        "options": [
+          "Đồng",
+          "Bạch kim",
+          "Iridium"
+        ]
+      },
+      {
+        "id": "a3",
+        "name": "Mã ren",
+        "type": "text"
+      }
+    ],
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "as002",
+    "name": "Má phanh",
+    "categoryId": "brakes",
+    "attributes": [
+      {
+        "id": "a1",
+        "name": "Vật liệu",
+        "type": "select",
+        "options": [
+          "Ceramic",
+          "Semi-metallic",
+          "Organic"
+        ]
+      },
+      {
+        "id": "a2",
+        "name": "Độ dày",
+        "type": "number",
+        "unit": "mm"
+      },
+      {
+        "id": "a3",
+        "name": "Vị trí",
+        "type": "select",
+        "options": [
+          "Trước",
+          "Sau"
+        ]
+      }
+    ],
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
+]

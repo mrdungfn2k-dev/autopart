@@ -1,0 +1,26 @@
+[
+  {
+    "id": "w1",
+    "name": "Kho Hà Nội (chính)",
+    "code": "HN",
+    "address": "Tòa nhà AutoParts, Ngõ 15 Duy Tân, Cầu Giấy",
+    "city": "Hà Nội",
+    "active": true,
+    "isDefault": true
+  },
+  {
+    "id": "w2",
+    "name": "Kho TP. Hồ Chí Minh",
+    "code": "HCM",
+    "address": "Quận 1, TP.HCM",
+    "city": "TP. Hồ Chí Minh",
+    "active": true
+  },
+  {
+    "id": "w3",
+    "name": "Kho Đà Nẵng",
+    "code": "DN",
+    "city": "Đà Nẵng",
+    "active": false
+  }
+]

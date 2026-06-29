@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-12",
+  "base": "VND",
+  "rates": {
+    "VND": 1,
+    "USD": 26316,
+    "CNY": 3875.97
+  },
+  "updated": "Fri, 12 Jun 2026 00:02:31 +0000",
+  "source": "open.er-api.com"
+}

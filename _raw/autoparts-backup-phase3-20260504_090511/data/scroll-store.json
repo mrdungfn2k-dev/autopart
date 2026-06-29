@@ -1,0 +1,22 @@
+{
+  "admin@autopart.vn": {
+    "/login": 0,
+    "/admin": 0,
+    "/supplier/products": 0,
+    "/admin/approvals": 221,
+    "/customer": 0,
+    "/admin/marketing": 129
+  },
+  "daily@autopart.vn": {
+    "/affiliate/settings": 0,
+    "/login": 0
+  },
+  "ncc@autopro.vn": {
+    "/supplier": 0,
+    "/login": 0
+  },
+  "kh@autopart.vn": {
+    "/customer": 0,
+    "/login": 0
+  }
+}

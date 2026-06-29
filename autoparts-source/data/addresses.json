@@ -1,0 +1,12 @@
+[
+  {
+    "id": "addr_1781249959792_0",
+    "userId": "u001",
+    "name": "Test QA",
+    "phone": "0901234567",
+    "address": "99 Test Street, Q1",
+    "city": "TP. Hồ Chí Minh",
+    "district": "Nhà riêng",
+    "isDefault": true
+  }
+]

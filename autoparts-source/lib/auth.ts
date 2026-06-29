@@ -1,0 +1,54 @@
+// Auth utility — frontend convenience helpers.
+// Source of truth for permissions = middleware.ts + API route checks.
+export type UserRole = "customer" | "supplier" | "affiliate" | "admin";
+
+export interface AuthUser {
+  id?: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  avatar?: string;
+  supplierId?: string; // liên kết tài khoản NCC -> hồ sơ công khai (suppliers.json) để đồng bộ tên
+}
+
+const KEY = "autopart_auth";
+
+export function getAuth(): AuthUser | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = localStorage.getItem(KEY);
+    return raw ? (JSON.parse(raw) as AuthUser) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setAuth(user: AuthUser) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(KEY, JSON.stringify(user));
+}
+
+export function clearAuth() {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(KEY);
+}
+
+export const roleRedirects: Record<UserRole, string> = {
+  customer: "/customer",
+  supplier: "/supplier",
+  affiliate: "/affiliate",
+  admin: "/admin",
+};
+
+// Keep this in sync with middleware.ts PROTECTED.
+// Used by client-side guards (cart/checkout/AuthGuard) to decide what to render.
+export const routeRoles: Array<{ prefix: string; roles: UserRole[] }> = [
+  { prefix: "/admin",     roles: ["admin"] },
+  { prefix: "/supplier",  roles: ["supplier", "admin"] },
+  { prefix: "/affiliate", roles: ["affiliate", "admin"] },
+  { prefix: "/customer",  roles: ["customer", "affiliate", "admin"] },
+  { prefix: "/checkout",  roles: ["customer", "affiliate"] },
+  { prefix: "/cart",      roles: ["customer", "affiliate"] },
+];
+
+export const BUYER_ROLES: UserRole[] = ["customer", "affiliate"];

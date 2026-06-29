@@ -1,0 +1,256 @@
+[
+  {
+    "id": "dieu-hoa-khong-khi",
+    "name": "Điều hòa không khí",
+    "nameZh": "汽车空调部件",
+    "icon": "AC",
+    "desc": "Máy nén, dàn nóng, van giãn nở, gas lạnh R134a",
+    "descZh": "压缩机、冷凝器、膨胀阀、R134a冷媒",
+    "count": 156,
+    "color": "#3B82F6",
+    "img": "/products/ac-compressor.png",
+    "subcategories": [
+      {
+        "id": "ly-hop-may-nen",
+        "name": "Ly hợp máy nén",
+        "nameZh": "压缩机离合器"
+      },
+      {
+        "id": "may-nen-ac",
+        "name": "Máy nén",
+        "nameZh": "压缩机",
+        "subcategories": [
+          {
+            "id": "may-nen-dien",
+            "name": "Máy nén điện (EV/Hybrid)",
+            "nameZh": "电动压缩机"
+          },
+          {
+            "id": "may-nen-co",
+            "name": "Máy nén cơ (đai curoa)",
+            "nameZh": "机械压缩机"
+          }
+        ]
+      },
+      {
+        "id": "thiet-bi-bay-hoi",
+        "name": "Thiết bị bay hơi",
+        "nameZh": "蒸发器"
+      },
+      {
+        "id": "ac-binh-ngung",
+        "name": "A/C bình ngưng",
+        "nameZh": "冷凝器"
+      },
+      {
+        "id": "cong-tac-ap-suat",
+        "name": "Công tắc áp suất & cảm biến",
+        "nameZh": "压力开关与传感器"
+      },
+      {
+        "id": "bo-tan-nhiet",
+        "name": "Bộ tản nhiệt làm mát",
+        "nameZh": "散热器"
+      },
+      {
+        "id": "quat-thoi-cabin",
+        "name": "Quạt thổi cabin",
+        "nameZh": "鼓风机"
+      },
+      {
+        "id": "may-say-thu",
+        "name": "Máy sấy thu",
+        "nameZh": "储液干燥器"
+      },
+      {
+        "id": "loi-lo-suoi",
+        "name": "Lõi lò sưởi",
+        "nameZh": "暖风芯体"
+      }
+    ]
+  },
+  {
+    "id": "ignition",
+    "name": "Ignition",
+    "nameZh": "点火系统",
+    "icon": "IGN",
+    "desc": "Bugi, cuộn đánh lửa, bộ dây cao áp, cảm biến đánh lửa",
+    "descZh": "火花塞、点火线圈、高压线、点火传感器",
+    "count": 210,
+    "color": "#F59E0B",
+    "img": "/products/spark-plug-iridium.png",
+    "subcategories": [
+      {
+        "id": "bugi",
+        "name": "Bugi",
+        "nameZh": "火花塞",
+        "subcategories": [
+          {
+            "id": "bugi-iridium",
+            "name": "Bugi Iridium",
+            "nameZh": "铱金火花塞"
+          },
+          {
+            "id": "bugi-platinum",
+            "name": "Bugi Platinum",
+            "nameZh": "铂金火花塞"
+          },
+          {
+            "id": "bugi-standard",
+            "name": "Bugi Standard",
+            "nameZh": "标准火花塞"
+          }
+        ]
+      },
+      {
+        "id": "cuon-day-ignition",
+        "name": "Cuộn dây Ignition",
+        "nameZh": "点火线圈"
+      }
+    ]
+  },
+  {
+    "id": "dien-xoay",
+    "name": "Điện Xoay",
+    "nameZh": "交流电气系统",
+    "icon": "AC~",
+    "desc": "Máy phát điện, bộ chỉnh lưu, dây curoa alternator",
+    "descZh": "发电机、整流器、发电机皮带",
+    "count": 98,
+    "color": "#8B5CF6",
+    "img": "/products/car-charger-usb.png",
+    "subcategories": [
+      {
+        "id": "may-phat-dien",
+        "name": "Máy phát điện",
+        "nameZh": "发电机"
+      },
+      {
+        "id": "bo-khoi-dong",
+        "name": "Bộ khởi động",
+        "nameZh": "启动机"
+      }
+    ]
+  },
+  {
+    "id": "loc",
+    "name": "Lọc",
+    "nameZh": "过滤器系统",
+    "icon": "FLT",
+    "desc": "Lọc dầu, lọc gió, lọc nhiên liệu, lọc cabin",
+    "descZh": "机油滤清器、空气滤清器、燃油滤清器、空调滤芯",
+    "count": 312,
+    "color": "#22C55E",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "quat-dong-co",
+    "name": "Quạt động cơ",
+    "nameZh": "发动机风扇",
+    "icon": "FAN",
+    "desc": "Quạt làm mát động cơ, quạt điện, cụm quạt két nước",
+    "descZh": "发动机冷却风扇、电动风扇、水箱风扇总成",
+    "count": 74,
+    "color": "#06B6D4",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "cam-bien-o-to",
+    "name": "Cảm biến ô tô",
+    "nameZh": "汽车传感器",
+    "icon": "SNS",
+    "desc": "Cảm biến oxy, cảm biến nhiệt độ, cảm biến áp suất, cảm biến ABS",
+    "descZh": "氧传感器、温度传感器、压力传感器、ABS传感器",
+    "count": 189,
+    "color": "#EF4444",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "phu-kien-khac",
+    "name": "Phụ kiện khác",
+    "nameZh": "其他配件",
+    "icon": "PKK",
+    "desc": "Các phụ kiện ô tô tổng hợp không thuộc danh mục riêng",
+    "descZh": "其他汽车配件",
+    "count": 430,
+    "color": "#94A3B8",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "chieu-sang",
+    "name": "Chiếu sáng",
+    "nameZh": "照明系统",
+    "icon": "LED",
+    "desc": "Đèn pha LED, HID xenon, đèn hậu, đèn ban ngày DRL",
+    "descZh": "LED大灯、氙气灯、尾灯、日行灯",
+    "count": 135,
+    "color": "#F97316",
+    "img": "/products/ev-charger-7kw.png"
+  },
+  {
+    "id": "he-thong-phanh",
+    "name": "Hệ thống phanh",
+    "nameZh": "制动系统",
+    "icon": "BRK",
+    "desc": "Má phanh, đĩa phanh, bơm phanh, dầu phanh, kẹp phanh",
+    "descZh": "刹车片、刹车盘、制动泵、制动液、卡钳",
+    "count": 278,
+    "color": "#DC2626",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "truyen",
+    "name": "Truyền",
+    "nameZh": "传动系统",
+    "icon": "TRN",
+    "desc": "Hộp số, trục các đăng, khớp nối, dầu hộp số",
+    "descZh": "变速箱、传动轴、万向节、变速箱油",
+    "count": 142,
+    "color": "#7C3AED",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "he-thong-quan-ly-dong-co",
+    "name": "Hệ thống quản lý động cơ",
+    "nameZh": "发动机管理系统",
+    "icon": "EMS",
+    "desc": "ECU, kim phun nhiên liệu, bướm ga, van EGR, thanh ngang RAM",
+    "descZh": "ECU、喷油嘴、节气门、EGR阀、进气歧管",
+    "count": 96,
+    "color": "#0EA5E9",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "luoi-gat-nuoc",
+    "name": "Lưỡi gạt nước",
+    "nameZh": "雨刮片",
+    "icon": "WPR",
+    "desc": "Gạt mưa frameless, gạt có khung, lưỡi gạt silicon",
+    "descZh": "无骨雨刮片、有骨雨刮片、硅胶雨刮片",
+    "count": 88,
+    "color": "#10B981",
+    "img": "/products/car-charger-usb.png"
+  },
+  {
+    "id": "may-nen-hybrid",
+    "name": "Máy nén Hybrid",
+    "nameZh": "混合动力压缩机",
+    "icon": "HYB",
+    "desc": "Máy nén điều hòa điện cho xe hybrid và xe điện",
+    "descZh": "混合动力及纯电动汽车专用电动压缩机",
+    "count": 45,
+    "color": "#6366F1",
+    "img": "/products/ac-compressor.png"
+  },
+  {
+    "id": "khong-duoc-nhom",
+    "name": "Không được nhóm",
+    "nameZh": "未分类",
+    "icon": "N/A",
+    "desc": "Sản phẩm chưa được phân vào danh mục cụ thể",
+    "descZh": "未归类产品",
+    "count": 0,
+    "color": "#CBD5E1",
+    "img": ""
+  }
+]

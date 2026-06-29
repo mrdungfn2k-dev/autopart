@@ -1,0 +1,29 @@
+[
+  {
+    "id": "best-sellers",
+    "title": "Sản phẩm Bán Chạy",
+    "titleZh": "畅销产品",
+    "icon": "/vipo-assets/trending-icon.svg",
+    "query": "",
+    "active": true,
+    "limit": 10
+  },
+  {
+    "id": "imported-parts",
+    "title": "Phụ tùng nhập khẩu",
+    "titleZh": "原装 进口配件",
+    "icon": "/vipo-assets/truck-fast-new.svg",
+    "query": "?isImported=true",
+    "active": true,
+    "limit": 10
+  },
+  {
+    "id": "new-arrivals",
+    "title": "Sản phẩm Mới",
+    "titleZh": "新产品",
+    "icon": "/vipo-assets/star-3.svg",
+    "query": "?isNew=true",
+    "active": true,
+    "limit": 10
+  }
+]

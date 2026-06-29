@@ -1,0 +1,43 @@
+[
+    {
+        "id":  "u001",
+        "name":  "Admin User",
+        "passwordHash":  "ff347201725cc7f4574cba2f53aa4a7b6def26df13268614d093de2964156713",
+        "phone":  "0901000001",
+        "role":  "admin",
+        "createdAt":  "2024-01-01T00:00:00Z",
+        "active":  true,
+        "email":  "admin@autopart.vn"
+    },
+    {
+        "id":  "u002",
+        "createdAt":  "2024-01-01T00:00:00Z",
+        "passwordHash":  "b9a2e3faa1799b93fe6d577cab7c01512bf546a92ff6b8f920baf298a1fd79c8",
+        "role":  "supplier",
+        "name":  "Phu Tung Auto Pro",
+        "active":  true,
+        "supplierId":  "s001",
+        "phone":  "0901000002",
+        "email":  "ncc@autopro.vn"
+    },
+    {
+        "id":  "u003",
+        "name":  "Le Partner Gold",
+        "passwordHash":  "44c63ee1809ca6ffc8cbc0ab37673e1ba04dd33c603d034925361c0d0b98d79a",
+        "phone":  "0901000003",
+        "role":  "affiliate",
+        "createdAt":  "2024-01-01T00:00:00Z",
+        "active":  true,
+        "email":  "daily@autopart.vn"
+    },
+    {
+        "id":  "u004",
+        "name":  "Khach Hang Demo",
+        "passwordHash":  "16ad5a54c9e519d12a059739c2db9b8c3fcae452a99f8aaaba3dbef6faae3986",
+        "phone":  "0901000004",
+        "role":  "customer",
+        "createdAt":  "2024-01-01T00:00:00Z",
+        "active":  true,
+        "email":  "kh@autopart.vn"
+    }
+]
