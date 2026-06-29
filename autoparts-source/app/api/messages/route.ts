@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 const FILE = "conversations.json";
 
-interface Message { from: "user" | "peer"; text: string; at: string }
+interface Message { from: "user" | "peer"; text: string; at: string; image?: string }
 interface Conversation {
   id: string;
   userId: string; userName: string; userEmail?: string;
@@ -56,7 +56,8 @@ export async function POST(req: NextRequest) {
   const me = auth.user;
   const body = await req.json();
   const text = (body.text || "").toString().trim();
-  if (!text) return NextResponse.json({ error: "Nội dung trống" }, { status: 400 });
+  const image = body.image ? body.image.toString() : undefined;
+  if (!text && !image) return NextResponse.json({ error: "Nội dung trống" }, { status: 400 });
   if (text.length > 2000) return NextResponse.json({ error: "Tin nhắn quá dài" }, { status: 400 });
 
   const all = readJson<Conversation[]>(FILE) || [];
@@ -91,7 +92,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  conv.messages.push({ from: side, text, at: now });
+  conv.messages.push({ from: side, text, at: now, image });
   conv.updatedAt = now;
   if (side === "user") conv.unreadForPeer += 1; else conv.unreadForUser += 1;
   writeJson(FILE, all);
