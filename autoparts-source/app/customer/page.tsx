@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useMemo } from "react";
 import { useLang } from "@/lib/i18n";
 import Link from "next/link";
@@ -73,7 +73,7 @@ export default function CustomerDashboard() {
     if (search.trim()) router.push(`/search?q=${encodeURIComponent(search.trim())}`);
   }
 
-  const name = user?.name || (lang === "zh" ? "客户" : "Khách hàng");
+  const name = user?.name || (lang === "en" ? "Customer" : lang === "zh" ? "客户" : "Khách hàng");
   const initials = name.split(" ").map(w => w[0]).filter(Boolean).slice(-2).join("").toUpperCase() || "KH";
 
   return (
@@ -87,7 +87,7 @@ export default function CustomerDashboard() {
                 <input
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  placeholder={lang === "zh" ? "搜索配件、订单..." : "Tìm kiếm phụ tùng, đơn hàng..."}
+                  placeholder={lang === "en" ? "Search parts, orders..." : lang === "zh" ? "搜索配件、订单..." : "Tìm kiếm phụ tùng, đơn hàng..."}
                   className="w-64 px-4 py-2 rounded-lg text-sm text-[#44494d] outline-none"
                   style={{ background: "#f8f8fa", border: "1px solid #E2E8F0" }}
                 />
@@ -110,20 +110,20 @@ export default function CustomerDashboard() {
               <p className="text-2xl font-bold tracking-tight" style={{ color: "#F59E0B" }}>{stats.points.toLocaleString("vi-VN")}</p>
             </div>
             <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
-              <p className="text-xs font-semibold text-[#8f9294] uppercase tracking-wide mb-3">{lang === "zh" ? "总订单" : "Tổng đơn hàng"}</p>
+              <p className="text-xs font-semibold text-[#8f9294] uppercase tracking-wide mb-3">{lang === "en" ? "Total Orders" : lang === "zh" ? "总订单" : "Tổng đơn hàng"}</p>
               <p className="text-2xl font-bold tracking-tight" style={{ color: "var(--ap-primary)" }}>{stats.totalOrders}</p>
             </div>
             <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
-              <p className="text-xs font-semibold text-[#8f9294] uppercase tracking-wide mb-3">{lang === "zh" ? "运输中" : "Đang vận chuyển"}</p>
+              <p className="text-xs font-semibold text-[#8f9294] uppercase tracking-wide mb-3">{lang === "en" ? "In Transit" : lang === "zh" ? "运输中" : "Đang vận chuyển"}</p>
               <p className="text-2xl font-bold tracking-tight" style={{ color: "var(--ap-primary)" }}>{stats.inTransit}</p>
             </div>
             <div className="rounded-xl p-5 text-white" style={{ background: "linear-gradient(135deg, var(--ap-primary), #EA580C)" }}>
-              <p className="text-orange-100 text-xs font-semibold uppercase tracking-wide mb-3">{lang === "zh" ? "会员等级" : "Hạng thành viên"}</p>
+              <p className="text-orange-100 text-xs font-semibold uppercase tracking-wide mb-3">{lang === "en" ? "Membership Tier" : lang === "zh" ? "会员等级" : "Hạng thành viên"}</p>
               <p className="text-2xl font-bold tracking-tight">{stats.tier}</p>
             </div>
           </div>{chartData.length > 0 && (
             <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
-              <h2 className="font-bold text-[#44494d] mb-4">{lang === "zh" ? "支出概览" : "Chi tiêu theo đơn hàng"}</h2>
+              <h2 className="font-bold text-[#44494d] mb-4">{lang === "en" ? "Spend Overview" : lang === "zh" ? "支出概览" : "Chi tiêu theo đơn hàng"}</h2>
               <div style={{ width: "100%", height: 240 }}>
                 <ResponsiveContainer>
                   <BarChart data={chartData} margin={{ top: 6, right: 10, left: 0, bottom: 0 }}>
@@ -140,11 +140,11 @@ export default function CustomerDashboard() {
           <div className="grid lg:grid-cols-3 gap-6">{/* Active orders + history */}
             <div className="lg:col-span-2 ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="font-bold text-[#44494d]">{lang === "zh" ? "处理中的订单" : "Theo dõi đơn hàng đang xử lý"}</h2>
+                <h2 className="font-bold text-[#44494d]">{lang === "en" ? "Active Orders" : lang === "zh" ? "处理中的订单" : "Theo dõi đơn hàng đang xử lý"}</h2>
                 <Link href="/customer/orders" style={{ color: "var(--ap-primary)" }} className="text-sm font-semibold">{t("viewAll") || "Xem tất cả"}</Link>
               </div>{activeOrders.length === 0 ? (
-                <div className="text-center py-8 text-sm text-[#8f9294]">{lang === "zh" ? "暂无处理中的订单" : "Chưa có đơn hàng đang xử lý"}
-                  <div className="mt-3"><Link href="/products" className="px-4 py-2 rounded-lg text-xs font-semibold text-white inline-block" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "去购物" : "Mua sắm ngay"}</Link></div>
+                <div className="text-center py-8 text-sm text-[#8f9294]">{lang === "en" ? "No active orders" : lang === "zh" ? "暂无处理中的订单" : "Chưa có đơn hàng đang xử lý"}
+                  <div className="mt-3"><Link href="/products" className="px-4 py-2 rounded-lg text-xs font-semibold text-white inline-block" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Shop Now" : lang === "zh" ? "去购物" : "Mua sắm ngay"}</Link></div>
                 </div>) : (
                 <div className="space-y-3 mb-5">{activeOrders.map(order => {
                     const st = STATUS[order.status] ?? STATUS.pending;
@@ -152,22 +152,22 @@ export default function CustomerDashboard() {
                       <Link key={order.id} href="/customer/orders" className="flex items-center justify-between p-4 rounded-xl hover:brightness-95 transition" style={{ background: "#f8f8fa" }}>
                         <div>
                           <p className="font-semibold text-[#44494d] text-sm">{order.items[0]?.name}{order.items.length > 1 ? ` +${order.items.length - 1}` : ""}</p>
-                          <p className="text-xs text-[#8f9294]">{lang === "zh" ? "订单" : "Đơn"} {order.id} • {order.shipping?.city || order.tracking || ""}</p>
+                          <p className="text-xs text-[#8f9294]">{lang === "en" ? "Order" : lang === "zh" ? "订单" : "Đơn"} {order.id} • {order.shipping?.city || order.tracking || ""}</p>
                         </div>
                         <span className="text-xs font-bold px-2.5 py-1 rounded-full" style={{ color: st.color, background: st.bg }}>{lang === "zh" ? st.zh : st.vi}</span>
                       </Link>);
                   })}
                 </div>)}
 
-              <h3 className="font-bold text-[#44494d] mb-3">{lang === "zh" ? "购买记录" : "Lịch sử mua hàng"}</h3>{history.length === 0 ? (
-                <p className="text-sm text-[#8f9294] py-4">{lang === "zh" ? "暂无已完成订单" : "Chưa có đơn đã hoàn thành"}</p>) : (
+              <h3 className="font-bold text-[#44494d] mb-3">{lang === "en" ? "Purchase History" : lang === "zh" ? "购买记录" : "Lịch sử mua hàng"}</h3>{history.length === 0 ? (
+                <p className="text-sm text-[#8f9294] py-4">{lang === "en" ? "No completed orders" : lang === "zh" ? "暂无已完成订单" : "Chưa có đơn đã hoàn thành"}</p>) : (
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="text-xs text-[#8f9294]">
-                      <th className="text-left pb-2">{lang === "zh" ? "产品" : "SẢN PHẨM"}</th>
-                      <th className="text-left pb-2">{lang === "zh" ? "日期" : "NGÀY MUA"}</th>
-                      <th className="text-left pb-2">{lang === "zh" ? "价格" : "GIÁ"}</th>
-                      <th className="text-left pb-2">{lang === "zh" ? "操作" : "HÀNH ĐỘNG"}</th>
+                      <th className="text-left pb-2">{lang === "en" ? "PRODUCT" : lang === "zh" ? "产品" : "SẢN PHẨM"}</th>
+                      <th className="text-left pb-2">{lang === "en" ? "DATE" : lang === "zh" ? "日期" : "NGÀY MUA"}</th>
+                      <th className="text-left pb-2">{lang === "en" ? "PRICE" : lang === "zh" ? "价格" : "GIÁ"}</th>
+                      <th className="text-left pb-2">{lang === "en" ? "ACTION" : lang === "zh" ? "操作" : "HÀNH ĐỘNG"}</th>
                     </tr>
                   </thead>
                   <tbody>{history.map(order => (
@@ -180,8 +180,8 @@ export default function CustomerDashboard() {
                         <td className="py-3 font-bold text-[#44494d]">{fp(order.total)}</td>
                         <td className="py-3">
                           <div className="flex gap-2">
-                            <button onClick={() => reorder(order)} className="px-2.5 py-1 rounded-lg text-xs font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "再次购买" : "Mua lại"}</button>
-                            <Link href="/customer/reviews" className="px-2.5 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600">{lang === "zh" ? "评价" : "Đánh giá"}</Link>
+                            <button onClick={() => reorder(order)} className="px-2.5 py-1 rounded-lg text-xs font-semibold text-white" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Reorder" : lang === "zh" ? "再次购买" : "Mua lại"}</button>
+                            <Link href="/customer/reviews" className="px-2.5 py-1 rounded-lg text-xs font-semibold border border-[#e5e5e5] text-slate-600">{lang === "en" ? "Review" : lang === "zh" ? "评价" : "Đánh giá"}</Link>
                           </div>
                         </td>
                       </tr>))}
@@ -192,19 +192,19 @@ export default function CustomerDashboard() {
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-bold text-[#44494d]">{t("customerGarage") || "Gara của tôi"}</h2>
-                  <Link href="/customer/garage" className="text-xs font-semibold" style={{ color: "var(--ap-primary)" }}>+ {lang === "zh" ? "添加车辆" : "Thêm xe"}</Link>
+                  <Link href="/customer/garage" className="text-xs font-semibold" style={{ color: "var(--ap-primary)" }}>+ {lang === "en" ? "Add Vehicle" : lang === "zh" ? "添加车辆" : "Thêm xe"}</Link>
                 </div>{garage.length === 0 ? (
-                  <p className="text-sm text-[#8f9294] py-2">{lang === "zh" ? "尚未添加车辆" : "Chưa có xe nào trong gara"}</p>) : garage.map((car, i) => (
+                  <p className="text-sm text-[#8f9294] py-2">{lang === "en" ? "No vehicles in garage" : lang === "zh" ? "尚未添加车辆" : "Chưa có xe nào trong gara"}</p>) : garage.map((car, i) => (
                   <div key={car.id} className={`p-4 rounded-xl mb-3 ${i === 0 ? "border-2" : "border border-[#f0f0f0]"}`}
-                    style={i === 0 ? { borderColor: "var(--ap-primary)", background: "#FFF7ED" } : { background: "#f8f8fa" }}>{i === 0 && <p className="text-xs font-bold text-[#1a4b97] mb-2">{lang === "zh" ? "当前筛选车辆" : "ĐANG LỌC THEO XE"}</p>}
+                    style={i === 0 ? { borderColor: "var(--ap-primary)", background: "#FFF7ED" } : { background: "#f8f8fa" }}>{i === 0 && <p className="text-xs font-bold text-[#1a4b97] mb-2">{lang === "en" ? "FILTERING BY VEHICLE" : lang === "zh" ? "当前筛选车辆" : "ĐANG LỌC THEO XE"}</p>}
                     <p className="font-bold text-[#44494d]">{car.year} {car.brand} {car.model}</p>
                     <p className="text-xs text-[#8f9294] mb-2">{car.engine || car.fuelType || ""}</p>{i === 0
-                      ? <button onClick={() => findParts(car)} className="w-full py-2 rounded-lg text-xs font-bold text-white" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "查找该车配件" : "Tìm phụ tùng cho xe này"}</button>: <button onClick={() => findParts(car)} className="text-xs text-[#1a4b97] font-medium">{lang === "zh" ? "查看该车" : "Xem xe này"} &rsaquo;</button>}
+                      ? <button onClick={() => findParts(car)} className="w-full py-2 rounded-lg text-xs font-bold text-white" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Find parts for this vehicle" : lang === "zh" ? "查找该车配件" : "Tìm phụ tùng cho xe này"}</button>: <button onClick={() => findParts(car)} className="text-xs text-[#1a4b97] font-medium">{lang === "en" ? "View this vehicle" : lang === "zh" ? "查看该车" : "Xem xe này"} &rsaquo;</button>}
                   </div>))}
               </div>{/* Recommendations from real products */}
               {recommend.length > 0 && (
                 <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
-                  <h2 className="font-bold text-[#44494d] mb-3">{lang === "zh" ? "为您推荐" : "Gợi ý cho bạn"}</h2>
+                  <h2 className="font-bold text-[#44494d] mb-3">{lang === "en" ? "Recommended for you" : lang === "zh" ? "为您推荐" : "Gợi ý cho bạn"}</h2>
                   <div className="space-y-3">{recommend.map(r => (
                       <Link key={r.id} href={`/products/${r.id}`} className="flex items-center gap-3 hover:bg-[#f8f8fa] p-1.5 rounded-lg transition">
                         <div className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-bold text-[#8f9294] shrink-0" style={{ background: "#f8f8fa" }}>PT</div>
@@ -215,24 +215,24 @@ export default function CustomerDashboard() {
                         <span className="text-sm font-bold shrink-0" style={{ color: "var(--ap-primary)" }}>{fp(r.price)}</span>
                       </Link>))}
                   </div>
-                  <Link href="/products" className="block text-center w-full mt-3 py-2 text-xs font-semibold border border-[#e5e5e5] rounded-lg text-slate-600 hover:bg-[#f8f8fa]">{lang === "zh" ? "查看全部" : "Xem tất cả sản phẩm"}</Link>
+                  <Link href="/products" className="block text-center w-full mt-3 py-2 text-xs font-semibold border border-[#e5e5e5] rounded-lg text-slate-600 hover:bg-[#f8f8fa]">{lang === "en" ? "View all products" : lang === "zh" ? "查看全部" : "Xem tất cả sản phẩm"}</Link>
                 </div>)}
 
               {/* Support */}
               <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
-                <h2 className="font-bold text-[#44494d] mb-3">{lang === "zh" ? "支持与帮助" : "Hỗ trợ & Trợ giúp"}</h2>
+                <h2 className="font-bold text-[#44494d] mb-3">{lang === "en" ? "Support & Help" : lang === "zh" ? "支持与帮助" : "Hỗ trợ & Trợ giúp"}</h2>
                 <div className="space-y-1">
                   <Link href="/customer/warranty" className="block p-2.5 rounded-xl hover:bg-[#f8f8fa] transition-colors">
-                    <p className="text-sm font-semibold text-[#44494d]">{lang === "zh" ? "保修申请" : "Yêu cầu bảo hành"}</p>
-                    <p className="text-xs text-[#8f9294]">{lang === "zh" ? "提交产品故障投诉" : "Gửi khiếu nại sản phẩm lỗi"}</p>
+                    <p className="text-sm font-semibold text-[#44494d]">{lang === "en" ? "Warranty Claim" : lang === "zh" ? "保修申请" : "Yêu cầu bảo hành"}</p>
+                    <p className="text-xs text-[#8f9294]">{lang === "en" ? "Submit defective product claim" : lang === "zh" ? "提交产品故障投诉" : "Gửi khiếu nại sản phẩm lỗi"}</p>
                   </Link>
                   <Link href="/support" className="block p-2.5 rounded-xl hover:bg-[#f8f8fa] transition-colors">
-                    <p className="text-sm font-semibold text-[#44494d]">{lang === "zh" ? "联系支持" : "Liên hệ hỗ trợ"}</p>
-                    <p className="text-xs text-[#8f9294]">{lang === "zh" ? "平均响应：2分钟" : "Phản hồi trung bình: 2 phút"}</p>
+                    <p className="text-sm font-semibold text-[#44494d]">{lang === "en" ? "Contact Support" : lang === "zh" ? "联系支持" : "Liên hệ hỗ trợ"}</p>
+                    <p className="text-xs text-[#8f9294]">{lang === "en" ? "Avg response: 2 mins" : lang === "zh" ? "平均响应：2分钟" : "Phản hồi trung bình: 2 phút"}</p>
                   </Link>
                   <Link href="/help" className="block p-2.5 rounded-xl hover:bg-[#f8f8fa] transition-colors">
-                    <p className="text-sm font-semibold text-[#44494d]">{lang === "zh" ? "安装指南" : "Hướng dẫn lắp đặt"}</p>
-                    <p className="text-xs text-[#8f9294]">{lang === "zh" ? "分步 DIY 视频" : "Video DIY từng bước"}</p>
+                    <p className="text-sm font-semibold text-[#44494d]">{lang === "en" ? "Installation Guide" : lang === "zh" ? "安装指南" : "Hướng dẫn lắp đặt"}</p>
+                    <p className="text-xs text-[#8f9294]">{lang === "en" ? "Step-by-step DIY video" : lang === "zh" ? "分步 DIY 视频" : "Video DIY từng bước"}</p>
                   </Link>
                 </div>
               </div>
@@ -242,3 +242,4 @@ export default function CustomerDashboard() {
       </main>
     </>);
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useLang } from "@/lib/i18n";
 import Link from "next/link";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
@@ -66,15 +66,15 @@ export default function AffiliateDashboard() {
     }
     return Array.from({ length: 7 }, (_, i) => { const d = new Date(_now); d.setDate(_now.getDate() - (6 - i)); return { label: DOW[d.getDay()], sales: _commAmt(x => _sameDay(x, d)) }; });
   })();
-  const periodLabel = period === "year" ? (lang === "zh" ? "今年" : "Năm nay") : period === "month" ? (lang === "zh" ? "本月" : "Tháng này") : period === "custom" ? (lang === "zh" ? "自定义" : "Tùy chọn") : (lang === "zh" ? "近7天" : "7 ngày qua");
+  const periodLabel = period === "year" ? (lang === "en" ? "This year" : lang === "zh" ? "今年" : "Năm nay") : period === "month" ? (lang === "en" ? "This month" : lang === "zh" ? "本月" : "Tháng này") : period === "custom" ? (lang === "en" ? "Custom" : lang === "zh" ? "自定义" : "Tùy chọn") : (lang === "en" ? "Last 7 days" : lang === "zh" ? "近7天" : "7 ngày qua");
  return (
  <>
  <main className="flex-1 overflow-auto">{/* Top bar */}
  <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
  <div className="flex items-center justify-between px-6 h-16">
- <h1 className="text-xl font-bold text-[#44494d]">Dashboard Đại Lý</h1>
+ <h1 className="text-xl font-bold text-[#44494d]">{lang === "en" ? "Affiliate Dashboard" : lang === "zh" ? "代理商控制台" : "Dashboard Đại Lý"}</h1>
  <div className="flex items-center gap-3">
- <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold text-white" style={{ background: "var(--ap-primary)" }}>Bảng xếp hạng #{affiliate.rank}
+ <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold text-white" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Rank #" : lang === "zh" ? "排名 #" : "Bảng xếp hạng #"}{affiliate.rank}
  </div>
  </div>
  </div>
@@ -82,10 +82,10 @@ export default function AffiliateDashboard() {
 
  <div className="p-6 space-y-6">{/* KPI */}
  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">{[
- { label: "Doanh số tháng này", value: fp(affiliate.sales), badge: "+18%", color: "var(--ap-primary)" },
- { label: "Hoa hồng chờ duyệt", value: fp(affiliate.commissionPending), badge: "Đợt 10/10", color: "var(--ap-primary)" },
- { label: "Hoa hồng đã nhận", value: fp(affiliate.commission - affiliate.commissionPending), badge: (lang === "zh" ? "本月" : "Tháng này"), color: "var(--ap-primary)" },
- { label: "CTV quản lý", value: affiliate.ctv.toString(), badge: "8 đang hoạt động", color: "#8B5CF6" },
+ { label: "{lang === "en" ? "Sales this month" : lang === "zh" ? "本月销售额" : "Doanh số tháng này"}", value: fp(affiliate.sales), badge: "+18%", color: "var(--ap-primary)" },
+ { label: "{lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"}", value: fp(affiliate.commissionPending), badge: "Đợt 10/10", color: "var(--ap-primary)" },
+ { label: "{lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"}", value: fp(affiliate.commission - affiliate.commissionPending), badge: (lang === "en" ? "This month" : lang === "zh" ? "本月" : "Tháng này"), color: "var(--ap-primary)" },
+ { label: "{lang === "en" ? "Managed Affiliates" : lang === "zh" ? "管理联盟" : "CTV quản lý"}", value: affiliate.ctv.toString(), badge: "8 {lang === "en" ? "active" : lang === "zh" ? "活跃" : "đang hoạt động"}", color: "#8B5CF6" },
  ].map(({ label, value, badge, color }) => (
  <div key={label} className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-3">
@@ -99,7 +99,7 @@ export default function AffiliateDashboard() {
  <div className="grid lg:grid-cols-3 gap-6">{/* Weekly chart */}
  <div className="lg:col-span-2 ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
- <h2 className="font-bold text-[#44494d]">{lang === "zh" ? "佣金统计" : "Thống kê hoa hồng"} <span className="text-xs font-normal text-[#8f9294]">· {periodLabel}</span></h2>
+ <h2 className="font-bold text-[#44494d]">{lang === "en" ? "Commission Statistics" : lang === "zh" ? "佣金统计" : "Thống kê hoa hồng"} <span className="text-xs font-normal text-[#8f9294]">· {periodLabel}</span></h2>
  <div className="flex items-center gap-2">{period === "custom" && (
    <>
    <input type="date" value={cFrom} onChange={e => setCFrom(e.target.value)} className="px-2 py-1.5 border border-[#e5e5e5] rounded-lg text-xs" />
@@ -107,10 +107,10 @@ export default function AffiliateDashboard() {
    <input type="date" value={cTo} onChange={e => setCTo(e.target.value)} className="px-2 py-1.5 border border-[#e5e5e5] rounded-lg text-xs" />
    </>)}
  <select value={period} onChange={e => setPeriod(e.target.value)} className="px-3 py-1.5 border border-[#e5e5e5] rounded-lg text-xs font-medium text-slate-600">
- <option value="week">{lang === "zh" ? "本周" : "Tuần này"}</option>
- <option value="month">{lang === "zh" ? "本月" : "Tháng này"}</option>
- <option value="year">{lang === "zh" ? "今年" : "Năm nay"}</option>
- <option value="custom">{lang === "zh" ? "自定义" : "Tùy chọn"}</option>
+ <option value="week">{lang === "en" ? "This week" : lang === "zh" ? "本周" : "Tuần này"}</option>
+ <option value="month">{lang === "en" ? "This month" : lang === "zh" ? "本月" : "Tháng này"}</option>
+ <option value="year">{lang === "en" ? "This year" : lang === "zh" ? "今年" : "Năm nay"}</option>
+ <option value="custom">{lang === "en" ? "Custom" : lang === "zh" ? "自定义" : "Tùy chọn"}</option>
  </select>
  </div>
  </div>
@@ -125,26 +125,26 @@ export default function AffiliateDashboard() {
  </ResponsiveContainer>
  </div>{/* Withdraw panel */}
  <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
- <h2 className="font-bold text-[#44494d] mb-4">Rút hoa hồng</h2>
+ <h2 className="font-bold text-[#44494d] mb-4">{lang === "en" ? "Withdraw Commission" : lang === "zh" ? "提取佣金" : "Rút hoa hồng"}</h2>
  <div className="rounded-xl p-4 mb-4" style={{ background: "linear-gradient(135deg, #1E293B, #0F172A)" }}>
  <p className="text-[#8f9294] text-xs mb-1">{t("availableBalance")}</p>
  <p className="text-2xl font-bold text-white">{fp(affiliate.commission - affiliate.commissionPending)}</p>
  <p className="text-[#1a4b97] text-xs mt-2">Kỳ giải ngân: 10 & 25 hàng tháng</p>
  </div>
  <div className="space-y-2 text-sm mb-4">
- <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"}</span><span className="font-semibold">{fp(affiliate.commissionPending)}</span></div>
- <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"}</span><span className="font-semibold">{fp(affiliate.commission - affiliate.commissionPending)}</span></div>
- <div className="flex justify-between border-t border-[#f0f0f0] pt-2"><span className="font-bold text-[#44494d]">Tổng tháng này</span><span className="font-bold" style={{ color: "var(--ap-primary)" }}>{fp(affiliate.commission)}</span></div>
+ <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "待审核佣金" : "{lang === "en" ? "Pending Commission" : lang === "zh" ? "待审核佣金" : "Hoa hồng chờ duyệt"}"}</span><span className="font-semibold">{fp(affiliate.commissionPending)}</span></div>
+ <div className="flex justify-between"><span className="text-[#8f9294]">{lang === "zh" ? "已收佣金" : "{lang === "en" ? "Commission Received" : lang === "zh" ? "已收佣金" : "Hoa hồng đã nhận"}"}</span><span className="font-semibold">{fp(affiliate.commission - affiliate.commissionPending)}</span></div>
+ <div className="flex justify-between border-t border-[#f0f0f0] pt-2"><span className="font-bold text-[#44494d]">{lang === "en" ? "Total this month" : lang === "zh" ? "本月总计" : "Tổng tháng này"}</span><span className="font-bold" style={{ color: "var(--ap-primary)" }}>{fp(affiliate.commission)}</span></div>
  </div>
- <Link href="/affiliate/withdraw" className="w-full py-3 rounded-xl text-white font-bold flex items-center justify-center" style={{ background: "var(--ap-primary)" }}>Yêu cầu rút tiền
+ <Link href="/affiliate/withdraw" className="w-full py-3 rounded-xl text-white font-bold flex items-center justify-center" style={{ background: "var(--ap-primary)" }}>{lang === "en" ? "Request Withdrawal" : lang === "zh" ? "请求提款" : "Yêu cầu rút tiền"}
  </Link>
- <p className="text-xs text-center text-[#8f9294] mt-2">Ngưỡng tối thiểu: 200,000đ</p>
+ <p className="text-xs text-center text-[#8f9294] mt-2">{lang === "en" ? "Minimum threshold: 200,000đ" : lang === "zh" ? "最低门槛：200,000đ" : "Ngưỡng tối thiểu: 200,000đ"}</p>
  </div>
  </div>{/* Affiliate links */}
  <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-4">
- <h2 className="font-bold text-[#44494d]">{lang === "zh" ? "管理推广链接" : "Quản lý Link Affiliate"}</h2>
- <Link href="/affiliate/links" className="px-4 py-2 text-sm font-semibold text-white rounded-lg flex items-center justify-center" style={{ background: "var(--ap-primary)" }}>+ Tạo link mới
+ <h2 className="font-bold text-[#44494d]">{lang === "en" ? "Manage Affiliate Links" : lang === "zh" ? "管理推广链接" : "Quản lý Link Affiliate"}</h2>
+ <Link href="/affiliate/links" className="px-4 py-2 text-sm font-semibold text-white rounded-lg flex items-center justify-center" style={{ background: "var(--ap-primary)" }}>+ {lang === "en" ? "Create New Link" : lang === "zh" ? "创建新链接" : "Tạo link mới"}
  </Link>
  </div>
  <table className="w-full text-sm">
@@ -152,9 +152,9 @@ export default function AffiliateDashboard() {
  <tr className="text-xs text-[#8f9294] border-b border-[#f0f0f0]">
  <th className="text-left pb-3">{lang === "zh" ? "产品" : "SẢN PHẨM"}</th>
  <th className="text-left pb-3">{lang === "zh" ? "链接" : "LINK"}</th>
- <th className="text-left pb-3">LƯỢT CLICK</th>
- <th className="text-left pb-3">CHUYỂN ĐỔI</th>
- <th className="text-left pb-3">DOANH THU</th>
+ <th className="text-left pb-3">{lang === "en" ? "CLICKS" : lang === "zh" ? "点击量" : "LƯỢT CLICK"}</th>
+ <th className="text-left pb-3">{lang === "en" ? "CONVERSIONS" : lang === "zh" ? "转化量" : "CHUYỂN ĐỔI"}</th>
+ <th className="text-left pb-3">{lang === "en" ? "REVENUE" : lang === "zh" ? "收入" : "DOANH THU"}</th>
  </tr>
  </thead>
  <tbody>{links.map((row: any, i: number) => (
@@ -178,8 +178,8 @@ export default function AffiliateDashboard() {
  </div>{/* CTV Team */}
  <div className="ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-4">
- <h2 className="font-bold text-[#44494d]">{lang === "zh" ? "推广团队" : "Đội nhóm CTV"}</h2>
- <Link href="/affiliate/team" className="px-4 py-2 text-sm font-semibold border border-[#e5e5e5] rounded-lg text-slate-600 hover:bg-[#f8f8fa] flex items-center justify-center">+ Mời CTV mới
+ <h2 className="font-bold text-[#44494d]">{lang === "en" ? "Affiliate Team" : lang === "zh" ? "推广团队" : "Đội nhóm CTV"}</h2>
+ <Link href="/affiliate/team" className="px-4 py-2 text-sm font-semibold border border-[#e5e5e5] rounded-lg text-slate-600 hover:bg-[#f8f8fa] flex items-center justify-center">+ {lang === "en" ? "Invite New Member" : lang === "zh" ? "邀请新成员" : "Mời CTV mới"}
  </Link>
  </div>
  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">{ctvTeamData.map((ctv, i) => (
@@ -200,3 +200,4 @@ export default function AffiliateDashboard() {
  </main>
  </>);
 }
+

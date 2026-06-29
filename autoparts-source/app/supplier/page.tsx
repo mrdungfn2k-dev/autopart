@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useLang, formatPriceLang } from "@/lib/i18n";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -67,9 +67,9 @@ export default function SupplierDashboard() {
  const goSearch = () => { if (q.trim()) window.location.href = "/supplier/orders?q=" + encodeURIComponent(q.trim()); };
 
  const stockStatusMap: Record<string, { label: string; color: string }> = {
- on_stock: { label: (lang === "zh" ? "稳定" : "Ổn định"), color: "bg-green-100 text-green-700" },
- low: { label: (lang === "zh" ? "即将缺货" : "Sắp hết"), color: "bg-yellow-100 text-yellow-700" },
- out: { label: (lang === "zh" ? "需补货" : "Cần nhập"), color: "bg-red-100 text-red-700" },
+ on_stock: { label: (lang === "en" ? "Stable" : lang === "zh" ? "稳定" : "Ổn định"), color: "bg-green-100 text-green-700" },
+ low: { label: (lang === "en" ? "Low Stock" : lang === "zh" ? "即将缺货" : "Sắp hết"), color: "bg-yellow-100 text-yellow-700" },
+ out: { label: (lang === "en" ? "Out of Stock" : lang === "zh" ? "需补货" : "Cần nhập"), color: "bg-red-100 text-red-700" },
  };
 
  
@@ -80,12 +80,12 @@ export default function SupplierDashboard() {
  <div className="sticky top-0 bg-white border-b border-[#e5e5e5] z-10">
  <div className="flex items-center justify-between px-6 h-16">
         <div>
- <h1 className="text-xl font-bold text-[#44494d]">{lang === "zh" ? "供应商控制台" : "Dashboard Nhà Cung Cấp"}</h1>
+ <h1 className="text-xl font-bold text-[#44494d]">{lang === "en" ? "Supplier Dashboard" : lang === "zh" ? "供应商控制台" : "Dashboard Nhà Cung Cấp"}</h1>
  <p className="text-[#8f9294] text-xs">{lang === "zh" ? "欢迎回来，这是您今天的经营数据。" : lang === "en" ? "Welcome back, here's your business data for today." : "Chào mừng quay trở lại, đây là dữ liệu kinh doanh của bạn hôm nay."}</p>
  </div>
  <div className="flex items-center gap-3">
  <div className="relative">
- <input value={q} onChange={e => setQ(e.target.value)} onKeyDown={e => { if (e.key === "Enter") goSearch(); }} placeholder={lang === "zh" ? "搜索订单..." : "Tìm kiếm đơn hàng..."} className="pl-4 pr-4 py-2 rounded-lg text-sm focus:outline-none" style={{ background: "#f8f8fa", border: "1px solid #E2E8F0" }} />
+ <input value={q} onChange={e => setQ(e.target.value)} onKeyDown={e => { if (e.key === "Enter") goSearch(); }} placeholder={lang === "en" ? "Search orders..." : lang === "zh" ? "搜索订单..." : "Tìm kiếm đơn hàng..."} className="pl-4 pr-4 py-2 rounded-lg text-sm focus:outline-none" style={{ background: "#f8f8fa", border: "1px solid #E2E8F0" }} />
  </div>
  </div>
  </div>
@@ -96,7 +96,7 @@ export default function SupplierDashboard() {
  <KPICard label={lang === "zh" ? "总营收（已交付）" : lang === "en" ? "Total revenue (delivered)" : "Tổng doanh thu (đã giao)"} value={fp(realRevenue || supplier.revenue)} badge="+12.5%" badgeColor="#16A34A" />
  <KPICard label={lang === "zh" ? "待处理订单" : lang === "en" ? "Pending orders" : "Đơn hàng chờ xử lý"} value={(_hasReal ? realPending : 24).toString()} badge={lang === "zh" ? "当前" : lang === "en" ? "Current" : "Hiện tại"} badgeColor="var(--ap-primary)" iconBg="#EFF6FF" />
  <KPICard label={lang === "zh" ? "低库存预警" : lang === "en" ? "Low-stock alert" : "Cảnh báo tồn kho thấp"} value={(products.length ? realLowStock : 12).toString()} badge={lang === "zh" ? "紧急" : lang === "en" ? "Urgent" : "Khẩn cấp"} badgeColor="#EF4444" iconBg="#FEF2F2" />
- <KPICard label={lang === "zh" ? "平均评分" : "Đánh giá trung bình"} value="4.8 / 5" badge="+0.1%" badgeColor="#F59E0B" iconBg="#FFFBEB" />
+ <KPICard label={lang === "en" ? "Avg Rating" : lang === "zh" ? "平均评分" : "Đánh giá trung bình"} value="4.8 / 5" badge="+0.1%" badgeColor="#F59E0B" iconBg="#FFFBEB" />
  </div>
 
  <div className="grid lg:grid-cols-3 gap-6">{/* Bar Chart */}
@@ -133,20 +133,20 @@ export default function SupplierDashboard() {
  <div className="rounded-xl p-5 text-white" style={{ background: "linear-gradient(135deg, #1E293B 0%, #0F172A 100%)" }}>
  <div className="flex items-center gap-2 mb-4">
 
- <h2 className="font-bold">{lang === "zh" ? "结算与对账" : "Thanh toán & Đối soát"}</h2>
+ <h2 className="font-bold">{lang === "en" ? "Payout & Reconciliation" : lang === "zh" ? "结算与对账" : "Thanh toán & Đối soát"}</h2>
  </div>
- <p className="text-[#8f9294] text-xs mb-1">{lang === "zh" ? "当前可用余额" : "Số dư khả dụng hiện tại"}</p>
+ <p className="text-[#8f9294] text-xs mb-1">{lang === "en" ? "Available Balance" : lang === "zh" ? "当前可用余额" : "Số dư khả dụng hiện tại"}</p>
  <p className="text-3xl font-bold mb-5">{fp(supplier.revenue - supplier.pendingPayout)}</p>
 
  <div className="bg-white/10 rounded-xl p-4 mb-3">
  <div className="flex items-center gap-2 mb-1">
 
- <p className="text-slate-300 text-xs">{lang === "zh" ? "下次结算日期" : "Ngày quyết toán tiếp theo"}</p>
+ <p className="text-slate-300 text-xs">{lang === "en" ? "Next Payout Date" : lang === "zh" ? "下次结算日期" : "Ngày quyết toán tiếp theo"}</p>
  </div>
  <p className="text-white font-semibold">{supplier.nextPayoutDate}</p>
  </div>
  <div className="bg-white/10 rounded-xl p-4 mb-4">
- <p className="text-slate-300 text-xs mb-1">{lang === "zh" ? "待处理" : "Đang chờ xử lý"}</p>
+ <p className="text-slate-300 text-xs mb-1">{lang === "en" ? "Pending" : lang === "zh" ? "待处理" : "Đang chờ xử lý"}</p>
  <p className="text-xl font-bold">{fp(supplier.pendingPayout)}</p>
  </div>
  <button onClick={() => { window.location.href = "/supplier/finance"; }} className="w-full py-3 rounded-xl text-white font-bold flex items-center justify-center gap-2" style={{ background: "var(--ap-primary)" }}>{lang === "zh" ? "查看详细对账单" : lang === "en" ? "View detailed statement" : "Xem sao kê chi tiết"}
@@ -157,12 +157,12 @@ export default function SupplierDashboard() {
  <div className="grid lg:grid-cols-3 gap-6">{/* Orders table */}
  <div className="lg:col-span-2 ap-card bg-white rounded-xl border border-[#f0f0f0] p-5">
  <div className="flex items-center justify-between mb-4">
- <h2 className="font-bold text-[#44494d]">{lang === "zh" ? "最新订单" : "Đơn hàng mới nhất"}</h2>
- <Link href="/supplier/orders" style={{ color: "var(--ap-primary)" }} className="text-sm font-semibold">{lang === "zh" ? "全部订单" : "Tất cả đơn hàng"}</Link>
+ <h2 className="font-bold text-[#44494d]">{lang === "en" ? "Latest Orders" : lang === "zh" ? "最新订单" : "Đơn hàng mới nhất"}</h2>
+ <Link href="/supplier/orders" style={{ color: "var(--ap-primary)" }} className="text-sm font-semibold">{lang === "en" ? "All Orders" : lang === "zh" ? "全部订单" : "Tất cả đơn hàng"}</Link>
  </div>
  <table className="w-full text-sm">
  <thead>
- <tr className="border-b border-[#f0f0f0]">{[(lang === "zh" ? "订单号" : "MÃ ĐƠN"), (lang === "zh" ? "客户" : "KHÁCH HÀNG"), (lang === "zh" ? "下单日期" : "NGÀY ĐẶT"), (lang === "zh" ? "状态" : "TRẠNG THÁI"), (lang === "zh" ? "总金额" : "TỔNG TIỀN")].map(h => (
+ <tr className="border-b border-[#f0f0f0]">{[(lang === "en" ? "ORDER ID" : lang === "zh" ? "订单号" : "MÃ ĐƠN"), (lang === "en" ? "CUSTOMER" : lang === "zh" ? "客户" : "KHÁCH HÀNG"), (lang === "en" ? "ORDER DATE" : lang === "zh" ? "下单日期" : "NGÀY ĐẶT"), (lang === "en" ? "STATUS" : lang === "zh" ? "状态" : "TRẠNG THÁI"), (lang === "en" ? "TOTAL" : lang === "zh" ? "总金额" : "TỔNG TIỀN")].map(h => (
  <th key={h} className="text-left py-2 text-xs text-[#8f9294] font-semibold">{h}</th>))}
  </tr>
  </thead>
@@ -212,3 +212,4 @@ export default function SupplierDashboard() {
  </main>
  </>);
 }
+
